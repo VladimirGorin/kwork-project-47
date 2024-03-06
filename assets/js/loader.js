@@ -214,7 +214,7 @@ send_request("get", "get_replain_id").then((settings) => {
     });
 
     document.querySelectorAll(".navbar-brand__name").forEach((item) => {
-        item.innerHTML = `${navbarBrandName} <span class="gray-color navbar-brand__name">.com</span>`;
+        item.innerHTML = `${navbarBrandName}<span class="gray-color navbar-brand__name">.com</span>`;
     });
 
     document.querySelectorAll(".brand-name__abbreviated").forEach((item) => {
