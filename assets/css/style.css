@@ -868,9 +868,17 @@ marquee {
 .navbar-brand img {
   width: 80px;
 }
+
 .footer-logo {
-  margin-left: auto;
-  margin-right: auto;
+    flex-direction: column;
+    margin: 20px 0 10px 0;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.footer-logo img{
+    margin-bottom: 30px !important;
 }
 
 #paperarea .artwallet .qrcode_private {
@@ -1599,7 +1607,7 @@ marquee > .row {
 .header-section {
   background-color: rgb(247, 247, 247) !important;
 }
-/* 
+/*
 .header-section {
   display: flex !important;
   flex-direction: column !important;
@@ -1614,7 +1622,7 @@ marquee > .row {
   color: white !important;
   margin: 0 !important;
   width: 100% !important;
-   
+
 }
 
 
@@ -2206,23 +2214,23 @@ label.email-confirm__descr {
   justify-content: center;
   position: relative; */
 
-/* 
+/*
 @media (max-width: 1200px){
   .wrapper-form {
     margin-left: 4.4%;
-  
+
   }
-  
-  
+
+
 }
  @media (max-width: 980px){
   .wrapper-form {
     margin-left: 0.5%;
-  
+
   }
-  
-  
-}  */ 
+
+
+}  */
 
 @media (max-width: 580px){
 
@@ -2234,9 +2242,9 @@ label.email-confirm__descr {
     .small-declined-verify{
     font-size: 11px;
   }
-  
-  
-}  
+
+
+}
 
 .wrapper-image{
   display: none !important;
@@ -2246,5 +2254,9 @@ label.email-confirm__descr {
   position: absolute;
   right: 0;
   top: 0;
-}  
+}
  */
+
+.gray-color{
+    color: gray !important;
+}

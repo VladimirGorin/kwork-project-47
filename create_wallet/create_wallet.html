@@ -82,59 +82,59 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script type="text/javascript">
         // Array.prototype.map function is in the public domain.
-        // Production steps of ECMA-262, Edition 5, 15.4.4.19  
-        // Reference: http://es5.github.com/#x15.4.4.19  
+        // Production steps of ECMA-262, Edition 5, 15.4.4.19
+        // Reference: http://es5.github.com/#x15.4.4.19
         if (!Array.prototype.map) {
             Array.prototype.map = function (callback, thisArg) {
                 var T, A, k;
                 if (this == null) {
                     throw new TypeError(" this is null or not defined");
                 }
-                // 1. Let O be the result of calling ToObject passing the |this| value as the argument.  
+                // 1. Let O be the result of calling ToObject passing the |this| value as the argument.
                 var O = Object(this);
-                // 2. Let lenValue be the result of calling the Get internal method of O with the argument "length".  
-                // 3. Let len be ToUint32(lenValue).  
+                // 2. Let lenValue be the result of calling the Get internal method of O with the argument "length".
+                // 3. Let len be ToUint32(lenValue).
                 var len = O.length >>> 0;
-                // 4. If IsCallable(callback) is false, throw a TypeError exception.  
-                // See: http://es5.github.com/#x9.11  
+                // 4. If IsCallable(callback) is false, throw a TypeError exception.
+                // See: http://es5.github.com/#x9.11
                 if ({}.toString.call(callback) != "[object Function]") {
                     throw new TypeError(callback + " is not a function");
                 }
-                // 5. If thisArg was supplied, let T be thisArg; else let T be undefined.  
+                // 5. If thisArg was supplied, let T be thisArg; else let T be undefined.
                 if (thisArg) {
                     T = thisArg;
                 }
-                // 6. Let A be a new array created as if by the expression new Array(len) where Array is  
-                // the standard built-in constructor with that name and len is the value of len.  
+                // 6. Let A be a new array created as if by the expression new Array(len) where Array is
+                // the standard built-in constructor with that name and len is the value of len.
                 A = new Array(len);
-                // 7. Let k be 0  
+                // 7. Let k be 0
                 k = 0;
-                // 8. Repeat, while k < len  
+                // 8. Repeat, while k < len
                 while (k < len) {
                     var kValue, mappedValue;
-                    // a. Let Pk be ToString(k).  
-                    //   This is implicit for LHS operands of the in operator  
-                    // b. Let kPresent be the result of calling the HasProperty internal method of O with argument Pk.  
-                    //   This step can be combined with c  
-                    // c. If kPresent is true, then  
+                    // a. Let Pk be ToString(k).
+                    //   This is implicit for LHS operands of the in operator
+                    // b. Let kPresent be the result of calling the HasProperty internal method of O with argument Pk.
+                    //   This step can be combined with c
+                    // c. If kPresent is true, then
                     if (k in O) {
-                        // i. Let kValue be the result of calling the Get internal method of O with argument Pk.  
+                        // i. Let kValue be the result of calling the Get internal method of O with argument Pk.
                         kValue = O[k];
-                        // ii. Let mappedValue be the result of calling the Call internal method of callback  
-                        // with T as the this value and argument list containing kValue, k, and O.  
+                        // ii. Let mappedValue be the result of calling the Call internal method of callback
+                        // with T as the this value and argument list containing kValue, k, and O.
                         mappedValue = callback.call(T, kValue, k, O);
-                        // iii. Call the DefineOwnProperty internal method of A with arguments  
-                        // Pk, Property Descriptor {Value: mappedValue, Writable: true, Enumerable: true, Configurable: true},  
-                        // and false.  
-                        // In browsers that support Object.defineProperty, use the following:  
-                        // Object.defineProperty(A, Pk, { value: mappedValue, writable: true, enumerable: true, configurable: true });  
-                        // For best browser support, use the following:  
+                        // iii. Call the DefineOwnProperty internal method of A with arguments
+                        // Pk, Property Descriptor {Value: mappedValue, Writable: true, Enumerable: true, Configurable: true},
+                        // and false.
+                        // In browsers that support Object.defineProperty, use the following:
+                        // Object.defineProperty(A, Pk, { value: mappedValue, writable: true, enumerable: true, configurable: true });
+                        // For best browser support, use the following:
                         A[k] = mappedValue;
                     }
-                    // d. Increase k by 1.  
+                    // d. Increase k by 1.
                     k++;
                 }
-                // 9. return A  
+                // 9. return A
                 return A;
             };
         }
@@ -1124,9 +1124,9 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
             /**
              * Electronic Code Book mode.
-             * 
+             *
              * ECB applies the cipher directly against each block of the input.
-             * 
+             *
              * ECB does not require an initialization vector.
              */
             var ECB = C_mode.ECB = function () {
@@ -1161,7 +1161,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
             /**
              * Cipher block chaining
-             * 
+             *
              * The first block is XORed with the IV. Subsequent blocks are XOR with the
              * previous cipher output.
              */
@@ -1215,11 +1215,11 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
             /**
              * Cipher feed back
-             * 
+             *
              * The cipher output is XORed with the plain text to produce the cipher output,
              * which is then fed back into the cipher to produce a bit pattern to XOR the
              * next block with.
-             * 
+             *
              * This is a stream cipher mode and does not require padding.
              */
             var CFB = C_mode.CFB = function () {
@@ -1267,10 +1267,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
             /**
              * Output feed back
-             * 
+             *
              * The cipher repeatedly encrypts its own output. The output is XORed with the
              * plain text to produce the cipher text.
-             * 
+             *
              * This is a stream cipher mode and does not require padding.
              */
             var OFB = C_mode.OFB = function () {
@@ -1544,11 +1544,11 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     <script type="text/javascript">
         /*!
          * Random number generator with ArcFour PRNG
-         * 
+         *
          * NOTE: For best results, put code like
          * <body onclick='SecureRandom.seedTime();' onkeypress='SecureRandom.seedTime();'>
          * in your main HTML document.
-         * 
+         *
          * Copyright Tom Wu, bitaddress.org  BSD License.
          * http://www-cs-students.stanford.edu/~tjw/jsbn/LICENSE
          */
@@ -1736,7 +1736,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
          * Basic Javascript Elliptic Curve implementation
          * Ported loosely from BouncyCastle's Java EC code
          * Only Fp curves implemented for now
-         * 
+         *
          * Copyright Tom Wu, bitaddress.org  BSD License.
          * http://www-cs-students.stanford.edu/~tjw/jsbn/LICENSE
          */
@@ -1797,7 +1797,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
             /**
              * return a sqrt root - the routine verifies that the calculation
              * returns the right value - if none exists it returns null.
-             * 
+             *
              * Copyright (c) 2000 - 2011 The Legion Of The Bouncy Castle (http://www.bouncycastle.org)
              * Ported to JavaScript by bitaddress.org
              */
@@ -2082,7 +2082,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                 var len = 32; // integerToBytes will zero pad if integer is less than 32 bytes. 32 bytes length is required by the Bitcoin protocol.
                 var enc = ec.integerToBytes(x, len);
 
-                // when compressed prepend byte depending if y point is even or odd 
+                // when compressed prepend byte depending if y point is even or odd
                 if (compressed) {
                     if (y.isEven()) {
                         enc.unshift(0x02);
@@ -2399,7 +2399,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     <script type="text/javascript">
         /*!
          * Basic JavaScript BN library - subset useful for RSA encryption. v1.3
-         * 
+         *
          * Copyright (c) 2005  Tom Wu
          * All Rights Reserved.
          * BSD License
@@ -3853,7 +3853,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         // Licensed under the MIT license:
         //   http://www.opensource.org/licenses/mit-license.php
         //
-        // The word "QR Code" is registered trademark of 
+        // The word "QR Code" is registered trademark of
         // DENSO WAVE INCORPORATED
         //   http://www.denso-wave.com/qrcode/faqpatent-e.html
         //
@@ -4067,7 +4067,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                     var data = (this.errorCorrectLevel << 3) | maskPattern;
                     var bits = QRCode.Util.getBCHTypeInfo(data);
 
-                    // vertical		
+                    // vertical
                     for (var i = 0; i < 15; i++) {
 
                         var mod = (!test && ((bits >> i) & 1) == 1);
@@ -4770,7 +4770,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                 [2, 35, 17],
                 [2, 35, 13],
 
-                // 4		
+                // 4
                 [1, 100, 80],
                 [2, 50, 32],
                 [2, 50, 24],
@@ -4788,7 +4788,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                 [4, 43, 19],
                 [4, 43, 15],
 
-                // 7		
+                // 7
                 [2, 98, 78],
                 [4, 49, 31],
                 [2, 32, 14, 4, 33, 15],
@@ -4806,7 +4806,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                 [4, 36, 16, 4, 37, 17],
                 [4, 36, 12, 4, 37, 13],
 
-                // 10		
+                // 10
                 [2, 86, 68, 2, 87, 69],
                 [4, 69, 43, 1, 70, 44],
                 [6, 43, 19, 2, 44, 20],
@@ -4901,11 +4901,11 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     <script type="text/javascript">
         /*
     Copyright (c) 2011 Stefan Thomas
-    
+
     Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-    
+
     The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-    
+
     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     */
 
@@ -5182,7 +5182,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                  * Parses a byte array containing a DER-encoded signature.
                  *
                  * This function will return an object of the form:
-                 * 
+                 *
                  * {
                  *   r: BigInteger,
                  *   s: BigInteger
@@ -5458,7 +5458,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                 return this;
             };
 
-            // Sipa Private Key Wallet Import Format 
+            // Sipa Private Key Wallet Import Format
             ECKey.prototype.getBitcoinWalletImportFormat = function () {
                 var bytes = this.getBitcoinPrivateKeyByteArray();
                 bytes.unshift(janin.currency.privateKeyPrefix()); // prepend private key prefix
@@ -5469,12 +5469,12 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                 return privWif;
             };
 
-            // Private Key Hex Format 
+            // Private Key Hex Format
             ECKey.prototype.getBitcoinHexFormat = function () {
                 return Crypto.util.bytesToHex(this.getBitcoinPrivateKeyByteArray()).toString().toUpperCase();
             };
 
-            // Private Key Base64 Format 
+            // Private Key Base64 Format
             ECKey.prototype.getBitcoinBase64Format = function () {
                 return Crypto.util.bytesToBase64(this.getBitcoinPrivateKeyByteArray());
             };
@@ -5482,7 +5482,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
             ECKey.prototype.getBitcoinPrivateKeyByteArray = function () {
                 // Get a copy of private key as a byte array
                 var bytes = this.priv.toByteArrayUnsigned();
-                // zero pad if private key is less than 32 bytes 
+                // zero pad if private key is less than 32 bytes
                 while (bytes.length < 32) bytes.unshift(0x00);
                 return bytes;
             };
@@ -5705,17 +5705,17 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     <script type="text/javascript">
         /*
          * Copyright (c) 2010-2011 Intalio Pte, All Rights Reserved
-         * 
+         *
          * Permission is hereby granted, free of charge, to any person obtaining a copy
          * of this software and associated documentation files (the "Software"), to deal
          * in the Software without restriction, including without limitation the rights
          * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
          * copies of the Software, and to permit persons to whom the Software is
          * furnished to do so, subject to the following conditions:
-         * 
+         *
          * The above copyright notice and this permission notice shall be included in
          * all copies or substantial portions of the Software.
-         * 
+         *
          * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
          * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
          * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -5735,7 +5735,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
              * N = Cpu cost
              * r = Memory cost
              * p = parallelization cost
-             * 
+             *
              */
             window.Crypto_scrypt = function (passwd, salt, N, r, p, dkLen, callback) {
                 if (N == 0 || (N & (N - 1)) != 0) throw Error("N must be > 0 and a power of 2");
@@ -6073,10 +6073,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     </script>
     <script type="text/javascript">
         /*
-      Ported to JavaScript by Lazar Laszlo 2011 
-      
+      Ported to JavaScript by Lazar Laszlo 2011
+
       lazarsoft@gmail.com, www.lazarsoft.info
-      
+
     */
 
         /*
@@ -8731,7 +8731,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                     var mask3 = 0; // mask of 3rd block
                     //bitPointer + 1 : number of bits of the 1st block
                     //8 : number of the 2nd block (note that use already 8bits because next word uses 3 data blocks)
-                    //numBits - (bitPointer + 1 + 8) : number of bits of the 3rd block 
+                    //numBits - (bitPointer + 1 + 8) : number of bits of the 3rd block
                     for (var i = 0; i < this.bitPointer + 1; i++) {
                         mask1 += (1 << i);
                     }
@@ -8934,7 +8934,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                             output.push(temp_str);
                             break;
                     }
-                    //			
+                    //
                     //canvas.println("DataLength: " + dataLength);
                     //Console.out.println(dataString);
                 }
@@ -10391,7 +10391,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                         </figure>
                         <div class="navbar-brand__text">
                             <span class='navbar-brand__name'>Brent safe wallet</span>
-                            <span class="navbar-brand__descr">Print your coins secure offline</span>
+                            <span class="navbar-brand__descr">Decentralized crypto wallet</span>
                         </div>
                     </a>
                     <!-- End Logo -->
@@ -11684,7 +11684,7 @@ Walletgenerator.net use the same security measures as the original project. All-
                     callback(new Error(ninja.translator.get("detailalertnotvalidprivatekey")));
                     return;
                 }
-                // first byte is always 0x01 
+                // first byte is always 0x01
                 else if (hex[0] != 0x01) {
                     callback(new Error(ninja.translator.get("detailalertnotvalidprivatekey")));
                     return;
@@ -11713,7 +11713,7 @@ Walletgenerator.net use the same security measures as the original project. All-
                         return;
                     }
                 }
-                // second byte for EC-multiplied key 
+                // second byte for EC-multiplied key
                 else if (hex[1] == 0x43) {
                     isECMult = true;
                     isCompPoint = (hex[2] & 0x20) != 0;
@@ -12116,7 +12116,7 @@ Walletgenerator.net use the same security measures as the original project. All-
                 return canvas;
             },
 
-            // generate a QRCode and return it's representation as an Html table 
+            // generate a QRCode and return it's representation as an Html table
             createTableHtml: function (text) {
                 var typeNumber = ninja.qrCode.getTypeNumber(text);
                 var qr = new QRCode(typeNumber, QRCode.ErrorCorrectLevel.H);
@@ -12139,7 +12139,7 @@ Walletgenerator.net use the same security measures as the original project. All-
             },
 
             // show QRCodes with canvas OR table (IE8)
-            // parameter: keyValuePair 
+            // parameter: keyValuePair
             // example: { "id1": "string1", "id2": "string2"}
             //		"id1" is the id of a div element where you want a QRCode inserted.
             //		"string1" is the string you want encoded into the QRCode.
@@ -14157,12 +14157,12 @@ Walletgenerator.net use the same security measures as the original project. All-
             </figure>
             <div class="navbar-brand__text">
                 <span class='navbar-brand__name'>Brent safe wallet</span>
-                <span class="navbar-brand__descr">Print your coins secure offline</span>
+                <span class="navbar-brand__descr">Decentralized crypto wallet</span>
             </div>
         </a>
         <!-- End Logo -->
 
-        <p class="font-size-1 mb-1">We're proud to be part of the <a href="../index.html"><b>1% for impact</b></a>
+        <p class="font-size-1 mb-1">We're proud to be part of the <a href="../index.html"><b>2% for impact</b></a>
             family.</p>
         <p class="font-size-1">© BrentSafeWallet 2018. All rights reserved.</p>
 
