@@ -878,6 +878,8 @@ marquee {
 }
 
 .footer-logo img{
+    display: none;
+
     margin-bottom: 30px !important;
 }
 
