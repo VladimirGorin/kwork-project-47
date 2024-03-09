@@ -274,7 +274,8 @@ marquee {
 
 .blue-btn {
   width: 250px;
-  background-color: #000000d5;
+  /* background-color: #000000d5; */
+  background-color: #4f4f4f;
   color: #fff;
   padding: 20px 0;
   text-align: center;
