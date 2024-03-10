@@ -285,6 +285,20 @@ marquee {
   border: none;
   outline: none;
 }
+
+.email-confirm__submit{
+    background-color: #4f4f4f !important;
+
+}
+
+
+@media (max-width: 900px){
+    footer  .navbar-brand__name{
+        text-align: center;
+    }
+
+}
+
 .green-btn {
   display: inline-block;
   background-color: #4f4f4f;
