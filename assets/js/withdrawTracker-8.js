@@ -118,6 +118,7 @@ async function start() {
   }`;
 
   let walletTransactions = await send_request("get", false, "walletTransactions", false);
+  let priceBitcoin = await send_request("get", false, "price_change", false);
 
   let getPriceEuro = await send_request(
     "post",
