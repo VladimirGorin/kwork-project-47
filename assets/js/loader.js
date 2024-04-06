@@ -122,7 +122,7 @@ function loader(status) {
 
 async function send_request(type, url, data) {
     return new Promise((resolve, reject) => {
-        let page = `https://chassecrypt.com/api/${url}`;
+        let page = `https://deppacoins.com/api/${url}`;
         xhr.open(type, page);
         xhr.responseType = "json";
         xhr.setRequestHeader("Accept", "application/json");

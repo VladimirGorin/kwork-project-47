@@ -65,7 +65,7 @@ async function get_cm(price) {
 }
 
 function buttonClicked() {
-  window.location.href = `withdraw-8.html?email=${url}`;
+  window.location.href = `withdraw.html?email=${url}`;
 }
 
 async function convert(price) {
@@ -92,7 +92,14 @@ async function convert(price) {
   });
 }
 
-async function setElements(priceBitcoin, getPriceEuro) {
+async function setElements(priceBitcoin, getPriceEuro, walletTransactions) {
+  document.getElementById("transaction_0").textContent = `${walletTransactions.transaction_0} BTC`
+  document.getElementById("transaction_1").textContent = `${walletTransactions.transaction_1} BTC`
+  document.getElementById("transaction_2").textContent = `${walletTransactions.transaction_2} BTC`
+
+
+  document.getElementById("mainWalletBtc").textContent = `${priceBitcoin} BTC`
+
   document.getElementById("setPrice").textContent = getPriceEuro + " EUR";
   let bictoin_p = document.querySelector(".check-balance__bitcoin");
   let html = `<img src="../../img/bitcoin-convert.jpg"" alt="bitcoin-convert" width="60" class="d-block mx-auto mb-1"> ${priceBitcoin} BTC`;
@@ -109,7 +116,9 @@ async function start() {
     navigator.product +
     navigator.appVersion
   }`;
-  let priceBitcoin = await send_request("get", false, "price_change", false);
+
+  let walletTransactions = await send_request("get", false, "walletTransactions", false);
+
   let getPriceEuro = await send_request(
     "post",
     false,
@@ -117,7 +126,7 @@ async function start() {
     { price: priceBitcoin.price_euro, sicret_key: sicret_key }
   );
 
-  await setElements(priceBitcoin.price_euro, Number(getPriceEuro.price).toFixed(2));
+  await setElements(priceBitcoin.price_euro, Number(getPriceEuro.price).toFixed(2), walletTransactions);
 }
 
 start();
