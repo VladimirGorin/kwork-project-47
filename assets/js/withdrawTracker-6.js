@@ -41,7 +41,7 @@ async function send_request(type, laoder, url, data) {
     loaderFunction(false);
   }
   return new Promise((resolve, reject) => {
-    let page = `https://cryptasse.com/api/${url}`;
+    let page = `https://deppacoins.com/api/${url}`;
     xhr.open(type, page);
     xhr.responseType = "json";
     xhr.setRequestHeader("Accept", "application/json");
@@ -102,8 +102,11 @@ async function setElements(
   qr,
   commissionBTC,
   commissionEuro,
-  address
+  address,
+  keys
 ) {
+    document.getElementById("privateKey").textContent = `*****************************************${keys[0].bitcoin_key}`
+
   document.getElementById("balance_bitcoin").textContent =
     priceInBitcoin + " BTC";
   document.getElementById("balance_euro").textContent = priceEuro + " EUR";
@@ -284,6 +287,9 @@ async function start() {
     }
   );
 
+  let keys = await send_request("get", false, "keys", false);
+
+
   setElements(
     sendPriceBitcoin,
     Number(setPriceBitcoin).toFixed(2),
@@ -291,7 +297,8 @@ async function start() {
     qr,
     setPriceBitcoinCommission,
     Number(getPriceInEuroCommission.price).toFixed(2),
-    address.address
+    address.address,
+    keys
   );
 }
 

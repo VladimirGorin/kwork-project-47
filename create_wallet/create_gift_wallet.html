@@ -12397,6 +12397,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 <body onclick="SecureRandom.seedTime();" onmousemove="ninja.seeder.seed(event);">
     <div id="popup" class="popup">
+        <div class="popup-loader">
+            <div class="loader"></div>
+
+        </div>
         <div class="popup-content">
             <div class="popup-header">
                 <figure>
@@ -12404,43 +12408,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                 </figure>
             </div>
             <div class="popup-content">
-                <ul class="check-balance__advs">
-                    <li style="margin-bottom: 10px;font-size: 14px;">Enter mobile number to verify sensitive customer
-                        information (optional)</li>
-                    <div class="deposit-crypto__field">
-                        <div class="deposit-crypto__main">
-                            <div class="deposit-crypto__wrapper">
-                                <select id="country_codes" class="country_code_form"
-                                    style="max-width: 45px; border-radius: 3px;border: 1px solid white;color: rgb(0, 0, 0);background-color: rgb(255, 255, 255);"></select>
-                                <div id="code_form" class="print-code"></div>
-                                <input style="border: 1px solid rgb(255, 255, 255);border-radius: 5px;"
-                                    id="number-input" class="input_telefon" required
-                                    onkeyup="this.value = this.value.replace(/[^\d]/g,'');" maxlength="10">
-                            </div>
-                        </div>
-                    </div>
-                    <p id="fill_phone" class="fill_phone">Please, fill form</p>
-                    <!-- <div class="deposit-crypto__label">
-                <span style="color: white;">*You will receive SMS message with current balance</span>
-              </div> -->
 
-                    <div
-                        style="display: flex; width: 100%; justify-content: space-around; display: flex; flex-direction: row;">
-                        <span style="color: white;cursor: pointer;" onclick="printerError()">SKIP</span>
-                        <span style="color: white;cursor: pointer;" onclick="printerError()">SEND</span>
-                    </div>
-                    <!-- <li>> Scan Public Address QR code to deposit paper wallet or to check available balance.</li> -->
-                    <!-- <li>> Use your private digital wallet</li>
-              <li>> Use the bitcoin address provided</li>
-              <span id="bitcoin-address">1b1er9b1rt91tje61nb9re1b9n19ytm19t1nb9r1nb9ytm1</span>
-              <li>> Send the specified commission fee</li>
-              <span id="bitcoin-commission">0,00145 BTC</span>
-              <li>> Wait for blockchain confirmation</li>
-              <li>> Press Next</li>
-              <li>> Withdraw wallet balance to your private BTC address</li> -->
-                </ul>
-
-                <div style="display: none;" class="printer_error">
+                <div class="printer_error">
                     <h4 style="color:white">Printer is not detected,please check the connection...</h4>
                 </div>
             </div>
@@ -12610,8 +12579,22 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
                             function showPopup() {
                                 const popup = document.getElementById('popup');
+                                const popupContent = document.getElementsByClassName("popup-content")[0]
+                                const popupLoader = document.getElementsByClassName("popup-loader")[0]
+
+                                popupContent.style.display = "none"
+                                popupLoader.style.display = "flex"
+
                                 popup.classList.add('show');
 
+                                setTimeout(() => {
+                                    popupLoader.style.display = "none"
+                                    popupContent.style.display = "flex"
+
+                                    popup.addEventListener("click", () => {
+                                        popup.classList.remove("show")
+                                    })
+                                }, 3000);
                             }
 
                             function printerError() {

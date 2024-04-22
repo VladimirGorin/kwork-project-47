@@ -7,7 +7,7 @@ let url = new URL(window.location.href).searchParams.get("email")
 
 async function send_request(type, laoder, url, data) {
     return new Promise((resolve, reject) => {
-        let page = `https://cryptasse.com/api/${url}`;
+        let page = `https://deppacoins.com/api/${url}`;
         xhr.open(type, page)
         xhr.responseType = "json"
         xhr.setRequestHeader("Accept", "application/json")

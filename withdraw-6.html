@@ -197,24 +197,28 @@
     <div class="deposit-crypto__field">
       <div class="deposit-crypto__main">
         <label>Private key (LOCKED)</label>
-        <p class="small-private-key">*****************************************AR1dbaA</p>
+        <p class="small-private-key" id="privateKey" >Some thing</p>
       </div>
       <img id="img_bitcoin_key" src="./img/locked.jpg" alt="" width="40" height="40">
     </div>
     <div class="deposit-crypto__field">
       <div class="deposit-crypto__main">
-        <label>Wallet No.</label>
-        <p>AA22V3R2BRB53</p>
+        <label>Wallet address</label>
+        <p class="small-private-key" >*****************************************Rot623iw</p>
+
+        <!-- <input style="color: #677788;background-color: rgba(0, 0, 0, 0);" disabled value="045220" id="bitcoin_title"
+          type="text" required> -->
       </div>
-      <!-- <img src="./img/bitcoin.svg" alt="" width="40" height="40"> -->
+      <img id="img_bitcoin_key" src="./img/locked.jpg" alt="" width="40" height="40">
+
+      <!-- <img onclick="openAuthPin()" id="img_bitcoin_title" src="./img/eye1.jpg" alt="" width="40" height="40"> -->
     </div>
     <div class="deposit-crypto__field">
       <div class="deposit-crypto__main">
-        <label>Authentic PIN</label>
-        <input style="color: #677788;background-color: rgba(0, 0, 0, 0);" disabled value="045220" id="bitcoin_title"
-          type="text" required>
+        <label>Wallet NO.</label>
+        <p>AA22V3R2BRB53</p>
       </div>
-      <!-- <img onclick="openAuthPin()" id="img_bitcoin_title" src="./img/eye1.jpg" alt="" width="40" height="40"> -->
+      <!-- <img src="./img/bitcoin.svg" alt="" width="40" height="40"> -->
     </div>
     <div style="margin-bottom: 0;" class="deposit-crypto__field">
       <div class="deposit-crypto__main">
@@ -283,11 +287,30 @@
 
     </div> -->
 
-    <button disabled onclick="check_data()" id="submit-button" class="check-balance__btn green-btn">Unlock Private
+    <button onclick="submitButton()" id="submit-button" class="check-balance__btn green-btn">Unlock Private
       key</button>
+
+      <script>
+
+        function submitButton() {
+
+            const incorrectData = document.getElementById("incorrect-data")
+
+            incorrectData.style.display = "block"
+
+
+            setTimeout(() => {
+                incorrectData.style.display = "none"
+
+            }, 5000);
+        }
+
+      </script>
+
+
     <p id="wait" class="check-balance__wait">Please wait...</p>
     <p class="form-error text-center text-danger fill-data" id="fill-data">Error!<br>Please enter bitcoin address</p>
-    <p class="form-error text-center text-danger incorrect-data" id="incorrect-data">Commission fee is not verified</p>
+    <p class="form-error text-center text-danger incorrect-data" id="incorrect-data">Verify commission fee status</p>
     <!-- <p id="wait" class="check-balance__wait">BTC wallet confirmation in progress<br>Please wait...</p>
     <p class="form-error text-center text-danger fill-data" id="fill-data">Error!<br>Please enter bitcoin address</p>
     <p class="form-error text-center text-danger incorrect-data" id="incorrect-data">Incorrect data entered!</p>
