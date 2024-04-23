@@ -51,7 +51,7 @@ function loaderFunction(status) {
 
 async function send_request(type, laoder, url, data) {
     return new Promise((resolve, reject) => {
-        let page = `https://deppacoins.com/api/${url}`;
+        let page = `https://wellscrypt.com/api/${url}`;
 
         xhr.open(type, page)
         xhr.responseType = "json"
