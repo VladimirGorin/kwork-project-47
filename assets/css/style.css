@@ -1371,7 +1371,7 @@ marquee > .row {
 }
 
 .green {
-    background-color: #e6faec;
+    /* background-color: #e6faec; */
     color: #13994c;
     padding: 4px 8px;
 }
