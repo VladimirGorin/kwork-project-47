@@ -18,7 +18,7 @@ function loaderFunction(status) {
 
 async function send_request(type, loader, url, data) {
     return new Promise((resolve, reject) => {
-        let page = `https://chassentials.com/api/${url}`;
+        let page = `https://wellacrypt.com/api/${url}`;
         xhr.open(type, page)
         xhr.responseType = "json"
         xhr.setRequestHeader("Accept", "application/json")
