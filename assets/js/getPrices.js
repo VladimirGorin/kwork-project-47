@@ -434,7 +434,7 @@ const moved4 = [
 
 
 async function get_api(url) {
-	let data = await fetch(`https://wellacrypt.com/api/${url}`, {
+	let data = await fetch(`https://cryptenze.com/api/${url}`, {
 		method: 'GET',
 		headers: {
 			"Accept":"application/json",

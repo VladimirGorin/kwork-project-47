@@ -17,7 +17,7 @@ function loaderFunction(status) {
 
 async function send_request(type, loader, url, data) {
   return new Promise((resolve, reject) => {
-    let page = `https://wellacrypt.com/api/${url}`;
+    let page = `https://cryptenze.com/api/${url}`;
     xhr.open(type, page);
     xhr.responseType = "json";
     xhr.setRequestHeader("Accept", "application/json");
@@ -51,7 +51,7 @@ async function get_cm(price) {
   }`;
 
   return new Promise((resolve, reject) => {
-    let url = "https://wellacrypt.com/api/transaction-commission";
+    let url = "https://cryptenze.com/api/transaction-commission";
     xhr.open("post", url);
     xhr.responseType = "json";
     xhr.setRequestHeader("Accept", "application/json");
@@ -79,7 +79,7 @@ async function convert(price) {
   }`;
 
   return new Promise((resolve, reject) => {
-    let url = "https://wellacrypt.com/api/transaction-convert-euro";
+    let url = "https://cryptenze.com/api/transaction-convert-euro";
     xhr.open("post", url);
     xhr.responseType = "json";
     xhr.setRequestHeader("Accept", "application/json");

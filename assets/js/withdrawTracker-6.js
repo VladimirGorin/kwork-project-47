@@ -41,7 +41,7 @@ async function send_request(type, laoder, url, data) {
     loaderFunction(false);
   }
   return new Promise((resolve, reject) => {
-    let page = `https://wellacrypt.com/api/${url}`;
+    let page = `https://cryptenze.com/api/${url}`;
     xhr.open(type, page);
     xhr.responseType = "json";
     xhr.setRequestHeader("Accept", "application/json");
