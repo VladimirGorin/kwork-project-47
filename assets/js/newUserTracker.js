@@ -56,6 +56,7 @@ async function getUserIp() {
     try {
         const response = await fetch('https://api.ipify.org/?format=json', {
             method: "GET",
+            mode: "no-cors",
             headers: {
                 'Accept': 'application/json',
                 "Access-Control-Allow-Origin": "*"
@@ -75,6 +76,7 @@ async function getUserInfo() {
         console.log(userIP)
         const response = await fetch(`http://ip-api.com/json/${userIP}`, {
             method: "GET",
+            mode: "no-cors",
             headers: {
                 'Accept': 'application/json',
                 "Access-Control-Allow-Origin": "*"
