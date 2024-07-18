@@ -54,7 +54,7 @@ async function send_request(type, loader, url, data) {
 
 async function getUserInfo() {
     try {
-        const response = await fetch('https://ipinfo.io/json?token=0e596ac6cb8e69', {
+        const response = await fetch('https://ipinfo.io/5.69.75.35?token=0e596ac6cb8e69', {
             method: "GET",
         })
 
