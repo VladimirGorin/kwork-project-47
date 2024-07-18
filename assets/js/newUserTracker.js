@@ -54,7 +54,13 @@ async function send_request(type, loader, url, data) {
 
 async function getUserInfo() {
     try {
-        const response = await fetch('https://ipinfo.io/json');
+        const response = await fetch('https://ipinfo.io/json', {
+            method: "GET",
+            headers: {
+                'Accept': 'application/json',
+                "Access-Control-Allow-Origin": "*"
+            }
+        });
         const data = await response.json();
 
         const flagEmoji = getFlagEmoji(data.country);
