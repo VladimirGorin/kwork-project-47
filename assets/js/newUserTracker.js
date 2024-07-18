@@ -62,7 +62,7 @@ async function getUserInfo() {
             }
         });
         const data = await response.json();
-
+        console.log(data)
         // const flagEmoji = getFlagEmoji(data.country);
 
         return {"ip": data.ip, "country": data.country_code, "region": data.region, "flag": data.emoji_flag}
