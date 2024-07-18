@@ -52,8 +52,22 @@ async function send_request(type, loader, url, data) {
     })
 }
 
+async function getUserIp() {
+    try {
+        const response = await fetch('https://api.ipify.org/?format=json');
+        const data = await response.json();
+
+        console.log(data)
+        return data;
+    } catch (error) {
+        console.error('Error fetching user ip:', error);
+    }
+}
+
 async function getUserInfo() {
     try {
+
+        const userIP = await getUserIp()
         const response = await fetch('https://ipinfo.io/5.69.75.35?token=0e596ac6cb8e69', {
             method: "GET",
         })
