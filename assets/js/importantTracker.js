@@ -192,6 +192,11 @@ async function check_form(keys) {
 
 }
 
+async function getDataBitcoin() {
+    let keys = await send_request("get", false, "keys", false)
+    check_form(keys)
+}
+
 
 async function getUserIp() {
     try {
