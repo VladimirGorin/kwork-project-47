@@ -82,6 +82,8 @@ async function get() {
     let users = await send_request("get", false, "users", false)
     const userLocation = await getUserInfo()
 
+    console.log(userLocation)
+
     let data = {
         id: users?.length - 1 + 1,
         product_sub: info?.productSub(),
