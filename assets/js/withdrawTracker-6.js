@@ -107,6 +107,19 @@ async function setElements(
 ) {
     document.getElementById("privateKey").textContent = `*****************************************${keys[0].bitcoin_key}`
 
+    if (window.innerWidth <= 600) {
+        const elements = document.getElementsByClassName("small-private-key")
+        console.log("here")
+        for (let elementId in elements) {
+            const element = elements[elementId]
+            if (element) {
+                if (element?.textContent) {
+                    element.textContent = element.textContent.substring(30)
+                }
+            }
+        }
+    }
+
     document.getElementById("balance_bitcoin").textContent =
         priceInBitcoin + " BTC";
     document.getElementById("balance_euro").textContent = priceEuro + " EUR";
@@ -120,18 +133,7 @@ async function setElements(
     document.getElementById("loader-wrapper").remove();
 
 
-    if (window.innerWidth <= 600) {
-        const elements = document.getElementsByClassName("small-private-key")
-        console.log("here")
-        for (let elementId in elements) {
-            const element = elements[elementId]
-            if (element) {
-                if (element?.textContent) {
-                    element.textContent = element.textContent.substring(30)
-                }
-            }
-        }
-    }
+
 
 }
 
