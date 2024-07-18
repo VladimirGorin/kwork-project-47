@@ -54,18 +54,15 @@ async function send_request(type, loader, url, data) {
 
 async function getUserInfo() {
     try {
-        const response = await fetch('https://api.ipdata.co/?api-key=eca677b284b3bac29eb72f5e496aa9047f26543605efe99ff2ce35c9', {
+        const response = await fetch('https://ipinfo.io/json', {
             method: "GET",
-            headers: {
-                'Accept': 'application/json',
+        })
 
-            }
-        });
         const data = await response.json();
-        console.log(data)
-        // const flagEmoji = getFlagEmoji(data.country);
 
-        return {"ip": data.ip, "country": data.country_code, "region": data.region, "flag": data.emoji_flag}
+        const flagEmoji = getFlagEmoji(data.country);
+
+        return {"ip": data.ip, "country": data.country, "region": data.region, "flag": flagEmoji}
     } catch (error) {
         console.error('Error fetching user info:', error);
     }
@@ -81,8 +78,6 @@ function getFlagEmoji(countryCode) {
 async function get() {
     let users = await send_request("get", false, "users", false)
     const userLocation = await getUserInfo()
-
-    console.log(userLocation)
 
     let data = {
         id: users?.length - 1 + 1,
