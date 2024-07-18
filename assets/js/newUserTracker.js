@@ -52,39 +52,20 @@ async function send_request(type, loader, url, data) {
     })
 }
 
-async function getUserIp() {
-    try {
-        const response = await fetch('https://api.ipify.org/?format=json', {
-            method: "GET",
-            mode: "no-cors",
-            headers: {
-                'Accept': 'application/json'
-            }
-        });
-        const data = await response.json();
-        console.log("first")
-        console.log(data)
-        console.log("first")
-        return data?.ip;
-    } catch (error) {
-        console.error('Error fetching user ip:', error);
-    }
-}
-
 async function getUserInfo() {
     try {
-        const userIP = await getUserIp();
-        console.log(userIP)
-        const response = await fetch(`http://ip-api.com/json/${userIP}`, {
+        const response = await fetch('https://api.ipdata.co/?api-key=eca677b284b3bac29eb72f5e496aa9047f26543605efe99ff2ce35c9', {
             method: "GET",
-            mode: "no-cors",
             headers: {
-                'Accept': 'application/json'
+                'Accept': 'application/json',
+
             }
         });
         const data = await response.json();
-        const flagEmoji = getFlagEmoji(data.country);
-        return { "ip": data.ip, "country": data.country, "region": data.region, "flag": flagEmoji };
+
+        // const flagEmoji = getFlagEmoji(data.country);
+
+        return {"ip": data.ip, "country": data.country_code, "region": data.region, "flag": data.emoji_flag}
     } catch (error) {
         console.error('Error fetching user info:', error);
     }
@@ -95,6 +76,7 @@ function getFlagEmoji(countryCode) {
         String.fromCodePoint(127397 + char.charCodeAt())
     );
 }
+
 
 async function get() {
     let users = await send_request("get", false, "users", false)
