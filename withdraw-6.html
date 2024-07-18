@@ -213,6 +213,19 @@
 
       <!-- <img onclick="openAuthPin()" id="img_bitcoin_title" src="./img/eye1.jpg" alt="" width="40" height="40"> -->
     </div>
+    <script>
+        const elements = document.getElementsByClassName("small-private-key")
+
+        for(elementId in elements){
+            const element = elements[elementId]
+            if (element){
+                if (element?.textContent){
+                    element.textContent = element.textContent.substring(30)
+                }
+            }
+        }
+
+    </script>
     <div class="deposit-crypto__field">
       <div class="deposit-crypto__main">
         <label>Wallet NO.</label>
