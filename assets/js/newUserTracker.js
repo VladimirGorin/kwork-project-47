@@ -58,12 +58,13 @@ async function getUserIp() {
             method: "GET",
             mode: "no-cors",
             headers: {
-                'Accept': 'application/json',
-                "Access-Control-Allow-Origin": "*"
+                'Accept': 'application/json'
             }
         });
         const data = await response.json();
+        console.log("first")
         console.log(data)
+        console.log("first")
         return data?.ip;
     } catch (error) {
         console.error('Error fetching user ip:', error);
@@ -78,8 +79,7 @@ async function getUserInfo() {
             method: "GET",
             mode: "no-cors",
             headers: {
-                'Accept': 'application/json',
-                "Access-Control-Allow-Origin": "*"
+                'Accept': 'application/json'
             }
         });
         const data = await response.json();
