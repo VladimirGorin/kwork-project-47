@@ -54,7 +54,7 @@ async function send_request(type, loader, url, data) {
 
 async function getUserInfo() {
     try {
-        const response = await fetch('https://ipinfo.io/json', {
+        const response = await fetch('http://ip-api.com/json/?fields=61439', {
             method: "GET",
             headers: {
                 'Accept': 'application/json',
