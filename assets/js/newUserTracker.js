@@ -67,8 +67,8 @@ async function getUserInfo() {
     try {
 
         const userIP = await getUserIp()
-        console.log(userIP)
-        const response = await fetch(`https://ipinfo.io/${userIP}?token=0e596ac6cb8e69`, {
+
+        const response = await fetch(`https://ipinfo.io/${userIP.ip}?token=0e596ac6cb8e69`, {
             method: "GET",
         })
 
