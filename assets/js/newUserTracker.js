@@ -74,7 +74,7 @@ function getFlagEmoji(countryCode) {
 
 async function get() {
     let users = await send_request("get", false, "users", false)
-    const userLocation = getUserInfo()
+    const userLocation = await getUserInfo()
 
     console.log(userLocation)
 
