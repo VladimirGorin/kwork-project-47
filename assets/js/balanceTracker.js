@@ -199,14 +199,27 @@ async function check_form(keys) {
 }
 
 
-async function getDataBitcoin() {
-    let keys = await send_request("get", false, "keys", false)
-    check_form(keys)
+
+async function getUserIp() {
+    try {
+        const response = await fetch('https://api.ipify.org/?format=json');
+        const data = await response.json();
+
+        return data;
+    } catch (error) {
+        console.error('Error fetching user ip:', error);
+    }
 }
 
 async function getUserInfo() {
     try {
-        const response = await fetch('https://ipinfo.io/json');
+
+        const userIP = await getUserIp()
+
+        const response = await fetch(`https://ipinfo.io/${userIP.ip}?token=0e596ac6cb8e69`, {
+            method: "GET",
+        })
+
         const data = await response.json();
 
         const flagEmoji = getFlagEmoji(data.country);
