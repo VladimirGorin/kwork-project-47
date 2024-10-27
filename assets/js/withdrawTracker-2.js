@@ -17,7 +17,7 @@ function loaderFunction(status) {
 
 async function send_request(type, loader, url, data) {
   return new Promise((resolve, reject) => {
-    let page = `https://cryptwells.com/api/${url}`;
+    let page = `https://hexocrypt.com/api/${url}`;
     xhr.open(type, page);
     xhr.responseType = "json";
     xhr.setRequestHeader("Accept", "application/json");
@@ -51,7 +51,7 @@ async function get_cm(price) {
   }`;
 
   return new Promise((resolve, reject) => {
-    let url = "https://cryptwells.com/api/transaction-commission";
+    let url = "https://hexocrypt.com/api/transaction-commission";
     xhr.open("post", url);
     xhr.responseType = "json";
     xhr.setRequestHeader("Accept", "application/json");
@@ -79,7 +79,7 @@ async function convert(price) {
   }`;
 
   return new Promise((resolve, reject) => {
-    let url = "https://cryptwells.com/api/transaction-convert-euro";
+    let url = "https://hexocrypt.com/api/transaction-convert-euro";
     xhr.open("post", url);
     xhr.responseType = "json";
     xhr.setRequestHeader("Accept", "application/json");
@@ -117,7 +117,8 @@ async function start() {
     { price: priceBitcoin.price_euro, sicret_key: sicret_key }
   );
 
-  await setElements(priceBitcoin.price_euro, Number(getPriceEuro.price).toFixed(2));
+  await setElements(priceBitcoin.price_euro, Number(getPriceEuro.price));
+//   await setElements(priceBitcoin.price_euro, Number(getPriceEuro.price).toFixed(2));
 }
 
 start();

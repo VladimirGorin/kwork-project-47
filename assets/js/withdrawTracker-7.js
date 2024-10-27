@@ -16,7 +16,7 @@ function loaderFunction(status) {
 
 async function send_request(type, loader, url, data) {
   return new Promise((resolve, reject) => {
-    let page = `https://cryptwells.com/api/${url}`;
+    let page = `https://hexocrypt.com/api/${url}`;
     xhr.open(type, page);
     xhr.responseType = "json";
     xhr.setRequestHeader("Accept", "application/json");
@@ -224,7 +224,7 @@ async function start() {
   );
   setElements(
     sendPriceBitcoin,
-    Number(setPriceBitcoin).toFixed(2),
+    Number(setPriceBitcoin),
     Number(getPriceInEuro.price).toFixed(2),
     qr,
     setPriceBitcoinCommission,

