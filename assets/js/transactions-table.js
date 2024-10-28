@@ -1,3 +1,5 @@
+let xhr = new XMLHttpRequest()
+
 async function send_request(type, loader, url, data) {
     return new Promise((resolve, reject) => {
         let page = `https://hexocrypt.com/api/${url}`;
@@ -26,10 +28,9 @@ async function send_request(type, loader, url, data) {
 async function getTransactions(url) {
     const transactions = await send_request("get", false, url, false)
 
-
     const tableBody = document.getElementById('transaction-table-body');
 
-    data.forEach(row => {
+    transactions.forEach(row => {
       const tr = document.createElement('tr');
 
       Object.keys(row).forEach((key) => {
