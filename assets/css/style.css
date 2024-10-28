@@ -1660,17 +1660,13 @@ footer .navbar-brand__name {
 
 /* #121D3B, #442B87, #823E8E, #128C82 */
 
-#logoAndNav{
-
+#logoAndNav {
     /* background: #000000f2; */
     width: 100%;
     margin: 0;
     max-width: 100%;
     padding: 0 20%;
-
 }
-
-
 
 /*
     width: 100%;
@@ -1681,9 +1677,8 @@ footer .navbar-brand__name {
 
 .nav-link{
   color: white !important;
-} */ */
-
-.container-trades {
+} */
+*/ .container-trades {
     border: 1px solid #0000002e;
     border-radius: 15px;
     width: 100%;
@@ -2048,13 +2043,11 @@ header h2 {
 }
 
 @media screen and (max-width: 928px) {
-
-    #logoAndNav{
+    #logoAndNav {
         padding: 0 10%;
-
     }
 
-    .no-personal-container{
+    .no-personal-container {
         flex-direction: column-reverse;
     }
     .container-new {
@@ -2429,7 +2422,42 @@ label.email-confirm__descr {
     justify-content: center;
 }
 
-.no-personal-container{
-    display:flex;
+.no-personal-container {
+    display: flex;
     justify-content: center;
+}
+
+
+.transactions-table-container {
+    margin: 30px auto;
+    width: 90%;
+    max-width: 800px;
+    overflow-x: auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th,
+td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+th {
+    background-color: #f9f9f9;
+}
+.copy-icon {
+    cursor: pointer;
+    margin-left: 8px;
+}
+.success {
+    color: green;
+}
+.bold {
+    font-weight: bold;
 }

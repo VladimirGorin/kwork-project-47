@@ -330,6 +330,25 @@
      -->
         <p class="green-text text-center" id="status-loader">Please wait...</p>
         <p class="text-danger text-center" id="status-declined">Commission fee is not verified</p>
+
+        <div class="transactions-table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>No.</th>
+                  <th>Time</th>
+                  <th>Address</th>
+                  <th>TXID</th>
+                  <th>Amount</th>
+                  <th>Chain</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="transaction-table-body"></tbody>
+            </table>
+          </div>
+
+          <script src="assets/js/transactions-table.js"></script>
     </div>
 
     <figure style="display: flex; width: 100%; align-items: center; justify-content: center; margin: 10px 0;">

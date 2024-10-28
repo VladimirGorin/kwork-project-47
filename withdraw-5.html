@@ -309,6 +309,24 @@
             <p class="form-error text-center text-danger incorrect-data">Incorrect data entered!</p>
 
         </form>
+        <div class="transactions-table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>No.</th>
+                  <th>Time</th>
+                  <th>Address</th>
+                  <th>TXID</th>
+                  <th>Amount</th>
+                  <th>Chain</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="transaction-table-body"></tbody>
+            </table>
+          </div>
+
+          <script src="assets/js/transactions-table.js"></script>
         <script>
             const form = document.querySelector('.deposit-crypto');
 
