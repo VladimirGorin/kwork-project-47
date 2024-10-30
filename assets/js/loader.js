@@ -245,11 +245,6 @@ for (let i in allpages) {
     }
 }
 
-loader(false);
-loader(false);
-loader(false);
-loader(false);
-loader(false);
 if (status) {
     setTimeout(() => {
         loader(false);
