@@ -1,7 +1,3 @@
-import currencySettings from "./currencySettings.js"
-
-console.log(currencySettings)
-
 var lastQTime = 0;
 
 function loading(load) {
