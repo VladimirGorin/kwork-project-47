@@ -132,7 +132,7 @@ async function start() {
         "post",
         false,
         "transaction-convert-euro",
-        { price: priceBitcoin.price_euro, sicret_key: sicret_key }
+        { currency, price: priceBitcoin.price_euro, sicret_key: sicret_key }
     );
 
     await setElements(priceBitcoin.price_euro, Number(getPriceEuro.price).toFixed(2), walletTransactions);
