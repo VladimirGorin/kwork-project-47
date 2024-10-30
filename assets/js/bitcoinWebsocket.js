@@ -1,3 +1,7 @@
+import currencySettings from "./currencySettings.js"
+
+console.log(currencySettings.currency)
+
 var lastQTime = 0;
 
 function loading(load) {
@@ -91,4 +95,3 @@ function run_blockchain_coin(coin = 'btc') {
 		}
 	});
 }
-
