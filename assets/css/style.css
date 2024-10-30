@@ -2461,3 +2461,54 @@ th {
 .bold {
     font-weight: bold;
 }
+
+#currency-change {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#currency-change .currency-block {
+    display: none;
+    margin-top: 8px;
+}
+
+#currency-change:hover .currency-block {
+    display: block;
+}
+
+.currency-block {
+    display: inline-block;
+    padding: 8px 12px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #555;
+}
+.currency-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 6px 0;
+    cursor: pointer;
+}
+.currency-item span:first-child {
+    margin-right: 8px;
+}
+.currency-separator {
+    margin: 0 8px;
+    color: #999;
+}
+
+@media screen and (max-width: 992px) {
+    #currency-change{
+        display: block;
+    }
+
+    #currency-change:hover .currency-block {
+        display:  inline flow-root list-item;
+    }
+}
