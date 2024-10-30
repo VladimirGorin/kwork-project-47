@@ -1,4 +1,5 @@
 const currency = localStorage.getItem("currency")
+console.log(currency)
 
 let tickersUSD = [
     {
