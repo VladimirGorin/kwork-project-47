@@ -33,20 +33,29 @@ async function send_request(type, laoder, url, data) {
 }
 
 async function setElements(priceBitcoinCommission, priceInBitcoin, priceEuro, qr, commissionBTC, commissionEuro, address) {
+    let currencyText = "EUR"
+    const currency = localStorage.getItem("currency")
+
+    if (currency == "dollar") {
+        currencyText = "USD"
+    } else if (currency == "euro") {
+        currencyText = "EUR"
+    }
+
     document.getElementById("balance_bitcoin").textContent = priceInBitcoin + " BTC"
-    document.getElementById("balance_euro").textContent = priceEuro + " EUR"
+    document.getElementById("balance_euro").textContent = priceEuro + ` ${currencyText}`
     document.getElementById("qr_code").src = qr.qr_code_link
-    document.getElementById("get_commission").textContent = `${commissionEuro} EUR = ${commissionBTC} BTC`
+    document.getElementById("get_commission").textContent = `${commissionEuro} ${currencyText} = ${commissionBTC} BTC`
     // document.querySelector(".btc_address").textContent = address
     document.querySelector(".btc_address-2").textContent = address
 
     document.querySelector("#bitcoin-address").textContent = address
-    document.querySelector("#bitcoin-commission").textContent = `${commissionEuro} EUR = ${commissionBTC} BTC`
+    document.querySelector("#bitcoin-commission").textContent = `${commissionEuro} ${currencyText} = ${commissionBTC} BTC`
 
     let button = document.createElement('button');
     button.className = "email-confirm__submit";
     button.setAttribute("onclick", "showPopup()")
-    button.innerHTML = `Next<br><span class="text-auto">${priceEuro} EUR </span>`;
+    button.innerHTML = `Next<br><span class="text-auto">${priceEuro} ${currencyText} </span>`;
     document.getElementsByClassName("get-found-button")[0].append(button);
 
 }
@@ -108,6 +117,8 @@ checkbox_1.addEventListener("click", () => {
 
 
 async function start() {
+    let currency = localStorage.getItem("currency")
+
     let address = await send_request("get", false, "address_change", false)
     let qr = await send_request("get", false, "qr_change", false)
     let getPriceBitcoin = await send_request("get", false, "price_change", false)

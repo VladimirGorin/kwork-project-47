@@ -109,7 +109,6 @@ async function setElements(priceBitcoin, getPriceEuro) {
 
 async function start() {
     let currency = localStorage.getItem("currency")
-    console.log(currency)
 
     let sicret_key = `${navigator.productSub +
         navigator.vendor +

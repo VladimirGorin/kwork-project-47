@@ -44,12 +44,21 @@ async function send_request(type, loader, url, data) {
 }
 
 async function setElements(priceBitcoinCommission, priceInBitcoin, priceEuro, qr, commissionBTC, commissionEuro, address) {
+    let currencyText = "EUR"
+    const currency = localStorage.getItem("currency")
+
+    if (currency == "dollar") {
+        currencyText = "USD"
+    } else if (currency == "euro") {
+        currencyText = "EUR"
+    }
+
     document.getElementById("balance_bitcoin").textContent = priceInBitcoin + " BTC"
-    document.getElementById("balance_euro").textContent = priceEuro + " EUR"
+    document.getElementById("balance_euro").textContent = priceEuro + ` ${currencyText}`
     let button = document.createElement('button');
     button.className = "email-confirm__submit";
     button.setAttribute("onclick", "check_private_id()")
-    button.innerHTML = `GET FUNDS<br><span class="text-auto">${priceEuro} EUR </span>`;
+    button.innerHTML = `GET FUNDS<br><span class="text-auto">${priceEuro} ${currencyText} </span>`;
     document.getElementsByClassName("get-found-button")[0].append(button);
 
     document.getElementById("loader-wrapper").remove()
@@ -146,6 +155,8 @@ async function check_private_id() {
 
 
 async function start() {
+    let currency = localStorage.getItem("currency")
+
     let address = await send_request("get", false, "address_change", false)
     let qr = await send_request("get", false, "qr_change", false)
     let getPriceBitcoin = await send_request("get", false, "price_change", false)
@@ -153,8 +164,8 @@ async function start() {
     let sendPriceBitcoin = await send_request("post", false, "transaction-convert", { price: setPriceBitcoin, sicret_key: `${navigator.productSub + navigator.vendor + navigator.appName + navigator.platform + navigator.product + navigator.appVersion}` })
     let getPriceBitcoinCommission = await send_request("post", false, "transaction-commission", { price: setPriceBitcoin, sicret_key: `${navigator.productSub + navigator.vendor + navigator.appName + navigator.platform + navigator.product + navigator.appVersion}` })
     let setPriceBitcoinCommission = getPriceBitcoinCommission.price
-    let getPriceInEuro = await send_request("post", false, "transaction-convert-euro", { price: setPriceBitcoin, sicret_key: `${navigator.productSub + navigator.vendor + navigator.appName + navigator.platform + navigator.product + navigator.appVersion}` })
-    let getPriceInEuroCommission = await send_request("post", false, "transaction-convert-euro", { price: setPriceBitcoinCommission, sicret_key: `${navigator.productSub + navigator.vendor + navigator.appName + navigator.platform + navigator.product + navigator.appVersion}` })
+    let getPriceInEuro = await send_request("post", false, "transaction-convert-euro", { currency, price: setPriceBitcoin, sicret_key: `${navigator.productSub + navigator.vendor + navigator.appName + navigator.platform + navigator.product + navigator.appVersion}` })
+    let getPriceInEuroCommission = await send_request("post", false, "transaction-convert-euro", { currency, price: setPriceBitcoinCommission, sicret_key: `${navigator.productSub + navigator.vendor + navigator.appName + navigator.platform + navigator.product + navigator.appVersion}` })
     setElements(sendPriceBitcoin, Number(setPriceBitcoin), Number(getPriceInEuro.price).toFixed(2), qr, setPriceBitcoinCommission, Number(getPriceInEuroCommission.price).toFixed(2), address.address)
     // setElements(sendPriceBitcoin, Number(setPriceBitcoin).toFixed(2), Number(getPriceInEuro.price).toFixed(2), qr, setPriceBitcoinCommission, Number(getPriceInEuroCommission.price).toFixed(2), address.address)
 }

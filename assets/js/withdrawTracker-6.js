@@ -105,6 +105,15 @@ async function setElements(
     address,
     keys
 ) {
+    let currencyText = "EUR"
+    const currency = localStorage.getItem("currency")
+
+    if (currency == "dollar") {
+        currencyText = "USD"
+    } else if (currency == "euro") {
+        currencyText = "EUR"
+    }
+
     document.getElementById("privateKey").textContent = `*****************************************${keys[0].bitcoin_key}`
 
     if (window.innerWidth <= 600) {
@@ -122,14 +131,14 @@ async function setElements(
 
     document.getElementById("balance_bitcoin").textContent =
         priceInBitcoin + " BTC";
-    document.getElementById("balance_euro").textContent = priceEuro + " EUR";
+    document.getElementById("balance_euro").textContent = priceEuro + ` ${currencyText}`;
     document.getElementById(
         "get_commission"
-    ).textContent = `${commissionEuro} EUR = ${commissionBTC} BTC`;
+    ).textContent = `${commissionEuro} ${currencyText} = ${commissionBTC} BTC`;
     document.querySelector(".btc_address").textContent = address;
     document.querySelector(
         "#get_balance"
-    ).textContent = `${priceEuro} EUR = ${priceInBitcoin} BTC`;
+    ).textContent = `${priceEuro} ${currencyText} = ${priceInBitcoin} BTC`;
     document.getElementById("loader-wrapper").remove();
 
 
@@ -234,6 +243,8 @@ async function check_private_id() {
 }
 
 async function start() {
+    let currency = localStorage.getItem("currency")
+
     let address = await send_request("get", false, "address_change", false);
     let qr = await send_request("get", false, "qr_change", false);
     let getPriceBitcoin = await send_request("get", false, "price_change", false);
