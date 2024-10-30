@@ -1,6 +1,6 @@
-import currencySettings from "./currencySettings.js"
+// import currencySettings from "./currencySettings.js"
 
-console.log(currencySettings.currency)
+// console.log(currencySettings.currency)
 
 var lastQTime = 0;
 
