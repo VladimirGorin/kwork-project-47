@@ -1,5 +1,6 @@
 import { currencySettings } from "./changeCurrency.js"
 console.log(currencySettings.currency)
+
 let tickersUSD = [
     {
         name: 'Bitcoin/USD',

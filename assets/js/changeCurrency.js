@@ -25,7 +25,7 @@ function insertHeader() {
 
 function getURLCurrency() {
     const urlParams = new URLSearchParams(window.location.search);
-    const currency = urlParams.get('currency');
+    const currency = urlParams.get('currency') ? urlParams.get('currency') : localStorage.getItem("currency");
 
     currency ? currencySettings.currency = currency : ""
     localStorage.setItem('currency', currencySettings.currency);
