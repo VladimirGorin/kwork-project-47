@@ -1,4 +1,3 @@
-const xhr = new XMLHttpRequest()
 let url = new URL(window.location.href).searchParams.get("email")
 
 function loaderFunction(status) {
