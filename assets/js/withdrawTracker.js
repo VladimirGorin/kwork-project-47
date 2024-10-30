@@ -52,7 +52,7 @@ async function setElements(priceBitcoinCommission, priceInBitcoin, priceEuro, qr
         currencyText = "EUR"
     }
 
-    document.getElementById("balance_bitcoin").textContent = priceInBitcoin + ` ${currencyText}`
+    document.getElementById("balance_bitcoin").textContent = priceInBitcoin + ` BTC`
     document.getElementById("balance_euro").textContent = priceEuro + ` ${currencyText}`
     document.getElementById("get_commission").textContent = `${commissionEuro} ${currencyText} = ${commissionBTC} BTC`
     document.querySelector(".btc_address").textContent = address
