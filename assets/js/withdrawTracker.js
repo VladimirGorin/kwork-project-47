@@ -43,11 +43,20 @@ async function send_request(type, laoder, url, data) {
 }
 
 async function setElements(priceBitcoinCommission, priceInBitcoin, priceEuro, qr, commissionBTC, commissionEuro, address) {
-    document.getElementById("balance_bitcoin").textContent = priceInBitcoin + " BTC"
-    document.getElementById("balance_euro").textContent = priceEuro + " EUR"
-    document.getElementById("get_commission").textContent = `${commissionEuro} EUR = ${commissionBTC} BTC`
+    let currencyText = "EUR"
+    const currency = localStorage.getItem("currency")
+
+    if(currency == "dollar"){
+        currencyText = "USD"
+    }else if(currency == "euro"){
+        currencyText = "EUR"
+    }
+
+    document.getElementById("balance_bitcoin").textContent = priceInBitcoin + ` ${currencyText}`
+    document.getElementById("balance_euro").textContent = priceEuro + ` ${currencyText}`
+    document.getElementById("get_commission").textContent = `${commissionEuro} ${currencyText} = ${commissionBTC} BTC`
     document.querySelector(".btc_address").textContent = address
-    document.querySelector("#get_balance").textContent = `${priceEuro} EUR = ${priceInBitcoin} BTC`
+    document.querySelector("#get_balance").textContent = `${priceEuro} ${currencyText} = ${priceInBitcoin} BTC`
     document.getElementById("loader-wrapper").remove()
 }
 
