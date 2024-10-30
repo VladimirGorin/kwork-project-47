@@ -1,5 +1,4 @@
-import { currencySettings } from "./changeCurrency"
-
+const currency = localStorage.getItem("currency")
 
 let tickersUSD = [
     {
@@ -538,10 +537,10 @@ if (document.getElementsByClassName("prices__body").length == 1) {
 
     let prices = []
 
-    if (currencySettings.currency == "dollar") {
+    if (currency == "dollar") {
         prices = pricesUSD
     } else if (
-        currencySettings.currency == "euro"
+        currency == "euro"
     ) {
         prices = pricesEUR
     }
@@ -573,10 +572,10 @@ if (document.getElementsByClassName("prices__body").length == 1) {
 if (document.getElementsByClassName("blocks__body").length == 1) {
     let buyTrade = []
 
-    if (currencySettings.currency == "dollar") {
+    if (currency == "dollar") {
         buyTrade = buyTradeUSD
     } else if (
-        currencySettings.currency == "euro"
+        currency == "euro"
     ) {
         buyTrade = buyTradeEUR
     }
@@ -620,10 +619,10 @@ if (document.getElementsByClassName("blocks__body").length == 1) {
 function setElementHeaderPrices() {
     let tickers = []
 
-    if (currencySettings.currency == "dollar") {
+    if (currency == "dollar") {
         tickers = tickersUSD
     } else if (
-        currencySettings.currency == "euro"
+        currency == "euro"
     ) {
         tickers = tickersEUR
     }
