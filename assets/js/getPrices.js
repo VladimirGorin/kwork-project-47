@@ -562,7 +562,7 @@ if (document.getElementsByClassName("prices__body").length == 1) {
 
                 let div = document.createElement('div');
                 div.className = "prices__body-row";
-                div.innerHTML = `<a href=""><div class="body-row-name"><div class="body-row-name__img"><img src="${coinData['img']}" alt="bitcoin"></div><div class="body-row-name__text"><p>${coinName[0]}<span>${coinName[1]}</span></p></div></div></a><a href=""><div class="body-row-value"><p>$${price}<span class="${dropPercentage > 0 ? 'green' : 'red'}">${dropPercentage}%</span></p></div></a>`;
+                div.innerHTML = `<a href=""><div class="body-row-name"><div class="body-row-name__img"><img src="${coinData['img']}" alt="bitcoin"></div><div class="body-row-name__text"><p>${coinName[0]}<span>${coinName[1]}</span></p></div></div></a><a href=""><div class="body-row-value"><p>${currencySettings.currencyEMOJI}${price}<span class="${dropPercentage > 0 ? 'green' : 'red'}">${dropPercentage}%</span></p></div></a>`;
                 document.getElementsByClassName("prices__body")[0].append(div);
             }
 
@@ -607,7 +607,7 @@ if (document.getElementsByClassName("blocks__body").length == 1) {
 						</div>
 						<div class="blocks__body-item-bot">
 							<p>${coinName[0]}<span class="short">${coinName[1]}</span></p>
-							<p>$${price}<span class="${dropPercentage > 0 ? 'green2' : 'red2'}">${dropPercentage}%</span></p>
+							<p>${currencySettings.currencyEMOJI}${price}<span class="${dropPercentage > 0 ? 'green2' : 'red2'}">${dropPercentage}%</span></p>
 						</div>
 					</div>`;
                 document.getElementsByClassName("blocks__body")[0].append(a);
@@ -645,7 +645,7 @@ function setElementHeaderPrices() {
                     if (status != 500) {
                         let a = document.createElement('a');
                         a.className = "row__item-link";
-                        a.innerHTML = `<div class="row__item-unit"><p class="row__item-unit-text">${name}</p><p class="row__item-unit-value">$${price}<span class="${dropPercentage > 0 ? 'green' : 'red'}"><img src="img/arrow.svg" alt="">${dropPercentage}%</span></p></div>`;
+                        a.innerHTML = `<div class="row__item-unit"><p class="row__item-unit-text">${name}</p><p class="row__item-unit-value">${currencySettings.currencyEMOJI}${price}<span class="${dropPercentage > 0 ? 'green' : 'red'}"><img src="img/arrow.svg" alt="">${dropPercentage}%</span></p></div>`;
                         document.getElementsByClassName("row__item")[0].append(a);
                     }
                 }

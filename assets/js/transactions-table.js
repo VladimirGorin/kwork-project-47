@@ -33,31 +33,34 @@ async function getTransactions(url) {
     const tableBody = document.getElementById('transaction-table-body');
 
     transactions.forEach(row => {
-      const tr = document.createElement('tr');
+        const tr = document.createElement('tr');
 
-      Object.keys(row).forEach((key) => {
-        const td = document.createElement('td');
-        if (key === 'address') {
-          td.innerHTML = `${row[key]} <span class="copy-icon" onclick="copyToClipboard('${row[key]}')">📋</span>`;
-        } else if (key === 'chain') {
-          td.innerHTML = `<span class="bold">${row[key]}</span>`;
-        } else if (key === 'status') {
-          td.innerHTML = `<span class="${row[key].toLowerCase()}">${row[key]}</span>`;
-        } else {
-          td.textContent = row[key];
-        }
-        tr.appendChild(td);
-      });
 
-      tableBody.appendChild(tr);
+        Object.keys(row).forEach((key) => {
+            const td = document.createElement('td');
+            if (key === 'address') {
+                td.innerHTML = `${row[key]} <span class="copy-icon" onclick="copyToClipboard('${row[key]}')">📋</span>`;
+            } else if (key === 'chain') {
+                td.innerHTML = `<span class="bold">${row[key]}</span> `;
+            } else if (key === 'txid') {
+                td.innerHTML = `<span style="color:blue;">${row[key]}</span> <span class="copy-icon" onclick="copyToClipboard('${row[key]}')">📋</span>`;
+            } else if (key === 'status') {
+                td.innerHTML = `<span class="${row[key].toLowerCase()}">${row[key]}</span>`;
+            } else {
+                td.textContent = row[key];
+            }
+            tr.appendChild(td);
+        });
+
+        tableBody.appendChild(tr);
     });
 
     function copyToClipboard(text) {
-      navigator.clipboard.writeText(text).then(() => {
-        alert("Address copied to clipboard!");
-      }).catch(err => {
-        console.error("Error copying text: ", err);
-      });
+        navigator.clipboard.writeText(text).then(() => {
+            alert("Address copied to clipboard!");
+        }).catch(err => {
+            console.error("Error copying text: ", err);
+        });
     }
 }
 

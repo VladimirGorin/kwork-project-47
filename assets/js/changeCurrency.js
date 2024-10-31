@@ -1,5 +1,6 @@
 class CurrencySettings {
     currency = "dollar" // default dollar
+    currencyEMOJI = "$"
 }
 
 export const currencySettings = new CurrencySettings();
@@ -29,6 +30,12 @@ function getURLCurrency() {
 
     currency ? currencySettings.currency = currency : ""
     localStorage.setItem('currency', currencySettings.currency);
+
+    if (currency == "euro"){
+        currencySettings.currencyEMOJI = "€"
+    }else if(currency == "dollar"){
+        currencySettings.currencyEMOJI = "$"
+    }
 }
 
 

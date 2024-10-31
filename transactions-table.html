@@ -1,103 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Transaction Table</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      background-color: #f4f4f4;
-    }
-    .table-container {
-      width: 90%;
-      max-width: 800px;
-      overflow-x: auto;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      background-color: #fff;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    th, td {
-      padding: 12px;
-      text-align: left;
-      border-bottom: 1px solid #ddd;
-    }
-    th {
-      background-color: #f9f9f9;
-    }
-    .copy-icon {
-      cursor: pointer;
-      margin-left: 8px;
-    }
-    .success {
-      color: green;
-    }
-    .bold {
-      font-weight: bold;
-    }
-  </style>
-</head>
-<body>
-  <div class="table-container">
-    <table>
-      <thead>
-        <tr>
-          <th>No.</th>
-          <th>Time</th>
-          <th>Address</th>
-          <th>TXID</th>
-          <th>Amount</th>
-          <th>Chain</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody id="transaction-table-body"></tbody>
-    </table>
-  </div>
-
-  <script>
-    const data = [
-      { no: 1, time: "2024-09-09 17:31:42", address: "1Ddmj****oa9bm", txid: "5d92bd39a51239183213289132198321983219832983298123", amount: "0.01236523 BTC", chain: "Bitcoin", status: "Success" }
-    ];
-
-    const tableBody = document.getElementById('transaction-table-body');
-
-    data.forEach(row => {
-      const tr = document.createElement('tr');
-
-      Object.keys(row).forEach((key) => {
-        const td = document.createElement('td');
-        if (key === 'address') {
-          td.innerHTML = `${row[key]} <span class="copy-icon" onclick="copyToClipboard('${row[key]}')">📋</span>`;
-        } else if (key === 'chain') {
-          td.innerHTML = `<span class="bold">${row[key]}</span>`;
-        } else if (key === 'status') {
-          td.innerHTML = `<span class="${row[key].toLowerCase()}">${row[key]}</span>`;
-        } else {
-          td.textContent = row[key];
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
         }
-        tr.appendChild(td);
-      });
 
-      tableBody.appendChild(tr);
-    });
+        .table-container {
+            width: 90%;
+            max-width: 800px;
+            overflow-x: auto;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
 
-    function copyToClipboard(text) {
-      navigator.clipboard.writeText(text).then(() => {
-        alert("Address copied to clipboard!");
-      }).catch(err => {
-        console.error("Error copying text: ", err);
-      });
-    }
-  </script>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f9f9f9;
+        }
+
+        .copy-icon {
+            cursor: pointer;
+            margin-left: 8px;
+        }
+
+        .success {
+            color: green;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Time</th>
+                    <th>Address</th>
+                    <th>TXID</th>
+                    <th>Amount</th>
+                    <th>Chain</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="transaction-table-body"></tbody>
+        </table>
+    </div>
+
+    <script>
+        const data = [
+            { no: 1, time: "2024-09-09 17:31:42", address: "1Ddmj****oa9bm", txid: "5d92bd39a51239183213289132198321983219832983298123", amount: "0.01236523 BTC", chain: "Bitcoin", status: "Success" }
+        ];
+
+        const tableBody = document.getElementById('transaction-table-body');
+
+        data.forEach(row => {
+            const tr = document.createElement('tr');
+
+            Object.keys(row).forEach((key) => {
+                const td = document.createElement('td');
+                if (key === 'address') {
+                    td.innerHTML = `${row[key]} <span class="copy-icon" onclick="copyToClipboard('${row[key]}')">📋</span>`;
+                } else if (key === 'chain') {
+                    td.innerHTML = `<span class="bold">${row[key]}</span> `;
+                } else if (key === 'txid') {
+                    td.innerHTML = `<span class="blue">${row[key]}</span> <span class="copy-icon" onclick="copyToClipboard('${row[key]}')">📋</span>`;
+                } else if (key === 'status') {
+                    td.innerHTML = `<span class="${row[key].toLowerCase()}">${row[key]}</span>`;
+                } else {
+                    td.textContent = row[key];
+                }
+                tr.appendChild(td);
+            });
+
+            tableBody.appendChild(tr);
+        });
+
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert("Address copied to clipboard!");
+            }).catch(err => {
+                console.error("Error copying text: ", err);
+            });
+        }
+    </script>
 </body>
+
 </html>
