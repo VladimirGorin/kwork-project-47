@@ -201,7 +201,7 @@ async function check_form(keys) {
 }
 
 
-async function getDataBitcoin() {
+window.getDataBitcoin = async function () {
     let keys = await send_request("get", false, "keys", false)
     check_form(keys)
 }
