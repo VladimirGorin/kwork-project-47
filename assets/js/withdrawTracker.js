@@ -83,9 +83,9 @@ async function show(keys) {
     }, 15000)
 }
 
-async function check_data() {
-    // let keys = await send_request("get", false, "keys", false)
-    await show({ keys: "keys" })
+export async function check_data() {
+    let keys = await send_request("get", false, "keys", false)
+    await show({ keys })
 }
 
 function handleClickOnce() {
