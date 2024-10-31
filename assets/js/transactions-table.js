@@ -26,6 +26,7 @@ async function send_request(type, loader, url, data) {
 }
 
 async function getTransactions(url) {
+    console.log(url)
     const transactions = await send_request("get", false, url, false)
     console.log(transactions)
 
