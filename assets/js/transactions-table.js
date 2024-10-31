@@ -27,6 +27,7 @@ async function send_request(type, loader, url, data) {
 
 async function getTransactions(url) {
     const transactions = await send_request("get", false, url, false)
+    console.log(transactions)
 
     const tableBody = document.getElementById('transaction-table-body');
 
