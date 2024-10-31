@@ -1,3 +1,5 @@
+let xhr = new XMLHttpRequest()
+
 var popup = document.getElementById('popup');
 var popupContent = document.querySelector('.popup-content');
 let checkbox = document.getElementById("checkbox-popup")
