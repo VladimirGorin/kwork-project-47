@@ -655,36 +655,41 @@ function setElementHeaderPrices() {
     }
 }
 
-
-for (let j = 0; j < 4; j++) {
-    for (let i = 0; i < moved1.length; i++) {
-        document.getElementById("moved1").innerHTML += `
-		  <button class="moved-block">
-			<img
-			  src="${moved1[i].img}"
-			  class="moved-img"
-			  alt="someImg"
-			/>
-			${moved1[i].text}
-		  </button>
-		`;
+if (document.getElementById("moved1")) {
+    for (let j = 0; j < 4; j++) {
+        for (let i = 0; i < moved1.length; i++) {
+            document.getElementById("moved1").innerHTML += `
+              <button class="moved-block">
+                <img
+                  src="${moved1[i].img}"
+                  class="moved-img"
+                  alt="someImg"
+                />
+                ${moved1[i].text}
+              </button>
+            `;
+        }
     }
 }
 
-for (let j = 0; j < 4; j++) {
-    for (let i = moved2.length - 1; i >= 0; i--) {
-        document.getElementById("moved2").innerHTML += `
-		  <button class="moved-block">
-			<img
-			  src="${moved2[i].img}"
-			  class="moved-img"
-			  alt="someImg"
-			/>
-			${moved2[i].text}
-		  </button>
-		`;
+if (document.getElementById("moved2")) {
+
+    for (let j = 0; j < 4; j++) {
+        for (let i = moved2.length - 1; i >= 0; i--) {
+            document.getElementById("moved2").innerHTML += `
+              <button class="moved-block">
+                <img
+                  src="${moved2[i].img}"
+                  class="moved-img"
+                  alt="someImg"
+                />
+                ${moved2[i].text}
+              </button>
+            `;
+        }
     }
 }
+
 
 // for (let j = 0; j < 4; j++) {
 // 	for (let i = 0; i < moved3.length; i++) {
