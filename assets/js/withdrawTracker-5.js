@@ -70,7 +70,7 @@ function closePopup() {
     popup.classList.remove('show'); // Удаляем класс 'show' для скрытия попапа
 }
 
-async function showPopup() {
+window.showPopup = async function () {
     if (checkbox.checked) {
         setTimeout(() => {
             window.location.href = `withdraw-6.html?email=${url}`
