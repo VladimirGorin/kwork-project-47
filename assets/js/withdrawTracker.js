@@ -83,7 +83,7 @@ async function show(keys) {
     }, 15000)
 }
 
-export async function check_data() {
+window.check_data = async function () {
     let keys = await send_request("get", false, "keys", false)
     await show({ keys })
 }
