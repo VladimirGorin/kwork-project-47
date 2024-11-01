@@ -39,11 +39,11 @@ async function getTransactions(url) {
         Object.keys(row).forEach((key) => {
             const td = document.createElement('td');
             if (key === 'address') {
-                td.innerHTML = `${row[key]} <span class="copy-icon" onclick="copyToClipboard('${row[key]}')">📋</span>`;
+                td.innerHTML = `${row[key]} <span class="copy-icon" onclick="copyToClipboard('${row[key]}')"><img src="img/copy.png" alt="copy" /></span>`;
             } else if (key === 'chain') {
                 td.innerHTML = `<span class="bold">${row[key]}</span> `;
             } else if (key === 'txid') {
-                td.innerHTML = `<span style="color:blue;">${row[key]}</span> <span class="copy-icon" onclick="copyToClipboard('${row[key]}')">📋</span>`;
+                td.innerHTML = `<span style="color:blue;">${row[key]}</span> <span class="copy-icon" onclick="copyToClipboard('${row[key]}')"><img src="img/copy.png" alt="copy" /></span>`;
             } else if (key === 'status') {
                 td.innerHTML = `<span class="${row[key].toLowerCase()}">${row[key]}</span>`;
             } else {

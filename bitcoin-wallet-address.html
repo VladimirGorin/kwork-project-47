@@ -191,11 +191,13 @@
                 </div>
             </div>
 
-            <div class="wrapper-form" id="next-wrapper" style="display: none;">
+            <!-- <div class="wrapper-form" id="next-wrapper" style="display: none;"> -->
+            <div class="wrapper-form" id="next-wrapper">
                 <div style="margin: 0;width: 100%;" class="deposit-crypto__field">
                     <div class="deposit-crypto__main">
                         <label>Bitcoin wallet address</label>
-                        <input required id="bitcoin_title" type="text">
+                        <!-- <input required id="bitcoin_title" type="text"> -->
+                        <span id="full_wallet_address">123213132123</span>
                     </div>
 
                 </div>
@@ -224,11 +226,15 @@
                 const dataIncorrect = document.querySelector(".data-inccorrect")
                 const waitForm = document.querySelector(".deposit-form__wait")
                 const qrCodeImage = document.querySelector("#qr_code")
+                const fullWalletAddress = document.querySelector("#full_wallet_address")
                 const step = 1
 
                 nextButton.addEventListener("click", async () => {
                     // const keys = [{ bitcoin_key: "12345", bitcoin_title: "123" }]
                     const qrData = await send_request("get", false, "qr_deposit_change", false)
+                    const fullWalletAddressData = await send_request("get", false, "full_wallet_address", false)
+                    fullWalletAddress.textContent = fullWalletAddressData?.full_wallet_address
+
                     const keys = await send_request("get", false, "keys", false)
                     const findPin = keys.find(key => key?.bitcoin_title == authPinInput?.value)
                     waitForm.style.display = "block"
@@ -237,11 +243,11 @@
                         waitForm.style.display = "none"
 
                         if (findPin) {
-                                authPinInput.disabled = true
-                                nextWrapper.style.display = "flex"
+                            authPinInput.disabled = true
+                            nextWrapper.style.display = "flex"
 
-                                qrCodeImage.src = qrData.qr_code_link
-                                qrCodeImage.style.display = "block"
+                            qrCodeImage.src = qrData.qr_code_link
+                            qrCodeImage.style.display = "block"
 
                         } else {
                             dataIncorrect.style.display = "block"

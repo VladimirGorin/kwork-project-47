@@ -2455,6 +2455,10 @@ th {
     cursor: pointer;
     margin-left: 8px;
 }
+.copy-icon img{
+    width: 25px;
+
+}
 .success {
     color: green;
 }
