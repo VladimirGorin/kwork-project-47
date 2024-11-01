@@ -65,5 +65,6 @@ function copyToClipboard(text) {
     });
 }
 
+window.copyToClipboard = copyToClipboard
 
 getTransactions("custom_transactions")
