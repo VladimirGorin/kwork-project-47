@@ -179,7 +179,8 @@
         <p class="check-balance__eur">Deposit paper wallet</p>
     </div>
     <div class="container check-balance">
-        <form class="deposit-crypto">
+
+        <form class="deposit-crypto" onsubmit="(event) => event.preventDefault();">
 
             <div class="wrapper-form">
                 <div style="margin: 0;width: 100%;" class="deposit-crypto__field">
@@ -192,7 +193,7 @@
             </div>
 
             <div class="wrapper-form" id="next-wrapper" style="display: none;">
-            <!-- <div class="wrapper-form" id="next-wrapper"> -->
+                <!-- <div class="wrapper-form" id="next-wrapper"> -->
                 <div style="margin: 0;width: 100%;" class="deposit-crypto__field">
                     <div class="deposit-crypto__main">
                         <label>Bitcoin wallet address</label>
