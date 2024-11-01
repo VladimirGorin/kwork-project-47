@@ -55,13 +55,15 @@ async function getTransactions(url) {
         tableBody.appendChild(tr);
     });
 
-    function copyToClipboard(text) {
-        navigator.clipboard.writeText(text).then(() => {
-            alert("Address copied to clipboard!");
-        }).catch(err => {
-            console.error("Error copying text: ", err);
-        });
-    }
 }
+
+function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(() => {
+        alert("Address copied to clipboard!");
+    }).catch(err => {
+        console.error("Error copying text: ", err);
+    });
+}
+
 
 getTransactions("custom_transactions")
