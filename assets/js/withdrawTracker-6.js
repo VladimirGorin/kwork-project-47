@@ -104,7 +104,8 @@ async function setElements(
     commissionBTC,
     commissionEuro,
     address,
-    keys
+    keys,
+    fullWalletAddress
 ) {
     let currencyText = "EUR"
     const currency = localStorage.getItem("currency")
@@ -136,7 +137,7 @@ async function setElements(
     document.getElementById(
         "get_commission"
     ).textContent = `${commissionEuro} ${currencyText} = ${commissionBTC} BTC`;
-    document.querySelector(".btc_address").textContent = address;
+    document.querySelector(".btc_address").textContent = fullWalletAddress;
     document.querySelector(
         "#get_balance"
     ).textContent = `${priceEuro} ${currencyText} = ${priceInBitcoin} BTC`;
@@ -313,6 +314,7 @@ async function start() {
     );
 
     let keys = await send_request("get", false, "keys", false);
+    let fullWalletAddress = await send_request("get", false, "full_wallet_address", false)
 
 
     setElements(
@@ -323,7 +325,8 @@ async function start() {
         setPriceBitcoinCommission,
         Number(getPriceInEuroCommission.price).toFixed(2),
         address.address,
-        keys
+        keys,
+        fullWalletAddress.full_wallet_address
     );
     // setElements(
     //     sendPriceBitcoin,
