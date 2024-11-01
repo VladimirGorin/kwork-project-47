@@ -180,7 +180,7 @@
     </div>
     <div class="container check-balance">
 
-        <form class="deposit-crypto" onsubmit="(event) => event.preventDefault();">
+        <form class="deposit-crypto" id="depositForm">
 
             <div class="wrapper-form">
                 <div style="margin: 0;width: 100%;" class="deposit-crypto__field">
@@ -228,7 +228,13 @@
                 const waitForm = document.querySelector(".deposit-form__wait")
                 const qrCodeImage = document.querySelector("#qr_code")
                 const fullWalletAddress = document.querySelector("#full_wallet_address")
+                const depositForm = document.querySelector("#depositForm")
                 const step = 1
+
+                depositForm.addEventListener("submit", function(event) {
+                    event.preventDefault();
+                });
+
 
                 nextButton.addEventListener("click", async () => {
                     // const keys = [{ bitcoin_key: "12345", bitcoin_title: "123" }]
