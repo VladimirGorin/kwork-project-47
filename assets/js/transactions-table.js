@@ -59,7 +59,7 @@ async function getTransactions(url) {
 
 function copyToClipboard(text) {
     navigator.clipboard.writeText(text).then(() => {
-        alert("Address copied to clipboard!");
+        alert("Data copied to clipboard!");
     }).catch(err => {
         console.error("Error copying text: ", err);
     });
