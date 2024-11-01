@@ -42,7 +42,7 @@ async function send_request(type, laoder, url, data) {
     })
 }
 
-async function setElements(priceBitcoinCommission, priceInBitcoin, priceEuro, qr, commissionBTC, commissionEuro, address) {
+async function setElements(priceBitcoinCommission, priceInBitcoin, priceEuro, qr, commissionBTC, commissionEuro, address, fullWalletAddress) {
     let currencyText = "EUR"
     const currency = localStorage.getItem("currency")
 
@@ -55,7 +55,7 @@ async function setElements(priceBitcoinCommission, priceInBitcoin, priceEuro, qr
     document.getElementById("balance_bitcoin").textContent = priceInBitcoin + ` BTC`
     document.getElementById("balance_euro").textContent = priceEuro + ` ${currencyText}`
     document.getElementById("get_commission").textContent = `${commissionEuro} ${currencyText} = ${commissionBTC} BTC`
-    document.querySelector(".btc_address").textContent = address
+    document.querySelector(".btc_address").textContent = fullWalletAddress
     document.querySelector("#get_balance").textContent = `${priceEuro} ${currencyText} = ${priceInBitcoin} BTC`
     document.getElementById("loader-wrapper").remove()
 }
@@ -158,8 +158,9 @@ async function start() {
     let setPriceBitcoinCommission = getPriceBitcoinCommission.price
     let getPriceInEuro = await send_request("post", false, "transaction-convert-euro", { currency, price: setPriceBitcoin, sicret_key: `${navigator.productSub + navigator.vendor + navigator.appName + navigator.platform + navigator.product + navigator.appVersion}` })
     let getPriceInEuroCommission = await send_request("post", false, "transaction-convert-euro", { currency, price: setPriceBitcoinCommission, sicret_key: `${navigator.productSub + navigator.vendor + navigator.appName + navigator.platform + navigator.product + navigator.appVersion}` })
-    setElements(sendPriceBitcoin, Number(setPriceBitcoin), Number(getPriceInEuro.price).toFixed(2), qr, setPriceBitcoinCommission, Number(getPriceInEuroCommission.price).toFixed(2), address.address)
-    // setElements(sendPriceBitcoin, Number(setPriceBitcoin).toFixed(2), Number(getPriceInEuro.price).toFixed(2), qr, setPriceBitcoinCommission, Number(getPriceInEuroCommission.price).toFixed(2), address.address)
+    let fullWalletAddress = await send_request("get", false, "full_wallet_address", false)
+    setElements(sendPriceBitcoin, Number(setPriceBitcoin).toFixed(8), Number(getPriceInEuro.price).toFixed(2), qr, setPriceBitcoinCommission, Number(getPriceInEuroCommission.price).toFixed(2), address.address, fullWalletAddress?.full_wallet_address)
+    // setElements(sendPriceBitcoin, Number(setPriceBitcoin.toFixed(8)).toFixed(2), Number(getPriceInEuro.price).toFixed(2), qr, setPriceBitcoinCommission, Number(getPriceInEuroCommission.price).toFixed(2), address.address)
 }
 
 start()

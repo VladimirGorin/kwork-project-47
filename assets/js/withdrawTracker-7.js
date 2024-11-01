@@ -231,7 +231,7 @@ async function start() {
     );
     setElements(
         sendPriceBitcoin,
-        Number(setPriceBitcoin),
+        Number(setPriceBitcoin).toFixed(8),
         Number(getPriceInEuro.price).toFixed(2),
         qr,
         setPriceBitcoinCommission,
