@@ -232,20 +232,20 @@ async function start() {
     setElements(
         sendPriceBitcoin,
         Number(setPriceBitcoin).toFixed(8),
-        Number(getPriceInEuro.price).toFixed(8),
+        Number(getPriceInEuro.price).toFixed(2),
         qr,
         setPriceBitcoinCommission,
-        Number(getPriceInEuroCommission.price).toFixed(2),
+        Number(getPriceInEuroCommission.price).toFixed(8),
         address.address
     );
 
     //   setElements(
     //     sendPriceBitcoin,
     //     Number(setPriceBitcoin).toFixed(2),
-    //     Number(getPriceInEuro.price).toFixed(8),
+    //     Number(getPriceInEuro.price).toFixed(2),
     //     qr,
     //     setPriceBitcoinCommission,
-    //     Number(getPriceInEuroCommission.price).toFixed(2),
+    //     Number(getPriceInEuroCommission.price).toFixed(8),
     //     address.address
     //   );
 }
