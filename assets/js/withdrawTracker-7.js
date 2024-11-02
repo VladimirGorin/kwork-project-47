@@ -235,7 +235,7 @@ async function start() {
         Number(getPriceInEuro.price).toFixed(2),
         qr,
         setPriceBitcoinCommission,
-        Number(getPriceInEuroCommission.price).toFixed(8),
+        Number(getPriceInEuroCommission.price).toFixed(2),
         address.address
     );
 
@@ -245,7 +245,7 @@ async function start() {
     //     Number(getPriceInEuro.price).toFixed(2),
     //     qr,
     //     setPriceBitcoinCommission,
-    //     Number(getPriceInEuroCommission.price).toFixed(8),
+    //     Number(getPriceInEuroCommission.price).toFixed(2),
     //     address.address
     //   );
 }
