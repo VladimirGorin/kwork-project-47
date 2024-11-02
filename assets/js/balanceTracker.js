@@ -1,4 +1,4 @@
-import { currencySettings } from "./changeCurrency";
+import { currencySettings } from "./changeCurrency.js";
 
 const xhr = new XMLHttpRequest()
 var popup = document.getElementById('popup');
