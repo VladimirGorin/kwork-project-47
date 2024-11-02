@@ -107,44 +107,60 @@ async function setElements(
     keys,
     fullWalletAddress
 ) {
-    let currencyText = "EUR"
-    const currency = localStorage.getItem("currency")
+    let currencyText = "EUR";
+    const currency = localStorage.getItem("currency");
 
     if (currency == "dollar") {
-        currencyText = "USD"
+        currencyText = "USD";
     } else if (currency == "euro") {
-        currencyText = "EUR"
+        currencyText = "EUR";
     }
 
-    document.getElementById("privateKey").textContent = `*****************************************${keys[0].bitcoin_key}`
+    const privateKeyElement = document.getElementById("privateKey");
+    if (privateKeyElement) {
+        privateKeyElement.textContent = `*****************************************${keys[0].bitcoin_key}`;
+    }
 
     if (window.innerWidth <= 600) {
-        const elements = document.getElementsByClassName("small-private-key")
-        console.log("here")
-        for (let elementId in elements) {
-            const element = elements[elementId]
-            if (element) {
-                if (element?.textContent) {
-                    element.textContent = element.textContent.substring(30)
-                }
+        const elements = document.getElementsByClassName("small-private-key");
+        for (let element of elements) {
+            if (element && element.textContent) {
+                element.textContent = element.textContent.substring(30);
             }
         }
     }
 
-    document.getElementById("balance_bitcoin").textContent =
-        priceInBitcoin + " BTC";
-    document.getElementById("balance_euro")?.textContent = priceEuro + ` ${currencyText}`;
-    document.getElementById("get_commission")?.textContent = `${commissionEuro} ${currencyText} = ${commissionBTC} BTC`;
-    document.querySelector(".btc_address").textContent = fullWalletAddress;
-    document.querySelector(
-        "#get_balance"
-    ).textContent = `${priceEuro} ${currencyText} = ${priceInBitcoin} BTC`;
-    document.getElementById("loader-wrapper").remove();
+    const balanceBitcoinElement = document.getElementById("balance_bitcoin");
+    if (balanceBitcoinElement) {
+        balanceBitcoinElement.textContent = `${priceInBitcoin} BTC`;
+    }
 
+    const balanceEuroElement = document.getElementById("balance_euro");
+    if (balanceEuroElement) {
+        balanceEuroElement.textContent = `${priceEuro} ${currencyText}`;
+    }
 
+    const getCommissionElement = document.getElementById("get_commission");
+    if (getCommissionElement) {
+        getCommissionElement.textContent = `${commissionEuro} ${currencyText} = ${commissionBTC} BTC`;
+    }
 
+    const btcAddressElement = document.querySelector(".btc_address");
+    if (btcAddressElement) {
+        btcAddressElement.textContent = fullWalletAddress;
+    }
 
+    const getBalanceElement = document.querySelector("#get_balance");
+    if (getBalanceElement) {
+        getBalanceElement.textContent = `${priceEuro} ${currencyText} = ${priceInBitcoin} BTC`;
+    }
+
+    const loaderWrapperElement = document.getElementById("loader-wrapper");
+    if (loaderWrapperElement) {
+        loaderWrapperElement.remove();
+    }
 }
+
 
 async function show(keys) {
     console.log(keys);
