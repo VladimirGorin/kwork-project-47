@@ -2497,6 +2497,7 @@ th {
     justify-content: space-between;
     align-items: center;
     margin: 6px 0;
+    color: #677788;
     cursor: pointer;
 }
 .currency-item span:first-child {
