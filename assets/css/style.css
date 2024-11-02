@@ -2428,16 +2428,6 @@ label.email-confirm__descr {
 }
 
 
-.transactions-table-container {
-    width: 90%;
-    max-width: 800px;
-    overflow-x: auto;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-}
-
 table {
     width: 100%;
     border-collapse: collapse;
@@ -2479,6 +2469,17 @@ th {
 
 .bold {
     font-weight: bold;
+}
+
+.transactions-table-container {
+    margin: 30px auto;
+    width: 90%;
+    max-width: 800px;
+    overflow-x: auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
 }
 
 #currency-change {
