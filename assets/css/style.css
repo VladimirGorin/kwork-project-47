@@ -2455,6 +2455,7 @@ th {
 .copy-icon {
     cursor: pointer;
     margin-left: 4px;
+    margin-right: 14px;
 }
 
 .copy-icon img {
