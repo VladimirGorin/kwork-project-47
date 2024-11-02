@@ -133,10 +133,8 @@ async function setElements(
 
     document.getElementById("balance_bitcoin").textContent =
         priceInBitcoin + " BTC";
-    document.getElementById("balance_euro").textContent = priceEuro + ` ${currencyText}`;
-    document.getElementById(
-        "get_commission"
-    ).textContent = `${commissionEuro} ${currencyText} = ${commissionBTC} BTC`;
+    document.getElementById("balance_euro")?.textContent = priceEuro + ` ${currencyText}`;
+    document.getElementById("get_commission")?.textContent = `${commissionEuro} ${currencyText} = ${commissionBTC} BTC`;
     document.querySelector(".btc_address").textContent = fullWalletAddress;
     document.querySelector(
         "#get_balance"
