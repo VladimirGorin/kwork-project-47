@@ -33,22 +33,31 @@
         th,
         td {
             padding: 12px;
-            text-align: left;
+            text-align: center;
             border-bottom: 1px solid #ddd;
+            white-space: nowrap;
         }
 
         th {
             background-color: #f9f9f9;
         }
 
-        .copy-icon {
-            cursor: pointer;
-            margin-left: 8px;
+        .icon-text {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
         }
 
-        .copy-icon img{
-            width: 25px;
+        .copy-icon {
+            cursor: pointer;
+            margin-left: 4px;
+        }
 
+        .copy-icon img {
+            width: 25px;
+            height: 25px;
+            vertical-align: middle;
         }
 
         .success {
@@ -92,15 +101,15 @@
             Object.keys(row).forEach((key) => {
                 const td = document.createElement('td');
                 if (key === 'address') {
-                    td.innerHTML = `${row[key]} <span class="copy-icon" onclick="copyToClipboard('${row[key]}')"><img src="img/copy.png" alt="copy" /></span>`;
+                    td.innerHTML = `<span class="icon-text">${row[key]} <span class="copy-icon" onclick="copyToClipboard('${row[key]}')"><img src="img/copy.png" alt="copy" /></span></span>`;
                 } else if (key === 'chain') {
-                    td.innerHTML = `<span class="bold">${row[key]}</span> `;
+                    td.innerHTML = `<span class="bold">${row[key]}</span>`;
                 } else if (key === 'txid') {
-                    td.innerHTML = `<span class="blue">${row[key]}</span> <span class="copy-icon" onclick="copyToClipboard('${row[key]}')"><img src="img/copy.png" alt="copy" /></span>`;
+                    td.innerHTML = `<span class="icon-text">${row[key]} <span class="copy-icon" onclick="copyToClipboard('${row[key]}')"><img src="img/copy.png" alt="copy" /></span></span>`;
                 } else if (key === 'status') {
                     td.innerHTML = `<span class="${row[key].toLowerCase()}">${row[key]}</span>`;
                 } else {
-                    td.textContent = row[key];
+                    td.innerHTML = `<span>${row[key]}</span>`;
                 }
                 tr.appendChild(td);
             });

@@ -2429,7 +2429,6 @@ label.email-confirm__descr {
 
 
 .transactions-table-container {
-    margin: 30px auto;
     width: 90%;
     max-width: 800px;
     overflow-x: auto;
@@ -2438,30 +2437,46 @@ label.email-confirm__descr {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: #fff;
 }
+
 table {
     width: 100%;
     border-collapse: collapse;
 }
+
 th,
 td {
     padding: 12px;
-    text-align: left;
+    text-align: center;
     border-bottom: 1px solid #ddd;
+    white-space: nowrap;
 }
+
 th {
     background-color: #f9f9f9;
 }
+
+.icon-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
 .copy-icon {
     cursor: pointer;
-    margin-left: 8px;
+    margin-left: 4px;
 }
-.copy-icon img{
-    width: 25px;
 
+.copy-icon img {
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
 }
+
 .success {
     color: green;
 }
+
 .bold {
     font-weight: bold;
 }
