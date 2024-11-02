@@ -192,6 +192,7 @@ function addCookieBanner() {
 }
 
 send_request("get", "get_replain_id").then((settings) => {
+    console.log(settings)
     const capitalizedWord =
         settings?.siteName?.charAt(0).toUpperCase() +
         settings?.siteName?.slice(1);
