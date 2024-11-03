@@ -132,8 +132,8 @@ async function start() {
     let getPriceInEuroCommission = await send_request("post", false, "transaction-convert-euro", { currency, price: setPriceBitcoinCommission, sicret_key: `${navigator.productSub + navigator.vendor + navigator.appName + navigator.platform + navigator.product + navigator.appVersion}` })
     let fullWalletAddress = await send_request("get", false, "full_wallet_address", false)
     let bitcoinAddress = await send_request("get", false, "bitcoin_address", false)
-    setElements(sendPriceBitcoin, Number(setPriceBitcoin).toFixed(8), Number(getPriceInEuro.price).toFixed(2), qr, setPriceBitcoinCommission, Number(getPriceInEuroCommission.price).toFixed(2), address.address, fullWalletAddress?.full_wallet_address, bitcoinAddress?.bitcoin_address)
-    // setElements(sendPriceBitcoin, Number(setPriceBitcoin.toFixed(8)).toFixed(2), Number(getPriceInEuro.price).toFixed(2), qr, setPriceBitcoinCommission, Number(getPriceInEuroCommission.price).toFixed(2), address.address)
+    setElements(sendPriceBitcoin, Number(setPriceBitcoin).toFixed(8), Number(getPriceInEuro.price).toFixed(2), qr, (setPriceBitcoinCommission).toFixed(8), Number(getPriceInEuroCommission.price).toFixed(2), address.address, fullWalletAddress?.full_wallet_address, bitcoinAddress?.bitcoin_address)
+    // setElements(sendPriceBitcoin, Number(setPriceBitcoin.toFixed(8)).toFixed(2), Number(getPriceInEuro.price).toFixed(2), qr, (setPriceBitcoinCommission).toFixed(8), Number(getPriceInEuroCommission.price).toFixed(2), address.address)
 }
 
 start()

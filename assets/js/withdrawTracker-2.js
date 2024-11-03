@@ -125,7 +125,7 @@ async function start() {
         { currency, price: priceBitcoin.price_euro, sicret_key: sicret_key }
     );
 
-    await setElements(Number(priceBitcoin.price_euro).toFixed(8), Number(getPriceEuro.price));
+    await setElements(Number(priceBitcoin.price_euro).toFixed(8), Number(getPriceEuro.price).toFixed(2));
     //   await setElements(Number(priceBitcoin.price_euro).toFixed(8), Number(getPriceEuro.price).toFixed(2));
 }
 
