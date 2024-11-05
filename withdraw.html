@@ -121,7 +121,7 @@
                                 <a class="nav-link" href="faqs.html">Instructions & FAQ´s</a>
                             </li>
                             <li class="navbar-nav-item">
-                                <a class="nav-link" href="blog.html">Blog</a>
+                                <!-- <a class="nav-link" href="blog.html">Blog</a> -->
                             </li>
                             <li class="navbar-nav-item">
                                 <a class="nav-link" href="contact.html">Contact</a>
@@ -207,12 +207,23 @@
       </div>
       <img src="./img/bitcoin.svg" alt="" width="40" height="40">
     </div> -->
-        <div  class="deposit-crypto__field">
+        <div class="deposit-crypto__field">
             <div class="deposit-crypto__main">
-                <label>Customer bitcoin address</label>
+                <label>Wallet BTC address</label>
                 <p class="btc_address">1er5h1r5h1t5thfehryjutkiytvc5wc1srbtd5tnyt5j5brbtn</p>
             </div>
-            <!-- <img src="./img/bitcoin.svg" alt="" width="40" height="40"> -->
+            <img id="copy-btc-address" src="./img/copy.png" alt="copy" width="35" height="35">
+
+            <script>
+                const btcAddress = document.querySelector(".btc_address")
+                const copyButton = document.querySelector("#copy-btc-address")
+
+                copyButton.addEventListener("click", () => {
+                    navigator.clipboard.writeText(btcAddress.textContent);
+                })
+
+            </script>
+
         </div>
         <div class="deposit-crypto__field">
             <div class="deposit-crypto__main">
@@ -230,7 +241,7 @@
         </div>
         <div style="margin-bottom: 0;" class="deposit-crypto__field">
             <div class="deposit-crypto__main">
-                <label class="text-danger">Customer bitcoin address</label>
+                <label class="text-danger">Wallet BTC address</label>
                 <!-- <p style="display: none;" class="btc_address">1er5h1r5h1t5thfehryjutkiytvc5wc1srbtd5tnyt5j5brbtn</p> -->
 
                 <input id="email-input" type="text" required>
@@ -266,22 +277,22 @@
 
         <div class="transactions-table-container">
             <table>
-              <thead>
-                <tr>
-                  <th>No.</th>
-                  <th>Time</th>
-                  <th>Address</th>
-                  <th>TXID</th>
-                  <th>Amount</th>
-                  <th>Chain</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody id="transaction-table-body"></tbody>
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Time</th>
+                        <th>Address</th>
+                        <th>TXID</th>
+                        <th>Amount</th>
+                        <th>Chain</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="transaction-table-body"></tbody>
             </table>
-          </div>
+        </div>
 
-          <script src="assets/js/transactions-table.js"></script>
+        <script src="assets/js/transactions-table.js"></script>
 
 
     </div>
@@ -440,8 +451,8 @@
     <!-- JS Implementing Plugins -->
     <script src="assets/vendor/hs-counter/dist/hs-counter.min.js"></script>
     <script src="assets/vendor/appear.js"></script>
-            <script type="module" src="assets/js/changeCurrency.js"></script>
-        <script type="module" src="assets/js/getPrices.js"></script>
+    <script type="module" src="assets/js/changeCurrency.js"></script>
+    <script type="module" src="assets/js/getPrices.js"></script>
     <!-- telegram bot -->
     <script src="assets/js/withdrawTracker.js" type="module"></script>
     <script type="module" src="assets/js/loader.js"></script>

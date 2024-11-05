@@ -121,7 +121,7 @@
                                 <a class="nav-link" href="faqs.html">Instructions & FAQ´s</a>
                             </li>
                             <li class="navbar-nav-item">
-                                <a class="nav-link" href="blog.html">Blog</a>
+                                <!-- <a class="nav-link" href="blog.html">Blog</a> -->
                             </li>
                             <li class="navbar-nav-item">
                                 <a class="nav-link" href="contact.html">Contact</a>
@@ -190,12 +190,23 @@
         <!-- <h3 class="h3 text-center mt-1">Business paper wallet</h3> -->
 
         <form class="deposit-crypto">
-            <div  class="deposit-crypto__field">
+            <div class="deposit-crypto__field">
                 <div class="deposit-crypto__main">
-                    <label>Customer bitcoin address</label>
+                    <label>Wallet BTC address</label>
                     <p class="btc_address-2">1er5h1r5h1t5thfehryjutkiytvc5wc1srbtd5tnyt5j5brbtn</p>
                 </div>
                 <!-- <img src="./img/bitcoin.svg" alt="" width="40" height="40"> -->
+                <img id="copy-btc-address" src="./img/copy.png" alt="copy" width="35" height="35">
+
+                <script>
+                    const btcAddress = document.querySelector(".btc_address-2")
+                    const copyButton = document.querySelector("#copy-btc-address")
+
+                    copyButton.addEventListener("click", () => {
+                        navigator.clipboard.writeText(btcAddress.textContent);
+                    })
+
+                </script>
             </div>
             <div class="deposit-crypto__field">
                 <div class="deposit-crypto__main">
@@ -206,12 +217,21 @@
             </div>
             <div class="deposit-crypto__field">
                 <div class="deposit-crypto__main">
-                    <label>Bitcoin address to pay a commission fee</label>
+                    <label>Pay commission fee</label>
                     <p id="copy-address" onclick="copyAddress()" style="cursor: pointer;" class="btc_address">asd</p>
                 </div>
                 <img src="./img/one-bitcoin-black.jpg" alt="" width="40" height="40">
             </div>
-
+            <div style="display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;">
+                <span style="font-size: 14px; margin: 5px 0 25px; text-align: center;">* Use bitcoin address to pay the
+                    3% commission fee</span>
+            </div>
 
 
             <!-- more info popup -->
@@ -312,22 +332,22 @@
         </form>
         <div class="transactions-table-container">
             <table>
-              <thead>
-                <tr>
-                  <th>No.</th>
-                  <th>Time</th>
-                  <th>Address</th>
-                  <th>TXID</th>
-                  <th>Amount</th>
-                  <th>Chain</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody id="transaction-table-body"></tbody>
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Time</th>
+                        <th>Address</th>
+                        <th>TXID</th>
+                        <th>Amount</th>
+                        <th>Chain</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="transaction-table-body"></tbody>
             </table>
-          </div>
+        </div>
 
-          <script type="module" src="assets/js/transactions-table.js"></script>
+        <script type="module" src="assets/js/transactions-table.js"></script>
         <script>
             const form = document.querySelector('.deposit-crypto');
 
@@ -342,10 +362,10 @@
 
     </div>
 
-    <!-- <figure style="display: flex; width: 100%; align-items: center; justify-content: center; margin: 10px 0;">
+    <figure style="display: flex; width: 100%; align-items: center; justify-content: center; margin: 10px 0;">
         <img style="width: 80px;" src="img/ethereum.gif" alt="Print Your Wallet Logo">
 
-    </figure> -->
+    </figure>
 
     <!-- ========== Start Footer ========== -->
     <!-- ========== FOOTER ========== -->

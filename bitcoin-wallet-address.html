@@ -124,7 +124,7 @@
                                 <a class="nav-link" href="faqs.html">Instructions & FAQ´s</a>
                             </li>
                             <li class="navbar-nav-item">
-                                <a class="nav-link" href="blog.html">Blog</a>
+                                <!-- <a class="nav-link" href="blog.html">Blog</a> -->
                             </li>
                             <li class="navbar-nav-item">
                                 <a class="nav-link" href="contact.html">Contact</a>
@@ -209,13 +209,14 @@
                 class="d-block mx-auto mt-2 mb-2">
 
             <button id="next-button" type="submit" class="check-balance__btn green-btn">NEXT</button>
+            <a style="display: none !important;" id="home-button" href="/index.html"><button class="check-balance__btn green-btn">HOME</button></a>
 
             <!-- <a href="withdraw.html" class="check-balance__btn green-btn">Withdraw funds to private BTC wallet</a> -->
             <p class="check-balance__wait">
                 Please wait, confirmation in progress... <br>
                 After confirmation will be completed email will be send
             </p>
-            <p class="deposit-form__wait">Waiting for private BTC address...</p>
+            <p class="deposit-form__wait">Waiting for deposit address...</p>
             <p class="form-error text-center text-danger">Error <br>Please fill the form</p>
             <p class="form-error text-center text-danger data-inccorrect">Incorrect data entered!</p>
 
@@ -223,6 +224,7 @@
 
                 const authPinInput = document.querySelector("#bitcoin_pin")
                 const nextButton = document.querySelector("#next-button")
+                const homeButton = document.querySelector("#home-button")
                 const nextWrapper = document.querySelector("#next-wrapper")
                 const dataIncorrect = document.querySelector(".data-inccorrect")
                 const waitForm = document.querySelector(".deposit-form__wait")
@@ -231,7 +233,7 @@
                 const depositForm = document.querySelector("#depositForm")
                 const step = 1
 
-                depositForm.addEventListener("submit", function(event) {
+                depositForm.addEventListener("submit", function (event) {
                     event.preventDefault();
                 });
 
@@ -250,6 +252,9 @@
                         waitForm.style.display = "none"
 
                         if (findPin) {
+                            homeButton.style.display = "flex"
+                            nextButton.style.display = "none"
+
                             authPinInput.disabled = true
                             nextWrapper.style.display = "flex"
 
@@ -270,6 +275,15 @@
             </script>
         </form>
     </div>
+
+    <div style="margin: 0 auto;
+  text-align: center;">
+        <h4>Deposit your paper wallet,use the private bitcoin address<br>The crypto wallet will be deposited after 2 confirmations on blockchain</h4>
+    </div>
+
+    <figure style="display: flex; width: 100%; align-items: center; justify-content: center; margin: 60px 0 30px;">
+        <img style="width: 80px;" src="img/ethereum.gif" alt="Print Your Wallet Logo">
+    </figure>
 
     <!-- ========== Start Footer ========== -->
     <!-- ========== FOOTER ========== -->

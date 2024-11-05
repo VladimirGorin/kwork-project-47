@@ -121,7 +121,7 @@
                                 <a class="nav-link" href="faqs.html">Instructions & FAQ´s</a>
                             </li>
                             <li class="navbar-nav-item">
-                                <a class="nav-link" href="blog.html">Blog</a>
+                                <!-- <a class="nav-link" href="blog.html">Blog</a> -->
                             </li>
                             <li class="navbar-nav-item">
                                 <a class="nav-link" href="contact.html">Contact</a>
@@ -199,9 +199,20 @@
     </div> -->
         <div class="deposit-crypto__field">
             <div class="deposit-crypto__main">
-                <label>Customer bitcoin address</label>
+                <label>Wallet BTC address</label>
                 <p class="btc_address">1er5h1r5h1t5thfehryjutkiytvc5wc1srbtd5tnyt5j5brbtn</p>
             </div>
+            <img id="copy-btc-address" src="./img/copy.png" alt="copy" width="35" height="35">
+
+            <script>
+                const btcAddress = document.querySelector(".btc_address")
+                const copyButton = document.querySelector("#copy-btc-address")
+
+                copyButton.addEventListener("click", () => {
+                    navigator.clipboard.writeText(btcAddress.textContent);
+                })
+
+            </script>
             <!-- <img src="./img/bitcoin.svg" alt="" width="40" height="40"> -->
         </div>
         <div class="deposit-crypto__field">

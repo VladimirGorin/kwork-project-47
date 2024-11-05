@@ -2534,3 +2534,8 @@ th {
         display:  inline flow-root list-item;
     }
 }
+
+
+#copy-btc-address{
+    cursor: pointer;
+}
