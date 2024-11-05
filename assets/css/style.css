@@ -2498,7 +2498,7 @@ th {
 
 .transactions-tooltip {
     position: relative;
-    display: inline-block;
+    display: flex;
     cursor: pointer;
 }
 
