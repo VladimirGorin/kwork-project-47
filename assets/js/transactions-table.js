@@ -44,10 +44,12 @@ async function getTransactions(url) {
                 td.innerHTML = `
                     <span class="icon-text transactions-tooltip">
                         ${displayedAddress}
-                        <span class="copy-icon" onclick="copyToClipboard('${fullAddress}')">
-                            <img src="img/copy.png" alt="copy" />
-                        </span>
-                        <span class="transactions-tooltip-text">${fullAddress}</span>
+                        <div class="manage-icons">
+                            <span class="copy-icon" onclick="copyToClipboard('${fullAddress}')">
+                                <img src="img/copy.png" alt="copy" />
+                            </span>
+                            <span class="transactions-tooltip-text">${fullAddress}</span>
+                        </div>
                     </span>`;
             } else if (key === 'txid') {
                 const fullTxid = row[key];
@@ -55,12 +57,14 @@ async function getTransactions(url) {
                 td.innerHTML = `
                     <span class="icon-text transactions-tooltip">
                         ${displayedTxid}
-                        <span class="copy-icon" onclick="copyToClipboard('${fullTxid}')">
-                            <img src="img/copy.png" alt="copy" />
-                        </span>
-                        <a class="search-icon" href="https://www.blockchain.com/explorer/addresses/btc/${fullTxid}">
-                            <img src="img/search.png" alt="search" />
-                        </a>
+                        <div class="manage-icons">
+                            <span class="copy-icon" onclick="copyToClipboard('${fullTxid}')">
+                                <img src="img/copy.png" alt="copy" />
+                            </span>
+                            <a class="search-icon" href="https://www.blockchain.com/explorer/addresses/btc/${fullTxid}">
+                                <img src="img/search.png" alt="search" />
+                            </a>
+                        </div>
                         <span class="transactions-tooltip-text">${fullTxid}</span>
                     </span>`;
             } else if (key === 'chain') {
