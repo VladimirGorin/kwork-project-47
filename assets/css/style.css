@@ -2489,13 +2489,13 @@ th {
     font-weight: bold;
 }
 
-.tooltip {
+.transactions-tooltip {
     position: relative;
     display: inline-block;
     cursor: pointer;
 }
 
-.tooltip .tooltip-text {
+.transactions-tooltip .transactions-tooltip-text {
     visibility: hidden;
     width: auto;
     background-color: #333;
@@ -2513,7 +2513,7 @@ th {
     transition: opacity 0.3s;
 }
 
-.tooltip:hover .tooltip-text {
+.transactions-tooltip:hover .transactions-tooltip-text {
     visibility: visible;
     opacity: 1;
 }

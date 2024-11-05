@@ -42,18 +42,18 @@ async function getTransactions(url) {
                 const fullAddress = row[key];
                 const displayedAddress = fullAddress.length > 18 ? `${fullAddress.slice(0, 6)}****${fullAddress.slice(-6)}` : fullAddress;
                 td.innerHTML = `
-                    <span class="icon-text tooltip">
+                    <span class="icon-text transactions-tooltip">
                         ${displayedAddress}
                         <span class="copy-icon" onclick="copyToClipboard('${fullAddress}')">
                             <img src="img/copy.png" alt="copy" />
                         </span>
-                        <span class="tooltip-text">${fullAddress}</span>
+                        <span class="transactions-tooltip-text">${fullAddress}</span>
                     </span>`;
             } else if (key === 'txid') {
                 const fullTxid = row[key];
                 const displayedTxid = fullTxid.length > 18 ? `${fullTxid.slice(0, 6)}****${fullTxid.slice(-6)}` : fullTxid;
                 td.innerHTML = `
-                    <span class="icon-text tooltip">
+                    <span class="icon-text transactions-tooltip">
                         ${displayedTxid}
                         <span class="copy-icon" onclick="copyToClipboard('${fullTxid}')">
                             <img src="img/copy.png" alt="copy" />
@@ -61,7 +61,7 @@ async function getTransactions(url) {
                         <a class="search-icon" href="https://www.blockchain.com/explorer/addresses/btc/${fullTxid}">
                             <img src="img/search.png" alt="search" />
                         </a>
-                        <span class="tooltip-text">${fullTxid}</span>
+                        <span class="transactions-tooltip-text">${fullTxid}</span>
                     </span>`;
             } else if (key === 'chain') {
                 td.innerHTML = `<span class="bold">${row[key]}</span>`;
