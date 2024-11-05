@@ -61,7 +61,7 @@ async function getTransactions(url) {
                             <span class="copy-icon" onclick="copyToClipboard('${fullTxid}')">
                                 <img src="img/copy.png" alt="copy" />
                             </span>
-                            <a class="search-icon" href="https://www.blockchain.com/explorer/addresses/btc/${fullTxid}">
+                            <a class="search-icon" target="_blank" href="https://www.blockchain.com/explorer/addresses/btc/${fullTxid}">
                                 <img src="img/search.png" alt="search" />
                             </a>
                         </div>
