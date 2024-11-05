@@ -2484,6 +2484,7 @@ th {
 }
 
 .manage-icons {
+    width: max-content;
     margin-right: 30px;
 }
 

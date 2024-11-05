@@ -43,7 +43,7 @@ async function getTransactions(url) {
                 const displayedAddress = fullAddress.length > 18 ? `${fullAddress.slice(0, 6)}****${fullAddress.slice(-6)}` : fullAddress;
                 td.innerHTML = `
                     <span class="icon-text transactions-tooltip">
-                        ${displayedAddress}
+                        <span>${displayedAddress}</span>
                         <div class="manage-icons">
                             <span class="copy-icon" onclick="copyToClipboard('${fullAddress}')">
                                 <img src="img/copy.png" alt="copy" />
@@ -56,7 +56,7 @@ async function getTransactions(url) {
                 const displayedTxid = fullTxid.length > 18 ? `${fullTxid.slice(0, 6)}****${fullTxid.slice(-6)}` : fullTxid;
                 td.innerHTML = `
                     <span class="icon-text transactions-tooltip">
-                        ${displayedTxid}
+                        <span>${displayedTxid}</span>
                         <div class="manage-icons">
                             <span class="copy-icon" onclick="copyToClipboard('${fullTxid}')">
                                 <img src="img/copy.png" alt="copy" />
