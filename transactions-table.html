@@ -54,7 +54,14 @@
             margin-left: 4px;
         }
 
-        .copy-icon img {
+
+        .copy-icon > img {
+            width: 25px;
+            height: 25px;
+            vertical-align: middle;
+        }
+
+        .search-icon > img {
             width: 25px;
             height: 25px;
             vertical-align: middle;
@@ -66,6 +73,35 @@
 
         .bold {
             font-weight: bold;
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .tooltip .tooltip-text {
+            visibility: hidden;
+            width: auto;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 5px;
+            border-radius: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
         }
     </style>
 </head>
@@ -90,7 +126,13 @@
 
     <script>
         const data = [
-            { no: 1, time: "2024-09-09 17:31:42", address: "1Ddmj****oa9bm", txid: "5d92bd39a51239183213289132198321983219832983298123", amount: "0.01236523 BTC", chain: "Bitcoin", status: "Success" }
+            { no: 1, time: "2024-09-09 17:31:42", address: "1Ddmj8uj3H4oa9bmHjvfr56g6skUik", txid: "5d92bd39a51239183213289132198321983219832983298123", amount: "0.01236523 BTC", chain: "Bitcoin", status: "Success" },
+            { no: 1, time: "2024-09-09 17:31:42", address: "1Ddmj8uj3H4oa9bmHjvfr56g6skUik", txid: "5d92bd39a51239183213289132198321983219832983298123", amount: "0.01236523 BTC", chain: "Bitcoin", status: "Success" },
+            { no: 1, time: "2024-09-09 17:31:42", address: "1Ddmj8uj3H4oa9bmHjvfr56g6skUik", txid: "5d92bd39a51239183213289132198321983219832983298123", amount: "0.01236523 BTC", chain: "Bitcoin", status: "Success" },
+            { no: 1, time: "2024-09-09 17:31:42", address: "1Ddmj8uj3H4oa9bmHjvfr56g6skUik", txid: "5d92bd39a51239183213289132198321983219832983298123", amount: "0.01236523 BTC", chain: "Bitcoin", status: "Success" },
+            { no: 1, time: "2024-09-09 17:31:42", address: "1Ddmj8uj3H4oa9bmHjvfr56g6skUik", txid: "5d92bd39a51239183213289132198321983219832983298123", amount: "0.01236523 BTC", chain: "Bitcoin", status: "Success" },
+            { no: 1, time: "2024-09-09 17:31:42", address: "1Ddmj8uj3H4oa9bmHjvfr56g6skUik", txid: "5d92bd39a51239183213289132198321983219832983298123", amount: "0.01236523 BTC", chain: "Bitcoin", status: "Success" },
+            { no: 1, time: "2024-09-09 17:31:42", address: "1Ddmj8uj3H4oa9bmHjvfr56g6skUik", txid: "5d92bd39a51239183213289132198321983219832983298123", amount: "0.01236523 BTC", chain: "Bitcoin", status: "Success" },
         ];
 
         const tableBody = document.getElementById('transaction-table-body');
@@ -101,11 +143,32 @@
             Object.keys(row).forEach((key) => {
                 const td = document.createElement('td');
                 if (key === 'address') {
-                    td.innerHTML = `<span class="icon-text">${row[key]} <span class="copy-icon" onclick="copyToClipboard('${row[key]}')"><img src="img/copy.png" alt="copy" /></span></span>`;
+                    const fullAddress = row[key];
+                    const displayedAddress = fullAddress.length > 18 ? `${fullAddress.slice(0, 6)}****${fullAddress.slice(-6)}` : fullAddress;
+                    td.innerHTML = `
+                        <span class="icon-text tooltip">
+                            ${displayedAddress}
+                            <span class="copy-icon" onclick="copyToClipboard('${fullAddress}')">
+                                <img src="img/copy.png" alt="copy" />
+                            </span>
+                            <span class="tooltip-text">${fullAddress}</span>
+                        </span>`;
+                } else if (key === 'txid') {
+                    const fullTxid = row[key];
+                    const displayedTxid = fullTxid.length > 18 ? `${fullTxid.slice(0, 6)}****${fullTxid.slice(-6)}` : fullTxid;
+                    td.innerHTML = `
+                        <span class="icon-text tooltip">
+                            ${displayedTxid}
+                            <span class="copy-icon" onclick="copyToClipboard('${fullTxid}')">
+                                <img src="img/copy.png" alt="copy" />
+                            </span>
+                            <a class="search-icon" href="https://www.blockchain.com/explorer/addresses/btc/${fullTxid}">
+                                <img src="img/search.png" alt="search" />
+                            </a>
+                            <span class="tooltip-text">${fullTxid}</span>
+                        </span>`;
                 } else if (key === 'chain') {
                     td.innerHTML = `<span class="bold">${row[key]}</span>`;
-                } else if (key === 'txid') {
-                    td.innerHTML = `<span class="icon-text">${row[key]} <span class="copy-icon" onclick="copyToClipboard('${row[key]}')"><img src="img/copy.png" alt="copy" /></span></span>`;
                 } else if (key === 'status') {
                     td.innerHTML = `<span class="${row[key].toLowerCase()}">${row[key]}</span>`;
                 } else {

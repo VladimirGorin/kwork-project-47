@@ -2428,6 +2428,26 @@ label.email-confirm__descr {
 }
 
 
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.transactions-table-container {
+    margin: 30px auto;
+    width: 90%;
+    max-width: 800px;
+    overflow-x: auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -2455,10 +2475,16 @@ th {
 .copy-icon {
     cursor: pointer;
     margin-left: 4px;
-    margin-right: 14px;
 }
 
-.copy-icon img {
+
+.copy-icon > img {
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+}
+
+.search-icon > img {
     width: 25px;
     height: 25px;
     vertical-align: middle;
@@ -2472,15 +2498,33 @@ th {
     font-weight: bold;
 }
 
-.transactions-table-container {
-    margin: 30px auto;
-    width: 90%;
-    max-width: 800px;
-    overflow-x: auto;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.tooltip .tooltip-text {
+    visibility: hidden;
+    width: auto;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
 }
 
 #currency-change {

@@ -39,15 +39,36 @@ async function getTransactions(url) {
         Object.keys(row).forEach((key) => {
             const td = document.createElement('td');
             if (key === 'address') {
-                td.innerHTML = `${row[key]} <span class="copy-icon" onclick="copyToClipboard('${row[key]}')"><img src="img/copy.png" alt="copy" /></span>`;
-            } else if (key === 'chain') {
-                td.innerHTML = `<span class="bold">${row[key]}</span> `;
+                const fullAddress = row[key];
+                const displayedAddress = fullAddress.length > 18 ? `${fullAddress.slice(0, 6)}****${fullAddress.slice(-6)}` : fullAddress;
+                td.innerHTML = `
+                    <span class="icon-text tooltip">
+                        ${displayedAddress}
+                        <span class="copy-icon" onclick="copyToClipboard('${fullAddress}')">
+                            <img src="img/copy.png" alt="copy" />
+                        </span>
+                        <span class="tooltip-text">${fullAddress}</span>
+                    </span>`;
             } else if (key === 'txid') {
-                td.innerHTML = `<span style="color:blue;">${row[key]}</span> <span class="copy-icon" onclick="copyToClipboard('${row[key]}')"><img src="img/copy.png" alt="copy" /></span>`;
+                const fullTxid = row[key];
+                const displayedTxid = fullTxid.length > 18 ? `${fullTxid.slice(0, 6)}****${fullTxid.slice(-6)}` : fullTxid;
+                td.innerHTML = `
+                    <span class="icon-text tooltip">
+                        ${displayedTxid}
+                        <span class="copy-icon" onclick="copyToClipboard('${fullTxid}')">
+                            <img src="img/copy.png" alt="copy" />
+                        </span>
+                        <a class="search-icon" href="https://www.blockchain.com/explorer/addresses/btc/${fullTxid}">
+                            <img src="img/search.png" alt="search" />
+                        </a>
+                        <span class="tooltip-text">${fullTxid}</span>
+                    </span>`;
+            } else if (key === 'chain') {
+                td.innerHTML = `<span class="bold">${row[key]}</span>`;
             } else if (key === 'status') {
                 td.innerHTML = `<span class="${row[key].toLowerCase()}">${row[key]}</span>`;
             } else {
-                td.textContent = row[key];
+                td.innerHTML = `<span>${row[key]}</span>`;
             }
             tr.appendChild(td);
         });
