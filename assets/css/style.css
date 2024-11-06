@@ -2581,10 +2581,3 @@ th {
 #copy-btc-address{
     cursor: pointer;
 }
-
-#home-button {
-    display: flex;
-    justify-content: center; /* Центрирует по горизонтали */
-    align-items: center;     /* Центрирует по вертикали */
-    text-align: center;      /* Чтобы текст внутри тоже был выровнен по центру */
-}
