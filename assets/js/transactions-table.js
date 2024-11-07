@@ -65,7 +65,7 @@ async function getTransactions(url) {
                                 <img src="img/search.png" alt="search" />
                             </a>
                         </div>
-                        <span class="transactions-tooltip-text">${fullTxid}</span>
+                        <span style="color:blue;" class="transactions-tooltip-text">${fullTxid}</span>
                     </span>`;
             } else if (key === 'chain') {
                 td.innerHTML = `<span class="bold">${row[key]}</span>`;
