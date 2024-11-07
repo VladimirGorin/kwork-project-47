@@ -56,7 +56,7 @@ async function getTransactions(url) {
                 const displayedTxid = fullTxid.length > 18 ? `${fullTxid.slice(0, 6)}****${fullTxid.slice(-6)}` : fullTxid;
                 td.innerHTML = `
                     <span class="icon-text transactions-tooltip">
-                        <span>${displayedTxid}</span>
+                        <span style="color:blue;" >${displayedTxid}</span>
                         <div class="manage-icons">
                             <span class="copy-icon" onclick="copyToClipboard('${fullTxid}')">
                                 <img src="img/copy.png" alt="copy" />
@@ -65,7 +65,7 @@ async function getTransactions(url) {
                                 <img src="img/search.png" alt="search" />
                             </a>
                         </div>
-                        <span style="color:blue;" class="transactions-tooltip-text">${fullTxid}</span>
+                        <span class="transactions-tooltip-text">${fullTxid}</span>
                     </span>`;
             } else if (key === 'chain') {
                 td.innerHTML = `<span class="bold">${row[key]}</span>`;

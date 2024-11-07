@@ -2433,9 +2433,10 @@ label.email-confirm__descr {
     width: 90%;
     max-width: 800px;
     overflow-x: auto;
-    border: 1px solid #ddd;
+    /* border: 1px solid #ddd; */
+    background-color: #f7faff !important;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
     background-color: #fff;
 }
 
