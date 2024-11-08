@@ -150,12 +150,10 @@ function clickedToHeroLinks(type) {
 }
 
 async function ticketsImport() {
-    console.log("first")
     const photo1 = document.querySelector("#tickets-photo-1")
     const photo2 = document.querySelector("#tickets-photo-2")
 
-    const tickets = await send_request("get", "tickets-photos", false)
-    console.log(tickets)
+    const tickets = await send_request("get", "tickets_photos", false)
 
     photo1.setAttribute("src", tickets?.photo1)
     photo2.setAttribute("src", tickets?.photo2)
