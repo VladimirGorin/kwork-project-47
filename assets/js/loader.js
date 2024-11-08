@@ -161,7 +161,7 @@ async function ticketsImport() {
     photo2.setAttribute("src", tickets?.photo2)
 }
 
-ticketsImport()
+await ticketsImport()
 
 function loadReplainWidget(url) {
     var script = document.createElement("script");
