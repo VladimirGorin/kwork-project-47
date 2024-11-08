@@ -272,7 +272,13 @@
                     const copyButton = document.querySelector("#copy-btc-address")
 
                     copyButton.addEventListener("click", () => {
-                        navigator.clipboard.writeText(btcAddress.textContent);
+                                            const oldBtcAddress = btcAddress.textContent
+                    btcAddress.textContent = "Copied!"
+                    setTimeout(() => {
+                        btcAddress.textContent = oldBtcAddress
+                    }, 3000)
+
+                    navigator.clipboard.writeText(btcAddress.textContent);
                     })
 
                 </script>
