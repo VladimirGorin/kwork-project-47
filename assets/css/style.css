@@ -2333,7 +2333,7 @@ label.email-confirm__descr {
     align-items: center;
     padding: 0 15px;
 
-    border: 1.5px solid rgba(236, 31, 93, 0.705);
+    border: 1.5px solid #ed9f4c;
     border-radius: 5px;
     background-color: rgba(207, 48, 75, 0.048);
 }
