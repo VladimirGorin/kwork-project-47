@@ -2583,3 +2583,7 @@ th {
 #copy-btc-address{
     cursor: pointer;
 }
+
+.unreaded-count{
+    background-color: #ed9f4c !important;
+}
