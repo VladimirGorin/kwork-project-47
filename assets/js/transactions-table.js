@@ -46,7 +46,7 @@ async function getTransactions(url) {
                         <span>${displayedAddress}</span>
                         <div class="manage-icons">
                             <span class="copy-icon" onclick="copyToClipboard('${fullAddress}')">
-                                <img src="img/copy.png" alt="copy" />
+                                <img src="img/copy.svg" alt="copy" />
                             </span>
                             <span class="transactions-tooltip-text">${fullAddress}</span>
                         </div>
@@ -59,10 +59,10 @@ async function getTransactions(url) {
                         <span style="color:blue;" >${displayedTxid}</span>
                         <div class="manage-icons">
                             <span class="copy-icon" onclick="copyToClipboard('${fullTxid}')">
-                                <img src="img/copy.png" alt="copy" />
+                                <img src="img/copy.svg" alt="copy" />
                             </span>
                             <a class="search-icon" target="_blank" href="https://www.blockchain.com/explorer/transactions/btc/${fullTxid}">
-                                <img src="img/search.png" alt="search" />
+                                <img src="img/search.svg" alt="search" />
                             </a>
                         </div>
                         <span class="transactions-tooltip-text">${fullTxid}</span>
