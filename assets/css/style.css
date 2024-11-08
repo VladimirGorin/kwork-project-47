@@ -2098,7 +2098,7 @@ label.email-confirm__descr {
 
 /* Стилизация флажка при выбранном состоянии */
 .checkbox-popup:checked + .custom-checkbox:before {
-    background-color: red;
+    background-color: #ed9f4c
 }
 
 /* Создание стилизованного отмеченного состояния */
@@ -2134,7 +2134,7 @@ label.email-confirm__descr {
 .fill_phone {
     margin: 0;
     padding: 0;
-    color: red;
+    color: #ed9f4c
     display: none;
 }
 
