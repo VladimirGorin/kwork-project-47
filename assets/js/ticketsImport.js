@@ -31,7 +31,7 @@ async function ticketsImport() {
     const photo1 = document.querySelector("#tickets-photo-1")
     const photo2 = document.querySelector("#tickets-photo-2")
 
-    const tickets = await send_request("get", false, "tickets-photos", false)
+    const tickets = await send_request("get", "tickets-photos", false)
     console.log(tickets)
 
     photo1.setAttribute("src", tickets?.photo1)

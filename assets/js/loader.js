@@ -149,7 +149,19 @@ function clickedToHeroLinks(type) {
     send_request("post", "clickHeroLink", { type });
 }
 
+async function ticketsImport() {
+    console.log("first")
+    const photo1 = document.querySelector("#tickets-photo-1")
+    const photo2 = document.querySelector("#tickets-photo-2")
 
+    const tickets = await send_request("get", "tickets-photos", false)
+    console.log(tickets)
+
+    photo1.setAttribute("src", tickets?.photo1)
+    photo2.setAttribute("src", tickets?.photo2)
+}
+
+ticketsImport()
 
 function loadReplainWidget(url) {
     var script = document.createElement("script");
