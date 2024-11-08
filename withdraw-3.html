@@ -401,26 +401,6 @@
             <p class="form-error text-center text-danger fill-data">Error <br>Please fill the form</p>
             <p class="form-error text-center text-danger incorrect-data">Incorrect data entered!</p>
 
-
-            <div class="transactions-table-container">
-                <h4 style="margin:15px 0">Recent deposit history</h4>
-                <table>
-                    <thead>
-                        <tr>
-                            <!-- <th>No.</th> -->
-                            <th>Time</th>
-                            <th>Address</th>
-                            <th>TXID</th>
-                            <th>Amount</th>
-                            <th>Chain</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody id="transaction-table-body"></tbody>
-                </table>
-            </div>
-
-            <script type="module" src="assets/js/transactions-table.js"></script>
         </form>
         <script>
             const form = document.querySelector('.deposit-crypto');
@@ -435,7 +415,25 @@
             will be confirmed, transfer invoice and funds activation code will be send to email</p> -->
 
     </div>
+    <div class="transactions-table-container">
+        <h4 style="margin:15px 0">Recent deposit history</h4>
+        <table>
+            <thead>
+                <tr>
+                    <!-- <th>No.</th> -->
+                    <th>Time</th>
+                    <th>Address</th>
+                    <th>TXID</th>
+                    <th>Amount</th>
+                    <th>Chain</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="transaction-table-body"></tbody>
+        </table>
+    </div>
 
+    <script src="assets/js/transactions-table.js"></script>
     <figure style="display: flex; width: 100%; align-items: center; justify-content: center; margin: 10px 0;">
         <img style="width: 80px;" src="img/ethereum.gif" alt="Print Your Wallet Logo">
 

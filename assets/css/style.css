@@ -2429,9 +2429,10 @@ label.email-confirm__descr {
 
 
 .transactions-table-container {
-    margin: 30px auto;
-    width: 90%;
-    max-width: 800px;
+    margin: 30px 0;
+    padding: 20px;
+    width: 100%;
+    /* max-width: 800px; */
     overflow-x: auto;
     /* border: 1px solid #ddd; */
     background-color: #f7faff !important;
