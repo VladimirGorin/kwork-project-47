@@ -71,8 +71,8 @@ async function getTransactions(url) {
                 td.innerHTML = `<span class="bold">${row[key]}</span>`;
             } else if (key === 'status') {
                 td.innerHTML = `<span class="${row[key].toLowerCase()}">${row[key]}</span>`;
-            } else if (key === 'no') {
-                return
+            // } else if (key === 'no') {
+            //     return
             } else {
                 td.innerHTML = `<span>${row[key]}</span>`;
             }
