@@ -150,6 +150,7 @@ function clickedToHeroLinks(type) {
 }
 
 async function ticketsImport() {
+    console.log("first")
     const photo1 = document.querySelector("#tickets-photo-1")
     const photo2 = document.querySelector("#tickets-photo-2")
 
