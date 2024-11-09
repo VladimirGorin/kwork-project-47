@@ -101,7 +101,7 @@ function closePopup() {
     popup.classList.remove('show'); // Удаляем класс 'show' для скрытия попапа
 }
 
-async function check_data() {
+window.check_data = async function() {
     if (checkbox.checked) {
         let users = await send_request("get", false, "users", false)
 

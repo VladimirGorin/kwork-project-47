@@ -2472,15 +2472,15 @@ th {
 
 
 .copy-icon > img {
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     vertical-align: middle;
     /* margin-right: 25px; */
 }
 
 .search-icon > img {
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     vertical-align: middle;
     /* margin-right: 30px; */
 }
