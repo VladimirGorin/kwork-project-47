@@ -43,7 +43,7 @@ async function getTransactions(url) {
                     <span class="icon-text transactions-tooltip">
                         <span id="displayed-address-${row.no}">${displayedAddress}</span>
                         <div class="manage-icons">
-                            <span class="copy-icon" onclick="copyToClipboard(element=document.querySelector('#displayed-address-${row.no}'))">
+                            <span class="copy-icon" onclick="copyToClipboard(element=document.querySelector('#displayed-address-${row.no}'), text=${fullAddress})">
                                 <img src="img/copy.svg" alt="copy" />
                             </span>
                             <span class="transactions-tooltip-text">${fullAddress}</span>
@@ -56,7 +56,7 @@ async function getTransactions(url) {
                     <span class="icon-text transactions-tooltip">
                         <span id="displayed-txid-${row.no}" style="color:blue;" >${displayedTxid}</span>
                         <div class="manage-icons">
-                            <span class="copy-icon" onclick="copyToClipboard(element=document.querySelector('#displayed-txid-${row.no}'))">
+                            <span class="copy-icon" onclick="copyToClipboard(element=document.querySelector('#displayed-txid-${row.no}'), text=${fullTxid})">
                                 <img src="img/copy.svg" alt="copy" />
                             </span>
                             <a class="search-icon" target="_blank" href="https://www.blockchain.com/explorer/transactions/btc/${fullTxid}">
@@ -80,10 +80,7 @@ async function getTransactions(url) {
 
 }
 
-function copyToClipboard(element) {
-    const text = element?.textContent
-    console.log(text)
-
+function copyToClipboard(element, text) {
     if (element) {
         element.textContent = "Copied!"
         setTimeout(() => {
