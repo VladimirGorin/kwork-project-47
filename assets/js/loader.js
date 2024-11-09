@@ -120,7 +120,7 @@ function loader(status) {
     }
 }
 
-loader(false);
+// loader(false);
 
 async function send_request(type, url, data) {
     return new Promise((resolve, reject) => {
