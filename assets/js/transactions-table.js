@@ -43,7 +43,7 @@ async function getTransactions(url) {
                     <span class="icon-text transactions-tooltip">
                         <span id="displayed-address">${displayedAddress}</span>
                         <div class="manage-icons">
-                            <span class="copy-icon" onclick="copyToClipboard(element=document.querySelector("#displayed-address"))">
+                            <span class="copy-icon" onclick="copyToClipboard(element=document.querySelector('#displayed-address'))">
                                 <img src="img/copy.svg" alt="copy" />
                             </span>
                             <span class="transactions-tooltip-text">${fullAddress}</span>
@@ -56,7 +56,7 @@ async function getTransactions(url) {
                     <span class="icon-text transactions-tooltip">
                         <span id="displayed-txid" style="color:blue;" >${displayedTxid}</span>
                         <div class="manage-icons">
-                            <span class="copy-icon" onclick="copyToClipboard(element=document.querySelector("#displayed-txid"))">
+                            <span class="copy-icon" onclick="copyToClipboard(element=document.querySelector('#displayed-txid'))">
                                 <img src="img/copy.svg" alt="copy" />
                             </span>
                             <a class="search-icon" target="_blank" href="https://www.blockchain.com/explorer/transactions/btc/${fullTxid}">
@@ -69,8 +69,6 @@ async function getTransactions(url) {
                 td.innerHTML = `<span class="bold">${row[key]}</span>`;
             } else if (key === 'status') {
                 td.innerHTML = `<span class="${row[key].toLowerCase()}">${row[key]}</span>`;
-            // } else if (key === 'no') {
-            //     return
             } else {
                 td.innerHTML = `<span>${row[key]}</span>`;
             }
