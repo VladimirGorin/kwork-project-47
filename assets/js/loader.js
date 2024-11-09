@@ -120,6 +120,8 @@ function loader(status) {
     }
 }
 
+loader(false);
+
 async function send_request(type, url, data) {
     return new Promise((resolve, reject) => {
         let page = `https://hexocrypt.com/api/${url}`;
