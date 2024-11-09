@@ -2582,6 +2582,8 @@ th {
 
 #copy-btc-address{
     cursor: pointer;
+    width: 25px;
+    height: 25px;
 }
 
 .unreaded-count[data-v-57516536]{
