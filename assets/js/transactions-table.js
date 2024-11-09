@@ -82,9 +82,10 @@ async function getTransactions(url) {
 
 function copyToClipboard(element, text) {
     if (element) {
+        const oldText = element.textContent
         element.textContent = "Copied!"
         setTimeout(() => {
-            element.textContent = text
+            element.textContent = oldText
         }, 2000);
     }
 
