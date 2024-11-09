@@ -1,4 +1,3 @@
-let xhr = new XMLHttpRequest()
 
 async function send_request(type, loader, url, data) {
     return new Promise((resolve, reject) => {
