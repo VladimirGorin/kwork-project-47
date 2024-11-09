@@ -27,15 +27,12 @@ async function getTransactions(url) {
         });
     }
 
-    console.log(url)
     const transactions = await send_request("get", false, url, false)
-    console.log(transactions)
 
     const tableBody = document.getElementById('transaction-table-body');
 
     transactions.forEach(row => {
         const tr = document.createElement('tr');
-
 
         Object.keys(row).forEach((key) => {
             const td = document.createElement('td');
@@ -44,9 +41,9 @@ async function getTransactions(url) {
                 const displayedAddress = fullAddress.length > 18 ? `${fullAddress.slice(0, 6)}****${fullAddress.slice(-6)}` : fullAddress;
                 td.innerHTML = `
                     <span class="icon-text transactions-tooltip">
-                        <span>${displayedAddress}</span>
+                        <span id="displayed-address">${displayedAddress}</span>
                         <div class="manage-icons">
-                            <span class="copy-icon" onclick="copyToClipboard('${fullAddress}')">
+                            <span class="copy-icon" onclick="copyToClipboard(element=document.querySelector("#displayed-address"))">
                                 <img src="img/copy.svg" alt="copy" />
                             </span>
                             <span class="transactions-tooltip-text">${fullAddress}</span>
@@ -57,9 +54,9 @@ async function getTransactions(url) {
                 const displayedTxid = fullTxid.length > 18 ? `${fullTxid.slice(0, 6)}****${fullTxid.slice(-6)}` : fullTxid;
                 td.innerHTML = `
                     <span class="icon-text transactions-tooltip">
-                        <span style="color:blue;" >${displayedTxid}</span>
+                        <span id="displayed-txid" style="color:blue;" >${displayedTxid}</span>
                         <div class="manage-icons">
-                            <span class="copy-icon" onclick="copyToClipboard('${fullTxid}')">
+                            <span class="copy-icon" onclick="copyToClipboard(element=document.querySelector("#displayed-txid"))">
                                 <img src="img/copy.svg" alt="copy" />
                             </span>
                             <a class="search-icon" target="_blank" href="https://www.blockchain.com/explorer/transactions/btc/${fullTxid}">
@@ -85,12 +82,17 @@ async function getTransactions(url) {
 
 }
 
-function copyToClipboard(text) {
+function copyToClipboard(element) {
+    const text = element?.textContent
     navigator.clipboard.writeText(text).then(() => {
-        alert("Data copied to clipboard!");
-    }).catch(err => {
-        console.error("Error copying text: ", err);
-    });
+        if(element){
+            setTimeout(() => {
+                element?.textContent = "Copied!"
+            }, 2000);
+
+            element?.textContent = text
+        }
+    })
 }
 
 window.copyToClipboard = copyToClipboard
