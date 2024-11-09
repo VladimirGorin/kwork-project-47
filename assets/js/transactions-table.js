@@ -82,15 +82,18 @@ async function getTransactions(url) {
 
 function copyToClipboard(element) {
     const text = element?.textContent
-    navigator.clipboard.writeText(text).then(() => {
-        if(element){
-            setTimeout(() => {
-                element.textContent = "Copied!"
-            }, 2000);
+    console.log(text)
 
-            element.textContent = text
-        }
-    })
+    if (element) {
+        setTimeout(() => {
+            element.textContent = "Copied!"
+        }, 2000);
+
+        element.textContent = text
+    }
+
+    navigator.clipboard.writeText(text)
+
 }
 
 window.copyToClipboard = copyToClipboard
