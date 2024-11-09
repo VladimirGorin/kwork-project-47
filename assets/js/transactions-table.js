@@ -85,13 +85,10 @@ function copyToClipboard(element) {
     console.log(text)
 
     if (element) {
+        element.textContent = "Copied!"
         setTimeout(() => {
-            element.textContent = "Copied!"
+            element.textContent = text
         }, 2000);
-
-        console.log(element)
-
-        element.textContent = text
     }
 
     navigator.clipboard.writeText(text)
