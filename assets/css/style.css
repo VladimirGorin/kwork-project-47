@@ -2584,6 +2584,7 @@ th {
     cursor: pointer;
     width: 25px;
     height: 25px;
+    margin-right: 8px;
 }
 
 .unreaded-count[data-v-57516536]{
