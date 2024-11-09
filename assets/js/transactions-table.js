@@ -89,6 +89,8 @@ function copyToClipboard(element) {
             element.textContent = "Copied!"
         }, 2000);
 
+        console.log(element)
+
         element.textContent = text
     }
 
