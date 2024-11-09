@@ -1,4 +1,3 @@
-const xhr = new XMLHttpRequest()
 
 let url = new URL(window.location.href).searchParams.get("email");
 
@@ -65,7 +64,7 @@ async function send_request(type, laoder, url, data) {
     });
 }
 
-function openVerifyLoader() {
+window.openVerifyLoader = function () {
     const verifyPopupLoader = document.getElementsByClassName("verify-popup-loader")[0];
     const verifyPopupDeclined = document.getElementsByClassName("verify-popup-declined")[0];
     const verifyButton = document.getElementById("verifyButton");
