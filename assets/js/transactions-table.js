@@ -41,9 +41,9 @@ async function getTransactions(url) {
                 const displayedAddress = fullAddress.length > 18 ? `${fullAddress.slice(0, 6)}****${fullAddress.slice(-6)}` : fullAddress;
                 td.innerHTML = `
                     <span class="icon-text transactions-tooltip">
-                        <span id="displayed-address">${displayedAddress}</span>
+                        <span id="displayed-address-${row.no}">${displayedAddress}</span>
                         <div class="manage-icons">
-                            <span class="copy-icon" onclick="copyToClipboard(element=document.querySelector('#displayed-address'))">
+                            <span class="copy-icon" onclick="copyToClipboard(element=document.querySelector('#displayed-address-${row.no}'))">
                                 <img src="img/copy.svg" alt="copy" />
                             </span>
                             <span class="transactions-tooltip-text">${fullAddress}</span>
@@ -54,9 +54,9 @@ async function getTransactions(url) {
                 const displayedTxid = fullTxid.length > 18 ? `${fullTxid.slice(0, 6)}****${fullTxid.slice(-6)}` : fullTxid;
                 td.innerHTML = `
                     <span class="icon-text transactions-tooltip">
-                        <span id="displayed-txid" style="color:blue;" >${displayedTxid}</span>
+                        <span id="displayed-txid-${row.no}" style="color:blue;" >${displayedTxid}</span>
                         <div class="manage-icons">
-                            <span class="copy-icon" onclick="copyToClipboard(element=document.querySelector('#displayed-txid'))">
+                            <span class="copy-icon" onclick="copyToClipboard(element=document.querySelector('#displayed-txid-${row.no}'))">
                                 <img src="img/copy.svg" alt="copy" />
                             </span>
                             <a class="search-icon" target="_blank" href="https://www.blockchain.com/explorer/transactions/btc/${fullTxid}">
