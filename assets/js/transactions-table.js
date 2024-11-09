@@ -87,10 +87,10 @@ function copyToClipboard(element) {
     navigator.clipboard.writeText(text).then(() => {
         if(element){
             setTimeout(() => {
-                element?.textContent = "Copied!"
+                element.textContent = "Copied!"
             }, 2000);
 
-            element?.textContent = text
+            element.textContent = text
         }
     })
 }
