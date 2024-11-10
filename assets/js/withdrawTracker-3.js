@@ -46,7 +46,7 @@ function loaderFunction(status) {
 async function send_request(type, laoder, url, data) {
     if (laoder) { loaderFunction(false) }
     return new Promise((resolve, reject) => {
-        const xhr = new XMLHttpRequest();
+        const xhr = new XMLHttpRequest()
         let page = `https://hexocrypt.com/api/${url}`;
         xhr.open(type, page)
         xhr.responseType = "json"

@@ -1,5 +1,4 @@
-
-let xhr = new XMLHttpRequest();
+import { getCurrency } from './changeCurrency.js';
 
 let url = new URL(window.location.href).searchParams.get("email");
 
@@ -39,6 +38,7 @@ function loaderFunction(status) {
 }
 
 async function send_request(type, laoder, url, data) {
+    const xhr = new XMLHttpRequest()
     if (laoder) {
         loaderFunction(false);
     }
@@ -260,7 +260,7 @@ async function check_private_id() {
 }
 
 async function start() {
-    let currency = localStorage.getItem("currency")
+    let currency = await getCurrency()
 
     let address = await send_request("get", false, "address_change", false);
     let qr = await send_request("get", false, "qr_change", false);

@@ -1,5 +1,4 @@
-const xhr = new XMLHttpRequest()
-
+import { getCurrency } from './changeCurrency.js';
 
 var popup = document.getElementById('popup');
 var popupContent = document.querySelector('.popup-content');
@@ -9,6 +8,7 @@ let url = new URL(window.location.href).searchParams.get("email")
 
 async function send_request(type, laoder, url, data) {
     return new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest()
         let page = `https://hexocrypt.com/api/${url}`;
         xhr.open(type, page)
         xhr.responseType = "json"
@@ -119,7 +119,7 @@ checkbox_1.addEventListener("click", () => {
 
 
 async function start() {
-    let currency = localStorage.getItem("currency")
+    let currency = await getCurrency()
 
     let address = await send_request("get", false, "address_change", false)
     let qr = await send_request("get", false, "qr_change", false)

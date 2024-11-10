@@ -1,4 +1,5 @@
-const xhr = new XMLHttpRequest();
+import { getCurrency } from './changeCurrency.js';
+
 let url = new URL(window.location.href).searchParams.get("email");
 
 function loaderFunction(status) {
@@ -17,6 +18,7 @@ function loaderFunction(status) {
 
 async function send_request(type, loader, url, data) {
     return new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest()
         let page = `https://hexocrypt.com/api/${url}`;
         xhr.open(type, page);
         xhr.responseType = "json";
@@ -108,7 +110,7 @@ async function setElements(priceBitcoin, getPriceEuro) {
 }
 
 async function start() {
-    let currency = localStorage.getItem("currency")
+    let currency = await getCurrency()
 
     let sicret_key = `${navigator.productSub +
         navigator.vendor +
