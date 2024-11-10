@@ -69,6 +69,8 @@ function buttonClicked() {
     window.location.href = `withdraw.html?email=${url}`;
 }
 
+window.buttonClicked = buttonClicked
+
 async function convert(price) {
     let sicret_key = `${navigator.productSub +
         navigator.vendor +
