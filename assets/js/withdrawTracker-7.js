@@ -162,6 +162,8 @@ async function check_private_id() {
     await check(keys);
 }
 
+window.check_private_id = check_private_id
+
 
 async function start() {
     let currency = await getCurrency()
