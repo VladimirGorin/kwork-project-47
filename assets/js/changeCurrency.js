@@ -13,12 +13,16 @@ function insertHeader() {
     const updateCurrencyInUrl = (currency) => {
         const updatedParams = new URLSearchParams(currentUrlParams);
 
-        console.log(`updatedParams: ${updatedParams}`)
-        console.log(`currency1: ${currency}`)
+        if (updatedParams){
 
-        updatedParams.set('currency', currency);
+            console.log(`updatedParams: ${updatedParams}`)
+            console.log(`currency1: ${currency}`)
 
-        return `${window.location.pathname}?${updatedParams.toString()}`;
+            updatedParams.set('currency', currency);
+
+            return `${window.location.pathname}?${updatedParams.toString()}`;
+        }
+
     };
 
     const euroUrl = updateCurrencyInUrl('euro');
