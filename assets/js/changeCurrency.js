@@ -67,8 +67,10 @@ function start() {
 
 start();
 
-window.getCurrency = async function (){
+async function getCurrency (){
     await start()
 
     return  localStorage.getItem("currency")
 }
+
+window.getCurrency = getCurrency;
