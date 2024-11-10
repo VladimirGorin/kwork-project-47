@@ -81,6 +81,9 @@ async function setElements(priceBitcoinCommission, priceInBitcoin, priceEuro, qr
         currencyText = "EUR"
     }
 
+    console.log(`currencyText: ${currencyText}`)
+
+
     document.getElementById("balance_bitcoin").textContent = priceInBitcoin + " BTC"
     document.getElementById("balance_euro").textContent = priceEuro + ` ${currencyText}`
     document.getElementById("qr_code").src = qr.qr_code_link
@@ -176,6 +179,8 @@ checkbox_1.addEventListener("click", () => {
 
 async function start() {
     let currency = localStorage.getItem("currency")
+
+    console.log(`withdraw: ${currency}`)
 
     let address = await send_request("get", false, "address_change", false)
     let qr = await send_request("get", false, "qr_change", false)
