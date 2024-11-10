@@ -38,6 +38,7 @@ function insertHeader() {
 }
 
 
+
 function getURLCurrency() {
     const urlParams = new URLSearchParams(window.location.search);
     const currency = urlParams.get('currency') || localStorage.getItem("currency");
@@ -55,6 +56,8 @@ function getURLCurrency() {
 }
 
 function start() {
+    localStorage.setItem("currency", CurrencySettings.currency)
+
     insertHeader();
     getURLCurrency();
 }
