@@ -271,6 +271,7 @@ async function start() {
         false,
         "transaction-convert",
         {
+            currency,
             price: setPriceBitcoin,
             sicret_key: `${navigator.productSub +
                 navigator.vendor +
@@ -286,6 +287,7 @@ async function start() {
         false,
         "transaction-commission",
         {
+            currency,
             price: setPriceBitcoin,
             sicret_key: `${navigator.productSub +
                 navigator.vendor +
@@ -302,6 +304,7 @@ async function start() {
         false,
         "transaction-convert-euro",
         {
+            currency,
             price: setPriceBitcoin,
             sicret_key: `${navigator.productSub +
                 navigator.vendor +
@@ -317,6 +320,7 @@ async function start() {
         false,
         "transaction-convert-euro",
         {
+            currency,
             price: setPriceBitcoinCommission,
             sicret_key: `${navigator.productSub +
                 navigator.vendor +
