@@ -59,8 +59,6 @@ function getURLCurrency() {
 
 
 function start() {
-    localStorage.setItem("currency", currencySettings.currency)
-
     insertHeader();
     getURLCurrency();
 }
