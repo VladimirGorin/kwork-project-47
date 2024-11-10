@@ -91,7 +91,7 @@ async function convert(price) {
 }
 
 async function setElements(priceBitcoin, getPriceEuro, walletTransactions) {
-    let currencyText = "EUR"
+    let currencyText = "USD"
     const currency = localStorage.getItem("currency")
 
     if (currency == "dollar") {

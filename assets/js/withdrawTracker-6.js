@@ -108,7 +108,7 @@ async function setElements(
     keys,
     fullWalletAddress
 ) {
-    let currencyText = "EUR";
+    let currencyText = "USD";
     const currency = localStorage.getItem("currency");
 
     if (currency == "dollar") {

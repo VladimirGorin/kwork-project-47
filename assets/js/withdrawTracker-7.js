@@ -48,7 +48,7 @@ async function setElements(
     commissionEuro,
     address
 ) {
-    let currencyText = "EUR"
+    let currencyText = "USD"
     const currency = localStorage.getItem("currency")
 
     if (currency == "dollar") {

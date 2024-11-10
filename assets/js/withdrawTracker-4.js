@@ -44,7 +44,7 @@ async function send_request(type, loader, url, data) {
 }
 
 async function setElements(priceBitcoinCommission, priceInBitcoin, priceEuro, qr, commissionBTC, commissionEuro, address) {
-    let currencyText = "EUR"
+    let currencyText = "USD"
     const currency = localStorage.getItem("currency")
 
     if (currency == "dollar") {
