@@ -1,5 +1,5 @@
 import { getCurrency } from './changeCurrency.js';
-const xhr = new XMLHttpRequest();
+// const xhr = new XMLHttpRequest();
 
 var popup = document.getElementById('popup');
 var popupContent = document.querySelector('.popup-content');

@@ -69,7 +69,6 @@ start();
 
 export async function getCurrency (){
     await start()
-
     return  localStorage.getItem("currency")
 }
 
