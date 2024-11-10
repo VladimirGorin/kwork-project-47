@@ -57,6 +57,7 @@ function getURLCurrency() {
     }
 }
 
+
 function start() {
     localStorage.setItem("currency", currencySettings.currency)
 
@@ -65,3 +66,9 @@ function start() {
 }
 
 start();
+
+window.getCurrency = async function (){
+    await start()
+
+    return  localStorage.getItem("currency")
+}

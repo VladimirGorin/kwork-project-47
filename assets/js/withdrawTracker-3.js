@@ -178,7 +178,7 @@ checkbox_1.addEventListener("click", () => {
 
 
 async function start() {
-    let currency = localStorage.getItem("currency")
+    let currency = await window.getCurrency()
 
     console.log(`withdraw: ${currency}`)
 
