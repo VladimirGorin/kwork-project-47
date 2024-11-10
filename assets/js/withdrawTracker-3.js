@@ -1,3 +1,4 @@
+import { getCurrency } from './changeCurrency.js';
 const xhr = new XMLHttpRequest();
 
 var popup = document.getElementById('popup');
@@ -178,7 +179,8 @@ checkbox_1.addEventListener("click", () => {
 
 
 async function start() {
-    let currency = await window.getCurrency()
+
+    let currency = await getCurrency()
 
     console.log(`withdraw: ${currency}`)
 
