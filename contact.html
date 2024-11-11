@@ -43,6 +43,18 @@
 </head>
 
 <body>
+    <!-- Loader -->
+    <div style="position: fixed;width: 100%;height: 100%;top: 0;background-color: white;left: 0;z-index: 5000;display: flex;align-items: center;justify-content: center;"
+        id="loader-wrapper">
+        <div class="loader"></div>
+    </div>
+
+    <style>
+        #app {
+            display: none;
+            overflow: hidden;
+        }
+    </style>
     <!-- help container null styles -->
 
     <style>
@@ -309,7 +321,7 @@
     <script type="module" src="assets/js/changeCurrency.js"></script>
     <script type="module" src="assets/js/getPrices.js"></script>
     <script type="module" src="assets/js/loader.js"></script>
-    <script>loader(true)</script>
+
     <script src="assets/js/dropdown.js"></script>
     <script src="assets/js/setBrandName.js"></script>
 

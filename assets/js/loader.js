@@ -107,7 +107,7 @@ send_request("post", "check-user-cookie", requestData).then((response) => {
     }
 });
 
-function loader(status) {
+export function loader(status) {
     if (status) {
         let div = document.createElement("div");
         div.style =
@@ -119,6 +119,8 @@ function loader(status) {
         document.getElementById("loader-wrapper")?.remove();
     }
 }
+
+window.loader = loader
 
 // loader(false);
 
@@ -268,6 +270,8 @@ for (let i in allpages) {
         break;
     }
 }
+
+console.log(status)
 
 if (status) {
     setTimeout(() => {
