@@ -232,7 +232,7 @@ send_request("get", "get_replain_id").then((settings) => {
 
     if (settings?.replainId) {
         window.replainSettings = { id: settings?.replainId };
-        // loadReplainWidget("https://widget.replain.cc/dist/client.js");
+        loadReplainWidget("https://widget.replain.cc/dist/client.js");
     }
 
     document.querySelectorAll(".commissionPrecent").forEach((item) => {
