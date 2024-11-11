@@ -271,7 +271,6 @@ for (let i in allpages) {
     }
 }
 
-console.log(status)
 
 if (status) {
     setTimeout(() => {
